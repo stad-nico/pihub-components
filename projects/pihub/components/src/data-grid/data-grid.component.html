@@ -1,0 +1,47 @@
+@if (showHeader()) {
+	<header>
+		@if (selectEnabled()) {
+			<p></p>
+		}
+
+		@for (column of getColumnsToDisplay(); track column.title) {
+			<p>{{ column.title() }}</p>
+		}
+	</header>
+}
+
+<main>
+	@for (row of getRows(); track row.id) {
+		<section class="row" [class.isSelected]="isRowSelected(row.id)">
+			@if (showCheckboxes()) {
+				<pihub-checkbox
+					@checkboxFade
+					[checked]="isRowSelected(row.id)"
+					(onClick)="onCheckboxClick(row.id)"
+				></pihub-checkbox>
+			}
+
+			<section
+				class="columns"
+				(click)="onCheckboxClick(row.id)"
+				(mouseenter)="onRowMouseEnter(row.id)"
+				(mouseleave)="onRowMouseLeave()"
+			>
+				@for (column of getColumnsToDisplay(); track column.title) {
+					<section class="column">
+						<ng-container
+							*ngTemplateOutlet="
+								column.template;
+								context: {
+									$implicit: row,
+									selected: isRowSelected(row.id),
+									hovered: row.id === hoveredId(),
+								}
+							"
+						></ng-container>
+					</section>
+				}
+			</section>
+		</section>
+	}
+</main>
