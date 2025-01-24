@@ -28,5 +28,13 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           image_name=$(echo "${{ github.event.head_commit.message }}" | grep -oP '(?<=deploy \[img:)[^\]]+' || true)
-          echo "Image name: $image_name"
-          #npm version prerelease --preid=$image_name
+
+          if [ -z "$image_name" ]; then
+            echo "Image name is empty. Exiting..."
+            exit 1
+          else
+            echo "Image name: $image_name"
+          fi
+
+          npm version prerelease --preid="${image_name}-rc"
+          npm publish
