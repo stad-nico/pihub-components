@@ -29,13 +29,13 @@
 			&:not(.isSelected) + .row.isSelected:has(+ .row.isSelected:last-child),
 			&:not(.isSelected) + .isSelected:has(+ .row.isSelected + .row.isSelected),
 			&.isSelected:first-child:has(+ .row.isSelected + .row.isSelected) {
+				height: 41px;
+				margin-bottom: 0;
+
 				> .columns {
 					border-bottom-left-radius: 0;
 					border-bottom-right-radius: 0;
 				}
-
-				height: 41px;
-				margin-bottom: 0;
 			}
 
 			&.isSelected:first-child + .row.isSelected:has(+ .row:not(.isSelected)),
@@ -44,21 +44,21 @@
 			&:not(.isSelected) + .row.isSelected + .row.isSelected:last-child,
 			&.isSelected + .row.isSelected + .row.isSelected:has(+ .row:not(.isSelected)),
 			&.isSelected + .row.isSelected + .row.isSelected:last-child {
+				height: 41px;
+
 				> .columns {
 					border-top-left-radius: 0;
 					border-top-right-radius: 0;
 				}
-
-				height: 41px;
 			}
 
 			&.isSelected + .row.isSelected:has(+ .row.isSelected) {
+				height: 42px;
+				margin-bottom: 0;
+
 				> .columns {
 					border-radius: 0;
 				}
-
-				height: 42px;
-				margin-bottom: 0;
 			}
 
 			&:not(:last-of-type) {
