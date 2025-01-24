@@ -1,0 +1,31 @@
+name: Build and deploy package
+
+on:
+	push:
+		branches:
+			- '**'
+
+jobs:
+	build-and-publish:
+		steps:
+			- name: Checkout
+				uses: actions/checkout@v4
+
+			- name: Setup NodeJS
+				uses: actions/setup-node@v4
+				with:
+					node-version-file: 'package.json'
+
+			- name: Install dependencies
+				run: npm install
+
+			- name: Build library
+				run: npm run build
+
+			- name: Publish to npm
+				env:
+					NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+				run: |
+					image_name=$(echo "${{ github.event.head_commit.message }}" | grep -oP '(?<=deploy \[img:)[^\]]+' || true)
+					echo "Image name: $image_name"
+					#npm version prerelease --preid=$image_name
