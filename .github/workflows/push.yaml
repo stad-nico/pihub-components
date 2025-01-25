@@ -36,5 +36,5 @@ jobs:
             echo "Image name: $image_name"
           fi
 
-          npm version prerelease --preid="${image_name}-rc"
+          npm version prerelease --preid="${image_name}-rc" --no-git-tag-version
           npm publish
