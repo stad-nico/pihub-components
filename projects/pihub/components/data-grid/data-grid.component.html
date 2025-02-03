@@ -14,11 +14,7 @@
 	@for (row of getRows(); track row.id) {
 		<section class="row" [class.isSelected]="isRowSelected(row.id)">
 			@if (showCheckboxes()) {
-				<pihub-checkbox
-					@checkboxFade
-					[checked]="isRowSelected(row.id)"
-					(onClick)="onCheckboxClick(row.id)"
-				></pihub-checkbox>
+				<pihub-checkbox @checkboxFade [checked]="isRowSelected(row.id)" (onClick)="onCheckboxClick(row.id)" />
 			}
 
 			<section
@@ -38,7 +34,7 @@
 									hovered: row.id === hoveredId(),
 								}
 							"
-						></ng-container>
+						/>
 					</section>
 				}
 			</section>

@@ -4,7 +4,7 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { Component, input, signal } from '@angular/core';
+import { Component, input, model } from '@angular/core';
 import { ColumnTitleDirective, DataGridComponent } from '../data-grid.component';
 
 interface User {
@@ -24,7 +24,7 @@ interface User {
 export class DataGridDemoComponent {
 	public readonly columns = input<Array<string>>(['Id', 'Name', 'Age', 'Status']);
 
-	public readonly data = input<Array<User>>([
+	public readonly rows = input<Array<User>>([
 		{ name: 'testname', age: 'testage', id: '0' },
 		{ name: 'testname', age: 'testage', id: '1' },
 		{ name: 'testname', age: 'testage', id: '2' },
@@ -32,5 +32,5 @@ export class DataGridDemoComponent {
 		{ name: 'testname', age: 'testage', id: '4' },
 	]);
 
-	public readonly selectedIds = signal([]);
+	public readonly selectedIds = model([]);
 }
