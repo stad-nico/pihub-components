@@ -1,0 +1,42 @@
+name: Build and deploy package
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build library
+        run: npm run build
+
+      - name: Publish to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          image_name=$(echo "${{ github.event.head_commit.message }}" | grep -oP '(?<=deploy \[img:)[^\]]+' || true)
+
+          if [ -z "$image_name" ]; then
+            echo "Image name is empty. Exiting..."
+            exit 1
+          else
+            echo "Image name: $image_name"
+          fi
+
+          cd projects/pihub/components
+          npm version prerelease --preid="${image_name}-rc" --no-git-tag-version
+          npm publish

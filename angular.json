@@ -1,36 +1,58 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "projects": {
-    "pihub-components": {
-      "projectType": "library",
-      "root": ".",
-      "sourceRoot": "src",
-      "prefix": "pihub",
-      "architect": {
-        "build": {
-          "builder": "@angular/build:ng-packagr",
-          "options": {
-            "project": "ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "tsconfig.spec.json",
-            "polyfills": ["zone.js", "zone.js/testing"]
-          }
-        }
-      }
-    }
-  }
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"@pihub/components": {
+			"projectType": "library",
+			"root": "projects/pihub/components",
+			"sourceRoot": "projects/pihub/components/src",
+			"prefix": "pihub",
+			"architect": {
+				"build": {
+					"builder": "@angular/build:ng-packagr",
+					"options": {
+						"project": "projects/pihub/components/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/pihub/components/tsconfig.pihub.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/pihub/components/tsconfig.pihub.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"tsConfig": "projects/pihub/components/tsconfig.spec.json",
+						"polyfills": ["zone.js", "zone.js/testing"]
+					}
+				},
+				"storybook": {
+					"builder": "@storybook/angular:start-storybook",
+					"options": {
+						"configDir": "projects/pihub/components/.storybook",
+						"browserTarget": "@pihub/components:build",
+						"compodoc": true,
+						"styles": ["projects/pihub/components/src/styles.css"],
+						"compodocArgs": ["-e", "json", "-d", "projects/pihub/components"],
+						"port": 6006
+					}
+				},
+				"build-storybook": {
+					"builder": "@storybook/angular:build-storybook",
+					"options": {
+						"configDir": "projects/pihub/components/.storybook",
+						"browserTarget": "@pihub/components:build",
+						"compodoc": true,
+						"compodocArgs": ["-e", "json", "-d", "projects/pihub/components"],
+						"outputDir": "storybook-static"
+					}
+				}
+			}
+		}
+	}
 }
