@@ -4,19 +4,9 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { animate, group, style, transition, trigger } from '@angular/animations';
+import { animate, group, state, style, transition, trigger } from '@angular/animations';
 import { NgTemplateOutlet } from '@angular/common';
-import {
-	Component,
-	computed,
-	contentChildren,
-	Directive,
-	inject,
-	input,
-	model,
-	signal,
-	TemplateRef,
-} from '@angular/core';
+import { Component, contentChildren, Directive, inject, input, model, signal, TemplateRef } from '@angular/core';
 import { CheckboxComponent } from '@pihub/components/checkbox';
 
 @Directive({ selector: '[columnTitle]' })
@@ -30,6 +20,11 @@ interface DataGridItem {
 	readonly id: string;
 }
 
+enum CheckboxAnimationState {
+	Hidden = 'hidden',
+	Visible = 'visible',
+}
+
 @Component({
 	standalone: true,
 	selector: 'pihub-data-grid',
@@ -38,15 +33,15 @@ interface DataGridItem {
 	imports: [NgTemplateOutlet, CheckboxComponent],
 	animations: [
 		trigger('checkboxFade', [
-			transition(':enter', [
-				style({ marginLeft: '-2rem', opacity: 0 }),
+			state(CheckboxAnimationState.Hidden, style({ opacity: 0, marginLeft: '-2rem' })),
+			state(CheckboxAnimationState.Visible, style({ opacity: 1, marginLeft: 0 })),
+			transition(`${CheckboxAnimationState.Hidden} => ${CheckboxAnimationState.Visible}`, [
 				group([
 					animate('0.25s ease-out', style({ opacity: 1 })),
 					animate('0.3s ease', style({ marginLeft: 0 })),
 				]),
 			]),
-			transition(':leave', [
-				style({ marginLeft: 0, opacity: 1 }),
+			transition(`${CheckboxAnimationState.Visible} => ${CheckboxAnimationState.Hidden}`, [
 				group([
 					animate('0.25s 0.05s ease', style({ opacity: 0 })),
 					animate('0.3s ease', style({ marginLeft: '-2rem' })),
@@ -112,11 +107,6 @@ export class DataGridComponent<Row extends DataGridItem> {
 	protected readonly hoveredId = signal<string | undefined>(undefined);
 
 	/**
-	 * Whether to show the checkboxes.
-	 */
-	protected readonly showCheckboxes = computed(() => this.selectEnabled() && this.selectedIds().length > 0);
-
-	/**
 	 * Array of all column templates. Note that not each one of those columns will be displayed.
 	 * Only those with their titles included in `columns` will be displayed.
 	 */
@@ -180,6 +170,18 @@ export class DataGridComponent<Row extends DataGridItem> {
 		}
 
 		this.selectedIds.update(() => newSelectedIds);
+	}
+
+	protected getCheckboxAnimationState(row: Row): string {
+		if (!this.selectEnabled()) {
+			return CheckboxAnimationState.Hidden;
+		}
+
+		if (this.selectedIds().length > 0) {
+			return CheckboxAnimationState.Visible;
+		}
+
+		return this.selectedIds().includes(row.id) ? CheckboxAnimationState.Visible : CheckboxAnimationState.Hidden;
 	}
 
 	/**

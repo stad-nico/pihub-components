@@ -22,7 +22,7 @@ interface User {
 	imports: [DataGridComponent, ColumnTitleDirective],
 })
 export class DataGridDemoComponent {
-	public readonly columns = input<Array<string>>(['Id', 'Name', 'Age', 'Status']);
+	public readonly columns = input<Array<string>>(['Name', 'Id', 'Age', 'Status']);
 
 	public readonly rows = input<Array<User>>([
 		{ name: 'testname', age: 'testage', id: '0' },
