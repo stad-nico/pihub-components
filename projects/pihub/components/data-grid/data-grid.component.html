@@ -13,13 +13,13 @@
 <main>
 	@for (row of getRows(); track row.id) {
 		<section class="row" [class.isSelected]="isRowSelected(row.id)">
-			@if (showCheckboxes()) {
+			<div class="checkbox-wrapper">
 				<pihub-checkbox
-					@checkboxFade
+					[@checkboxFade]="getCheckboxAnimationState(row)"
 					[checked]="isRowSelected(row.id)"
 					(onClick)="onCheckboxClick(row.id)"
-				></pihub-checkbox>
-			}
+				/>
+			</div>
 
 			<section
 				class="columns"
@@ -28,7 +28,7 @@
 				(mouseleave)="onRowMouseLeave()"
 			>
 				@for (column of getColumnsToDisplay(); track column.title) {
-					<section class="column">
+					<section>
 						<ng-container
 							*ngTemplateOutlet="
 								column.template;
@@ -38,7 +38,7 @@
 									hovered: row.id === hoveredId(),
 								}
 							"
-						></ng-container>
+						/>
 					</section>
 				}
 			</section>

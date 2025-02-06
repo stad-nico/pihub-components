@@ -1,0 +1,20 @@
+:host {
+	.column-name {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 8px;
+
+		.icon {
+			height: 40px;
+			display: flex;
+			align-items: center;
+
+			> svg {
+				width: 25px;
+				height: 19px;
+			}
+		}
+	}
+}

@@ -19,8 +19,6 @@
 			justify-content: flex-start;
 			align-items: stretch;
 			gap: 8px;
-			min-height: 40px;
-			max-height: 42px;
 			padding-left: 8px;
 
 			&.isSelected:first-child:has(+ .row.isSelected + .row:not(.isSelected)),
@@ -28,13 +26,18 @@
 			&:not(.isSelected) + .row.isSelected:has(+ .row.isSelected + .row:not(.isSelected)),
 			&:not(.isSelected) + .row.isSelected:has(+ .row.isSelected:last-child),
 			&:not(.isSelected) + .isSelected:has(+ .row.isSelected + .row.isSelected),
-			&.isSelected:first-child:has(+ .row.isSelected + .row.isSelected) {
-				height: 41px;
+			&.isSelected:first-child:has(+ .row.isSelected + .row.isSelected),
+			&.isSelected + .row.isSelected:has(+ .row.isSelected) {
 				margin-bottom: 0;
+
+				> .checkbox-wrapper {
+					margin-bottom: 2px;
+				}
 
 				> .columns {
 					border-bottom-left-radius: 0;
 					border-bottom-right-radius: 0;
+					padding-bottom: 2px;
 				}
 			}
 
@@ -43,21 +46,11 @@
 			&:not(.isSelected) + .row.isSelected + .row.isSelected:has(+ .row:not(.isSelected)),
 			&:not(.isSelected) + .row.isSelected + .row.isSelected:last-child,
 			&.isSelected + .row.isSelected + .row.isSelected:has(+ .row:not(.isSelected)),
-			&.isSelected + .row.isSelected + .row.isSelected:last-child {
-				height: 41px;
-
+			&.isSelected + .row.isSelected + .row.isSelected:last-child,
+			&.isSelected + .row.isSelected:has(+ .row.isSelected) {
 				> .columns {
 					border-top-left-radius: 0;
 					border-top-right-radius: 0;
-				}
-			}
-
-			&.isSelected + .row.isSelected:has(+ .row.isSelected) {
-				height: 42px;
-				margin-bottom: 0;
-
-				> .columns {
-					border-radius: 0;
 				}
 			}
 
@@ -73,26 +66,30 @@
 				background-color: var(--color-container-hover);
 			}
 
-			> pihub-checkbox {
-				margin: 8px 0;
+			> .checkbox-wrapper {
+				display: flex;
+				align-items: center;
+				justify-content: center;
 			}
 
 			> .columns {
 				flex-grow: 1;
+				height: min-content;
 
 				display: grid;
 				grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+				align-items: center;
 				gap: 8px;
 				padding: 0 15px;
 				border-radius: 15px;
 
-				&:hover {
-					cursor: pointer;
-				}
-
 				transition:
 					border-radius 0.2s ease,
 					background-color 0.2s ease;
+
+				&:hover {
+					cursor: pointer;
+				}
 			}
 		}
 	}

@@ -24,19 +24,24 @@ jobs:
       - name: Build library
         run: npm run build
 
+      - name: Prepare image tag
+        run: |
+          IMAGE_NAME=$(echo "${{ github.event.head_commit.message }}" | grep -oP '(?<=deploy \[img:)[^\]]+' || true)
+
+          if [ -z "$IMAGE_NAME" ]; then
+            echo "No image name found"
+            echo "SKIP=true" >> $GITHUB_ENV
+          else
+            echo "Image name: $IMAGE_NAME"
+          fi
+
+          echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
+
       - name: Publish to npm
+        if: ${{ !env.SKIP }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          image_name=$(echo "${{ github.event.head_commit.message }}" | grep -oP '(?<=deploy \[img:)[^\]]+' || true)
-
-          if [ -z "$image_name" ]; then
-            echo "Image name is empty. Exiting..."
-            exit 1
-          else
-            echo "Image name: $image_name"
-          fi
-
           cd projects/pihub/components
-          npm version prerelease --preid="${image_name}-rc" --no-git-tag-version
+          npm version prerelease --preid="${{ env.IMAGE_NAME }}-rc" --no-git-tag-version
           npm publish
