@@ -1,11 +1,11 @@
 /**-------------------------------------------------------------------------
- * Copyright (c) 2024 - Nicolas Stadler. All rights reserved.
+ * Copyright (c) 2025 - Nicolas Stadler. All rights reserved.
  * Licensed under the MIT License. See the project root for more information.
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { Component, input, model } from '@angular/core';
-import { ColumnTitleDirective, DataGridComponent } from '../data-grid.component';
+import { Column, DataGridComponent, EmptyState } from '../data-grid.component';
 
 interface User {
 	readonly name: string;
@@ -19,18 +19,12 @@ interface User {
 	selector: 'pihub-data-grid-demo',
 	templateUrl: './data-grid-demo.component.html',
 	styleUrl: './data-grid-demo.component.scss',
-	imports: [DataGridComponent, ColumnTitleDirective],
+	imports: [DataGridComponent, Column, EmptyState],
 })
 export class DataGridDemoComponent {
-	public readonly columns = input<Array<string>>(['Name', 'Id', 'Age', 'Status']);
+	public readonly columns = input<Array<string>>([]);
 
-	public readonly rows = input<Array<User>>([
-		{ name: 'testname', age: 'testage', id: '0' },
-		{ name: 'testname', age: 'testage', id: '1' },
-		{ name: 'testname', age: 'testage', id: '2' },
-		{ name: 'testname', age: 'testage', id: '3' },
-		{ name: 'testname', age: 'testage', id: '4' },
-	]);
+	public readonly rows = input<Array<User>>([]);
 
-	public readonly selectedIds = model([]);
+	public readonly selectedIds = model<Array<string>>([]);
 }
