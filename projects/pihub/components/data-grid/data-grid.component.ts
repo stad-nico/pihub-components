@@ -6,20 +6,10 @@
  *-------------------------------------------------------------------------*/
 import { animate, group, state, style, transition, trigger } from '@angular/animations';
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, contentChild, contentChildren, Directive, inject, input, model, signal, TemplateRef } from '@angular/core';
+import { Component, contentChild, contentChildren, input, model, signal } from '@angular/core';
 import { CheckboxComponent } from '@pihub/components/checkbox';
-
-@Directive({ selector: '[column]' })
-export class Column {
-	public readonly title = input.required<string>({ alias: 'column' });
-
-	public readonly template = inject<TemplateRef<unknown>>(TemplateRef);
-}
-
-@Directive({ selector: '[emptyState]' })
-export class EmptyState {
-	public readonly template = inject<TemplateRef<unknown>>(TemplateRef);
-}
+import { Column } from '@pihub/components/data-grid/column.directive';
+import { EmptyState } from '@pihub/components/data-grid/empty-state.directive';
 
 interface DataGridItem {
 	readonly id: string;

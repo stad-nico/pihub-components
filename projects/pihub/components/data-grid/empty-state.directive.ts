@@ -4,8 +4,9 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { Column } from './column.directive';
-import { DataGridComponent } from './data-grid.component';
-import { EmptyState } from './empty-state.directive';
+import { Directive, inject, TemplateRef } from '@angular/core';
 
-export { Column, DataGridComponent, EmptyState };
+@Directive({ selector: '[emptyState]' })
+export class EmptyState {
+	public readonly template = inject<TemplateRef<unknown>>(TemplateRef);
+}

@@ -5,7 +5,7 @@
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { Component, input, model } from '@angular/core';
-import { Column, DataGridComponent, EmptyState } from '../data-grid.component';
+import { Column, DataGridComponent, EmptyState } from '@pihub/components/data-grid';
 
 interface User {
 	readonly name: string;
