@@ -5,7 +5,7 @@
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { Component, computed, contentChild, input } from '@angular/core';
-import { TreeNodeComponent } from '@pihub/components/tree/components/tree-node.component';
+import { TreeNodeComponent } from './components/tree-node.component';
 import { TreeNodeDirective } from './directives/tree-node.directive';
 import { TreeNode, TreeRoot } from './models/tree-node';
 
