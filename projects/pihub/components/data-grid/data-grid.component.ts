@@ -6,15 +6,10 @@
  *-------------------------------------------------------------------------*/
 import { animate, group, state, style, transition, trigger } from '@angular/animations';
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, contentChildren, Directive, inject, input, model, signal, TemplateRef } from '@angular/core';
+import { Component, contentChild, contentChildren, input, model, signal } from '@angular/core';
 import { CheckboxComponent } from '@pihub/components/checkbox';
-
-@Directive({ selector: '[columnTitle]' })
-export class ColumnTitleDirective {
-	public readonly title = input.required<string>({ alias: 'columnTitle' });
-
-	public readonly template = inject<TemplateRef<unknown>>(TemplateRef);
-}
+import { ColumnDirective } from './directives/column.directive';
+import { EmptyStateDirective } from './directives/empty-state.directive';
 
 interface DataGridItem {
 	readonly id: string;
@@ -36,16 +31,10 @@ enum CheckboxAnimationState {
 			state(CheckboxAnimationState.Hidden, style({ opacity: 0, marginLeft: '-2rem' })),
 			state(CheckboxAnimationState.Visible, style({ opacity: 1, marginLeft: 0 })),
 			transition(`${CheckboxAnimationState.Hidden} => ${CheckboxAnimationState.Visible}`, [
-				group([
-					animate('0.25s ease-out', style({ opacity: 1 })),
-					animate('0.3s ease', style({ marginLeft: 0 })),
-				]),
+				group([animate('0.25s ease-out', style({ opacity: 1 })), animate('0.3s ease', style({ marginLeft: 0 }))]),
 			]),
 			transition(`${CheckboxAnimationState.Visible} => ${CheckboxAnimationState.Hidden}`, [
-				group([
-					animate('0.25s 0.05s ease', style({ opacity: 0 })),
-					animate('0.3s ease', style({ marginLeft: '-2rem' })),
-				]),
+				group([animate('0.25s 0.05s ease', style({ opacity: 0 })), animate('0.3s ease', style({ marginLeft: '-2rem' }))]),
 			]),
 		]),
 	],
@@ -54,7 +43,7 @@ export class DataGridComponent<Row extends DataGridItem> {
 	/**
 	 * The titles of the columns. The columns will be displayed in the order of this array.
 	 */
-	public readonly columns = input.required<Array<string>>();
+	public readonly columnTitles = input.required<Array<string>>();
 
 	/**
 	 * The rows that will be displayed.
@@ -107,14 +96,24 @@ export class DataGridComponent<Row extends DataGridItem> {
 	protected readonly hoveredId = signal<string | undefined>(undefined);
 
 	/**
-	 * Array of all column templates. Note that not each one of those columns will be displayed.
-	 * Only those with their titles included in `columns` will be displayed.
+	 * The template that should be displayed if no rows are being displayed.
 	 */
-	private readonly columnDirectives = contentChildren(ColumnTitleDirective, { descendants: true });
+	protected readonly emptyTemplate = contentChild(EmptyStateDirective);
 
-	protected getColumnsToDisplay(): Array<ColumnTitleDirective> {
-		return this.columns()
-			.map((column) => this.columnDirectives().find((directive) => directive.title() === column))
+	/**
+	 * Array of all columns. Note that not each one of those columns will be displayed.
+	 * Only those with their titles included in `columnTitles` will be displayed.
+	 */
+	private readonly columns = contentChildren(ColumnDirective, { descendants: true });
+
+	/**
+	 * Get the columns to display in the table. This depends on the titles set in `columnTitles` and their order.
+	 *
+	 * @returns the columns to display
+	 */
+	protected getColumnsToDisplay(): Array<ColumnDirective> {
+		return this.columnTitles()
+			.map((columnTitle) => this.columns().find((column) => column.title() === columnTitle))
 			.filter((column) => column !== undefined);
 	}
 
@@ -148,7 +147,6 @@ export class DataGridComponent<Row extends DataGridItem> {
 	 * Handle checkbox click event.
 	 *
 	 * @param id the id of the clicked checkbox
-	 * @returns
 	 */
 	protected onCheckboxClick(id: string): void {
 		if (!this.selectEnabled) {
@@ -172,6 +170,12 @@ export class DataGridComponent<Row extends DataGridItem> {
 		this.selectedIds.update(() => newSelectedIds);
 	}
 
+	/**
+	 * Get the animation state of the checkbox.
+	 *
+	 * @param row the row
+	 * @returns the animation state
+	 */
 	protected getCheckboxAnimationState(row: Row): string {
 		if (!this.selectEnabled()) {
 			return CheckboxAnimationState.Hidden;

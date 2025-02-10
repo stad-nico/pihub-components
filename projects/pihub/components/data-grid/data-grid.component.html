@@ -43,5 +43,7 @@
 				}
 			</section>
 		</section>
+	} @empty {
+		<ng-container *ngTemplateOutlet="emptyTemplate()?.template ?? null"></ng-container>
 	}
 </main>
