@@ -7,6 +7,6 @@
 import { Directive, inject, TemplateRef } from '@angular/core';
 
 @Directive({ selector: '[emptyState]' })
-export class EmptyState {
+export class EmptyStateDirective {
 	public readonly template = inject<TemplateRef<unknown>>(TemplateRef);
 }

@@ -8,8 +8,8 @@ import { animate, group, state, style, transition, trigger } from '@angular/anim
 import { NgTemplateOutlet } from '@angular/common';
 import { Component, contentChild, contentChildren, input, model, signal } from '@angular/core';
 import { CheckboxComponent } from '@pihub/components/checkbox';
-import { Column } from '@pihub/components/data-grid/column.directive';
-import { EmptyState } from '@pihub/components/data-grid/empty-state.directive';
+import { ColumnDirective } from './directives/column.directive';
+import { EmptyStateDirective } from './directives/empty-state.directive';
 
 interface DataGridItem {
 	readonly id: string;
@@ -98,20 +98,20 @@ export class DataGridComponent<Row extends DataGridItem> {
 	/**
 	 * The template that should be displayed if no rows are being displayed.
 	 */
-	protected readonly emptyTemplate = contentChild(EmptyState);
+	protected readonly emptyTemplate = contentChild(EmptyStateDirective);
 
 	/**
 	 * Array of all columns. Note that not each one of those columns will be displayed.
 	 * Only those with their titles included in `columnTitles` will be displayed.
 	 */
-	private readonly columns = contentChildren(Column, { descendants: true });
+	private readonly columns = contentChildren(ColumnDirective, { descendants: true });
 
 	/**
 	 * Get the columns to display in the table. This depends on the titles set in `columnTitles` and their order.
 	 *
 	 * @returns the columns to display
 	 */
-	protected getColumnsToDisplay(): Array<Column> {
+	protected getColumnsToDisplay(): Array<ColumnDirective> {
 		return this.columnTitles()
 			.map((columnTitle) => this.columns().find((column) => column.title() === columnTitle))
 			.filter((column) => column !== undefined);

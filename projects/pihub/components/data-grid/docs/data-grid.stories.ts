@@ -6,7 +6,7 @@
  *-------------------------------------------------------------------------*/
 import type { Meta, StoryObj } from '@storybook/angular';
 
-import { DataGridDemoComponent } from './demo/data-grid-demo.component';
+import { DataGridDemoComponent } from './data-grid-demo.component';
 
 const meta: Meta<DataGridDemoComponent> = {
 	title: 'Data Grid',

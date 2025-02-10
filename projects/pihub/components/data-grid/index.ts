@@ -4,8 +4,8 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { Column } from './column.directive';
 import { DataGridComponent } from './data-grid.component';
-import { EmptyState } from './empty-state.directive';
+import { ColumnDirective } from './directives/column.directive';
+import { EmptyStateDirective } from './directives/empty-state.directive';
 
-export { Column, DataGridComponent, EmptyState };
+export { ColumnDirective, DataGridComponent, EmptyStateDirective };

@@ -7,7 +7,7 @@
 import { Directive, inject, input, TemplateRef } from '@angular/core';
 
 @Directive({ selector: '[column]' })
-export class Column {
+export class ColumnDirective {
 	public readonly title = input.required<string>({ alias: 'column' });
 
 	public readonly template = inject<TemplateRef<unknown>>(TemplateRef);

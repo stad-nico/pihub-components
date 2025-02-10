@@ -5,7 +5,7 @@
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { Component, input, model } from '@angular/core';
-import { Column, DataGridComponent, EmptyState } from '@pihub/components/data-grid';
+import { ColumnDirective, DataGridComponent, EmptyStateDirective } from '@pihub/components/data-grid';
 
 interface User {
 	readonly name: string;
@@ -19,7 +19,7 @@ interface User {
 	selector: 'pihub-data-grid-demo',
 	templateUrl: './data-grid-demo.component.html',
 	styleUrl: './data-grid-demo.component.scss',
-	imports: [DataGridComponent, Column, EmptyState],
+	imports: [DataGridComponent, ColumnDirective, EmptyStateDirective],
 })
 export class DataGridDemoComponent {
 	public readonly columns = input<Array<string>>([]);
