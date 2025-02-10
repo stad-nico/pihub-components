@@ -1,0 +1,11 @@
+<pihub-tree [nodes]="nodes()">
+	<ng-template treeNode let-node let-children="children">
+		<section>
+			<header>{{ node.id }} {{ node.name }}</header>
+
+			<main>
+				<ng-container *ngTemplateOutlet="children" />
+			</main>
+		</section>
+	</ng-template>
+</pihub-tree>
