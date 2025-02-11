@@ -54,21 +54,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/pihub/components/checkbox/checkbox.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<CheckboxComponent>",
-                "defaultValue": "{\r\n\ttitle: 'Checkbox',\r\n\tcomponent: CheckboxComponent,\r\n\targTypes: {\r\n\t\tonClick: { action: 'onClick' },\r\n\t},\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/pihub/components/data-grid/data-grid.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<DataGridDemoComponent>",
                 "defaultValue": "{\r\n\ttitle: 'Data Grid',\r\n\tcomponent: DataGridDemoComponent,\r\n\ttags: ['autodocs'],\r\n\targTypes: {\r\n\t\tcolumns: {\r\n\t\t\tcontrol: 'object',\r\n\t\t},\r\n\t},\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pihub/components/checkbox/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<CheckboxComponent>",
+                "defaultValue": "{\r\n\ttitle: 'Checkbox',\r\n\tcomponent: CheckboxComponent,\r\n\targTypes: {\r\n\t\tonClick: { action: 'onClick' },\r\n\t},\r\n}"
             },
             {
                 "name": "meta",
