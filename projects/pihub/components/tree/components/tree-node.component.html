@@ -1,7 +1,7 @@
-<ng-container *ngTemplateOutlet="template(); context: { $implicit: node(), children: childrenTemplate }" />
+<ng-container *ngTemplateOutlet="template(); context: templateContext()" />
 
 <ng-template #childrenTemplate>
 	@for (child of children(); track child.id) {
-		<pihub-tree-node [node]="child" [nodes]="nodes()" [template]="template()" />
+		<pihub-tree-node [node]="child" [nodes]="nodes()" [template]="template()" [selectedId]="selectedId()" />
 	}
 </ng-template>

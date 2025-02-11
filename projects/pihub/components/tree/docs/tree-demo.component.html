@@ -1,11 +1,28 @@
 <pihub-tree [nodes]="nodes()">
-	<ng-template treeNode let-node let-children="children">
+	<ng-template treeNode let-node>
 		<section>
-			<header>{{ node.id }} {{ node.name }}</header>
+			<header>
+				<div class="icon arrow" [class.hidden]="!node.hasChildren" [class.rotated]="node.isCollapsed">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+						<path
+							d="M 480 -321 q -8 0 -15 -2.5 t -13 -8.5 L 268 -516 q -11 -11 -11 -28 t 11 -28 q 11 -11 28 -11 t 28 11 l 156 156 l 156 -156 q 11 -11 28 -11 t 28 11 q 11 11 11 28 t -11 28 L 508 -332 q -6 6 -13 8.5 t -15 2.5 Z"
+						/>
+					</svg>
+				</div>
+				<div class="icon folder">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+						<path fill="#ffa000" d="M2 0 10 0 14 3 14 5 0 5 0 2C0 1 1 0 2 0" />
+						<path fill="#ffca28" d="M2 3 22 3C24 3 25 4 25 6L25 16C25 18 24 19 22 19L3 19C1 19 0 18 0 16L0 6C0 4 1 3 3 3" />
+					</svg>
+				</div>
+				<p>{{ node.name }}</p>
+			</header>
 
-			<main>
-				<ng-container *ngTemplateOutlet="children" />
-			</main>
+			@if (node.hasChildren && !node.isCollapsed) {
+				<main>
+					<ng-container *ngTemplateOutlet="node.children" />
+				</main>
+			}
 		</section>
 	</ng-template>
 </pihub-tree>

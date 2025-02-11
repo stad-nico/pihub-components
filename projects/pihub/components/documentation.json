@@ -34,17 +34,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/pihub/components/tree-list/tree-list-flat.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/pihub/components/tree-list/tree-list-nested.stories.ts",
+                "file": "projects/pihub/components/tree/docs/tree.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -74,21 +64,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/pihub/components/tree-list/tree-list-flat.stories.ts",
+                "file": "projects/pihub/components/tree/docs/tree.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<TreeListDemoFlatComponent>",
-                "defaultValue": "{\r\n\ttitle: 'Tree List/Flat',\r\n\tcomponent: TreeListDemoFlatComponent,\r\n\ttags: ['autodocs'],\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/pihub/components/tree-list/tree-list-nested.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<TreeListDemoNestedComponent>",
-                "defaultValue": "{\r\n\ttitle: 'Tree List/Nested',\r\n\tcomponent: TreeListDemoNestedComponent,\r\n\ttags: ['autodocs'],\r\n}"
+                "type": "Meta<TreeDemoComponent>",
+                "defaultValue": "{\r\n\ttitle: 'Tree',\r\n\tcomponent: TreeDemoComponent,\r\n}"
             },
             {
                 "name": "preview",
@@ -128,19 +108,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TreeListDemoFlatComponent>",
-                "file": "projects/pihub/components/tree-list/tree-list-flat.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<TreeListDemoNestedComponent>",
-                "file": "projects/pihub/components/tree-list/tree-list-nested.stories.ts",
+                "rawtype": "StoryObj<TreeDemoComponent>",
+                "file": "projects/pihub/components/tree/docs/tree.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -203,12 +172,12 @@
                     "defaultValue": "{\r\n\ttitle: 'Data Grid',\r\n\tcomponent: DataGridDemoComponent,\r\n\ttags: ['autodocs'],\r\n\targTypes: {\r\n\t\tcolumns: {\r\n\t\t\tcontrol: 'object',\r\n\t\t},\r\n\t},\r\n}"
                 }
             ],
-            "projects/pihub/components/tree-list/tree-list-flat.stories.ts": [
+            "projects/pihub/components/tree/docs/tree.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/pihub/components/tree-list/tree-list-flat.stories.ts",
+                    "file": "projects/pihub/components/tree/docs/tree.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -218,33 +187,11 @@
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/pihub/components/tree-list/tree-list-flat.stories.ts",
+                    "file": "projects/pihub/components/tree/docs/tree.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<TreeListDemoFlatComponent>",
-                    "defaultValue": "{\r\n\ttitle: 'Tree List/Flat',\r\n\tcomponent: TreeListDemoFlatComponent,\r\n\ttags: ['autodocs'],\r\n}"
-                }
-            ],
-            "projects/pihub/components/tree-list/tree-list-nested.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/pihub/components/tree-list/tree-list-nested.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/pihub/components/tree-list/tree-list-nested.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<TreeListDemoNestedComponent>",
-                    "defaultValue": "{\r\n\ttitle: 'Tree List/Nested',\r\n\tcomponent: TreeListDemoNestedComponent,\r\n\ttags: ['autodocs'],\r\n}"
+                    "type": "Meta<TreeDemoComponent>",
+                    "defaultValue": "{\r\n\ttitle: 'Tree',\r\n\tcomponent: TreeDemoComponent,\r\n}"
                 }
             ],
             "projects/pihub/components/.storybook/preview.ts": [
@@ -276,26 +223,13 @@
                     "kind": 183
                 }
             ],
-            "projects/pihub/components/tree-list/tree-list-flat.stories.ts": [
+            "projects/pihub/components/tree/docs/tree.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<TreeListDemoFlatComponent>",
-                    "file": "projects/pihub/components/tree-list/tree-list-flat.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "projects/pihub/components/tree-list/tree-list-nested.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<TreeListDemoNestedComponent>",
-                    "file": "projects/pihub/components/tree-list/tree-list-nested.stories.ts",
+                    "rawtype": "StoryObj<TreeDemoComponent>",
+                    "file": "projects/pihub/components/tree/docs/tree.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -380,7 +314,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/pihub/components/tree-list/tree-list-flat.stories.ts",
+                "filePath": "projects/pihub/components/tree/docs/tree.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -390,7 +324,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/pihub/components/tree-list/tree-list-flat.stories.ts",
+                "filePath": "projects/pihub/components/tree/docs/tree.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -400,37 +334,7 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/pihub/components/tree-list/tree-list-flat.stories.ts",
-                "type": "type alias",
-                "linktype": "miscellaneous",
-                "linksubtype": "typealias",
-                "name": "Story",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/pihub/components/tree-list/tree-list-nested.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/pihub/components/tree-list/tree-list-nested.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/pihub/components/tree-list/tree-list-nested.stories.ts",
+                "filePath": "projects/pihub/components/tree/docs/tree.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

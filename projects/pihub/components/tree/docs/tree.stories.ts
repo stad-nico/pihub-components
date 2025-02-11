@@ -10,7 +10,6 @@ import { TreeDemoComponent } from './tree-demo.component';
 const meta: Meta<TreeDemoComponent> = {
 	title: 'Tree',
 	component: TreeDemoComponent,
-	tags: ['autodocs'],
 };
 
 export default meta;

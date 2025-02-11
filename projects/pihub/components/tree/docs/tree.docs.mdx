@@ -1,0 +1,25 @@
+import { Canvas, Meta, Title, Subtitle, Description } from '@storybook/blocks';
+
+import * as TreeStories from './tree.stories';
+
+<Meta of={TreeStories} />
+
+<Title />
+
+---
+
+This component displays a tree with nested nodes. It allows you to pass in a custom template that defines how the nodes look.
+
+<Canvas
+	withToolbar
+	additionalActions={[
+		{
+			title: 'Open in GitHub',
+			className: 'A',
+			onClick: () => {
+				window.open('https://github.com/storybookjs/storybook/blob/next/code/ui/blocks/src/examples/Button.stories.tsx', '_blank');
+			},
+		},
+	]}
+	of={TreeStories.Default}
+/>

@@ -1,7 +1,80 @@
 :host {
 	display: block;
 
-	main {
-		padding-left: 20px;
+	section {
+		> header {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 8px;
+
+			padding: 0 15px;
+			border-radius: 15px;
+			z-index: 1;
+
+			transition: background-color 0.2s ease;
+
+			&:hover {
+				cursor: pointer;
+				background-color: var(--color-container-selected);
+
+				+ main {
+					background-color: var(--color-container-hover);
+				}
+			}
+
+			> .icon {
+				height: 40px;
+				display: flex;
+				align-items: center;
+
+				> svg {
+					fill: var(--color-text-secondary);
+				}
+
+				&.arrow {
+					margin-right: -4px;
+
+					&.hidden {
+						opacity: 0;
+						pointer-events: none;
+					}
+
+					&.rotated {
+						rotate: -90deg;
+					}
+
+					> svg {
+						&:hover {
+							fill: var(--color-text-highlight);
+							background-color: var(--color-container-selected-hover);
+						}
+
+						width: 24px;
+						height: 24px;
+						border-radius: 8px;
+						transition: all 0.2s ease;
+					}
+				}
+
+				&.folder > svg {
+					width: 25px;
+					height: 19px;
+				}
+			}
+		}
+
+		> main {
+			position: relative;
+			display: block;
+
+			margin-top: -20px;
+			padding: 20px 0 0 20px;
+			border-radius: 0 0 15px 15px;
+			z-index: 0;
+
+			transition: background-color 0.2s ease;
+		}
 	}
 }
