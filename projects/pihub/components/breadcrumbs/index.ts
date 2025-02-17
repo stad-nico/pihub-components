@@ -4,3 +4,7 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
+import { BreadcrumbsComponent } from './breadcrumbs.component';
+import { Breadcrumb } from './models/breadcrumb';
+
+export { BreadcrumbsComponent, type Breadcrumb };
