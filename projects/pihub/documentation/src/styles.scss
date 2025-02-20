@@ -2,6 +2,59 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+
+	font-family: 'Satoshi-Medium';
+}
+
+ng-doc-demo-displayer,
+ng-doc-demo {
+	line-height: initial;
+}
+
+ng-doc-demo.center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@font-face {
+	font-family: 'Satoshi-Light';
+	src: url('./assets/fonts/satoshi/Satoshi-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Satoshi-Regular';
+	src: url('./assets/fonts/satoshi/Satoshi-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Satoshi-Medium';
+	src: url('./assets/fonts/satoshi/Satoshi-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Satoshi-Bold';
+	src: url('./assets/fonts/satoshi/Satoshi-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Satoshi-Black';
+	src: url('./assets/fonts/satoshi/Satoshi-Black.ttf') format('truetype');
+	font-weight: 900;
+	font-display: swap;
+	font-style: normal;
 }
 
 :root {
@@ -83,14 +136,23 @@
 	/* ------------- */
 	--color-button-primary: var(--color-primary-500);
 	--color-button-primary-hover: var(--color-primary-400);
-	--color-button-disabled: var(--color-neutral-800);
+	--color-button-primary-disabled: var(--color-primary-900);
+	--color-button-primary-text: var(--color-secondary-1000);
+
+	--color-button-secondary: var(--color-secondary-600);
+	--color-button-secondary-hover: var(--color-primary-1000);
+	--color-button-secondary-disabled: var(--color-secondary-800);
+	--color-button-secondary-text: var(--color-text-secondary);
+	--color-button-secondary-disabled-text: var(--color-text-tertiary);
+
+	--color-button-tertiary-hover-text: var(--color-text-highlight);
+	--color-button-tertiary-text: var(--color-text-primary);
+	--color-button-tertiary-disabled-text: var(--color-text-tertiary);
 
 	--color-text-primary: var(--color-neutral-200);
 	--color-text-secondary: var(--color-neutral-300);
 	--color-text-tertiary: var(--color-neutral-600);
 	--color-text-highlight: var(--color-primary-400);
-	--color-text-on-primary: var(--color-secondary-1000);
-	--color-text-on-disabled: var(--color-neutral-500);
 
 	--color-background-primary: var(--color-neutral-1000);
 	--color-background-secondary: var(--color-neutral-900);

@@ -2,6 +2,8 @@
 	"compileOnSave": false,
 	"compilerOptions": {
 		"paths": {
+			"@ng-doc/generated": ["./ng-doc/@pihub/documentation/index.ts"],
+			"@ng-doc/generated/*": ["./ng-doc/@pihub/documentation/*"],
 			"@pihub/components/*": ["./projects/pihub/components/*"],
 			"@pihub/components": ["./projects/pihub/components"]
 		},
