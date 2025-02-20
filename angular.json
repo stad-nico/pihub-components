@@ -87,7 +87,7 @@
 							},
 							{
 								"glob": "**/*",
-								"input": "ng-doc/documentation/assets",
+								"input": "ng-doc/@pihub/documentation/assets",
 								"output": "assets/ng-doc"
 							},
 							{

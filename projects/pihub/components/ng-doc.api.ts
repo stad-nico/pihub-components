@@ -10,9 +10,9 @@ const Api: NgDocApi = {
 	title: 'API References',
 	scopes: [
 		{
-			name: 'test',
+			name: 'Components',
 			route: 'test',
-			include: 'projects/pihub/components/**/*.ts',
+			include: './**/*.component.ts',
 		},
 	],
 };

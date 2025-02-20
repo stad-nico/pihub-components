@@ -16,7 +16,7 @@ export class CheckboxComponent {
 	/**
 	 * Whether the checkbox is currently checked.
 	 */
-	public readonly checked = input.required<boolean>();
+	public readonly checked = input<boolean>(false);
 
 	/**
 	 * The output that will fire if this checkbox is clicked.
