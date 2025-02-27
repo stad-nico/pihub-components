@@ -6,8 +6,10 @@ on:
       - '**'
 
 jobs:
-  build-and-publish:
+  build:
+    name: Build
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,11 +21,21 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build library
-        run: npm run build
+      - name: Build components
+        run: npm run build:components
 
+      - name: Build documentation
+        run: npm run build:documentation
+
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+
+    needs: build
+
+    steps:
       - name: Prepare image tag
         run: |
           IMAGE_NAME=$(echo "${{ github.event.head_commit.message }}" | grep -oP '(?<=deploy \[img:)[^\]]+' || true)
