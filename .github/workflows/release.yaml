@@ -12,6 +12,7 @@ jobs:
     release:
         runs-on: ubuntu-latest
         permissions:
+            pages: write
             contents: write
             issues: write
             pull-requests: write
@@ -26,13 +27,24 @@ jobs:
                   node-version-file: 'package.json'
 
             - name: Install dependencies
-              run: npm install
+              run: npm ci
 
-            - name: Build library
-              run: npm run build
+            - name: Build components
+              run: npm run build:components
+
+            - name: Build documentation
+              run: npm run build:documentation
 
             - name: Release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
               run: npx semantic-release
+
+            - name: Upload documentation
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  path: dist/documentation/browser
+
+            - name: Publish pages
+              uses: actions/deploy-pages@v4
