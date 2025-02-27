@@ -6,10 +6,9 @@ on:
       - '**'
 
 jobs:
-  build:
+  publish:
     name: Build
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,13 +28,6 @@ jobs:
       - name: Build documentation
         run: npm run build:documentation
 
-  publish:
-    name: Publish
-    runs-on: ubuntu-latest
-
-    needs: build
-
-    steps:
       - name: Prepare image tag
         run: |
           IMAGE_NAME=$(echo "${{ github.event.head_commit.message }}" | grep -oP '(?<=deploy \[img:)[^\]]+' || true)
