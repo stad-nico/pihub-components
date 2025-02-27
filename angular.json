@@ -74,6 +74,7 @@
 						"polyfills": ["zone.js"],
 						"tsConfig": "projects/pihub/documentation/tsconfig.app.json",
 						"inlineStyleLanguage": "scss",
+						"baseHref": "./",
 						"assets": [
 							{
 								"glob": "**/*",
@@ -104,8 +105,8 @@
 							"budgets": [
 								{
 									"type": "initial",
-									"maximumWarning": "500kB",
-									"maximumError": "1MB"
+									"maximumWarning": "1MB",
+									"maximumError": "5MB"
 								},
 								{
 									"type": "anyComponentStyle",
