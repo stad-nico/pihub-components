@@ -1,4 +1,4 @@
-name: Build and deploy package
+name: Build and publish package
 
 on:
   push:
