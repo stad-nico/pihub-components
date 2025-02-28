@@ -8,6 +8,7 @@ import { NgDocCategory } from '@ng-doc/core';
 
 const ComponentsCategory: NgDocCategory = {
 	title: 'Components',
+	expanded: true,
 };
 
 export default ComponentsCategory;

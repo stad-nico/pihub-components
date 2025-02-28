@@ -3,7 +3,7 @@
 	"version": "0.0.0",
 	"scripts": {
 		"ng": "ng",
-		"start": "ng serve @pihub/documentation",
+		"start": "ng serve --watch",
 		"build:components": "ng build @pihub/components",
 		"build:documentation": "ng build @pihub/documentation",
 		"prepare": "husky"
