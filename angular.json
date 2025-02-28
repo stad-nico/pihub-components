@@ -74,7 +74,6 @@
 						"polyfills": ["zone.js"],
 						"tsConfig": "projects/pihub/documentation/tsconfig.app.json",
 						"inlineStyleLanguage": "scss",
-					
 						"assets": [
 							{
 								"glob": "**/*",
@@ -114,7 +113,8 @@
 									"maximumError": "8kB"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"baseHref": "./"
 						},
 						"development": {
 							"optimization": false,

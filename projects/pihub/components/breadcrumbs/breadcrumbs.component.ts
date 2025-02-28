@@ -22,6 +22,7 @@ export class BreadcrumbsComponent {
 
 	/**
 	 * The event emitter that fires if the user clicks on a crumb.
+	 * It emits the id of the clicked crumb.
 	 */
 	public readonly onClick = output<string>();
 
