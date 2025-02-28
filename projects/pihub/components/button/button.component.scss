@@ -4,22 +4,27 @@
 	align-items: flex-start;
 	justify-content: center;
 
+	position: relative;
+
 	gap: 4px;
 
 	width: min-content;
 
 	padding: 8px 22px;
 	border-radius: 999px;
-
+	
+	
 	transition: background-color 0.2s ease;
+	
+	&:not(.disabled) {
+		cursor: pointer;
+	}
 
 	&.primary {
 		&:not(.disabled) {
 			background-color: var(--color-button-primary);
 
 			&:hover {
-				cursor: pointer;
-
 				background-color: var(--color-button-primary-hover);
 			}
 		}
@@ -38,8 +43,6 @@
 			background-color: var(--color-button-secondary);
 
 			&:hover {
-				cursor: pointer;
-
 				background-color: var(--color-button-secondary-hover);
 			}
 
@@ -58,15 +61,17 @@
 	}
 
 	&.tertiary {
+		text-decoration: underline transparent;
+
 		&:not(.disabled) {
+			&:hover {
+				text-decoration: underline var(--color-button-tertiary-text);
+
+				transition: text-decoration 0.2s ease;
+			}
+
 			> .title {
-				&:hover {
-					color: var(--color-button-tertiary-text);
-
-					cursor: pointer;
-
-					color: var(--color-button-tertiary-hover-text);
-				}
+				color: var(--color-button-tertiary-text);
 			}
 		}
 
