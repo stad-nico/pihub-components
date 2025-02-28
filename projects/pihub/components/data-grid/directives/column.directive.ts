@@ -4,8 +4,11 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { DataGridComponent } from './data-grid.component';
-import { ColumnDirective } from './directives/column.directive';
-import { EmptyStateDirective } from './directives/empty-state.directive';
+import { Directive, inject, input, TemplateRef } from '@angular/core';
 
-export { ColumnDirective, DataGridComponent, EmptyStateDirective };
+@Directive({ selector: '[column]' })
+export class ColumnDirective {
+	public readonly title = input.required<string>({ alias: 'column' });
+
+	public readonly template = inject<TemplateRef<unknown>>(TemplateRef);
+}

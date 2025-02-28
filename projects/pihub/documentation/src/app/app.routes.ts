@@ -4,8 +4,6 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { DataGridComponent } from './data-grid.component';
-import { ColumnDirective } from './directives/column.directive';
-import { EmptyStateDirective } from './directives/empty-state.directive';
+import { Routes } from '@angular/router';
 
-export { ColumnDirective, DataGridComponent, EmptyStateDirective };
+export const routes: Routes = [];

@@ -4,8 +4,10 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { DataGridComponent } from './data-grid.component';
-import { ColumnDirective } from './directives/column.directive';
-import { EmptyStateDirective } from './directives/empty-state.directive';
+import { NgDocConfiguration } from '@ng-doc/builder';
 
-export { ColumnDirective, DataGridComponent, EmptyStateDirective };
+const config: NgDocConfiguration = {
+	docsPath: 'projects/pihub/components',
+};
+
+export default config;

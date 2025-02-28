@@ -4,8 +4,8 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { DataGridComponent } from './data-grid.component';
-import { ColumnDirective } from './directives/column.directive';
-import { EmptyStateDirective } from './directives/empty-state.directive';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { appConfig } from './app/app.config';
+import { AppComponent } from './app/app.component';
 
-export { ColumnDirective, DataGridComponent, EmptyStateDirective };
+bootstrapApplication(AppComponent, appConfig).catch((err) => console.error(err));

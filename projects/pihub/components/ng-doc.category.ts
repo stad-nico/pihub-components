@@ -4,8 +4,11 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { DataGridComponent } from './data-grid.component';
-import { ColumnDirective } from './directives/column.directive';
-import { EmptyStateDirective } from './directives/empty-state.directive';
+import { NgDocCategory } from '@ng-doc/core';
 
-export { ColumnDirective, DataGridComponent, EmptyStateDirective };
+const ComponentsCategory: NgDocCategory = {
+	title: 'Components',
+	expanded: true,
+};
+
+export default ComponentsCategory;

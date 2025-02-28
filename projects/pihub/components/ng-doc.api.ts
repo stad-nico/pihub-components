@@ -4,8 +4,17 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { DataGridComponent } from './data-grid.component';
-import { ColumnDirective } from './directives/column.directive';
-import { EmptyStateDirective } from './directives/empty-state.directive';
+import { NgDocApi } from '@ng-doc/core';
 
-export { ColumnDirective, DataGridComponent, EmptyStateDirective };
+const Api: NgDocApi = {
+	title: 'API References',
+	scopes: [
+		{
+			name: 'Components',
+			route: 'test',
+			include: './**/*.component.ts',
+		},
+	],
+};
+
+export default Api;
