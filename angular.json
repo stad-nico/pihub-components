@@ -95,7 +95,11 @@
 								"input": "projects/pihub/documentation/assets"
 							}
 						],
-						"styles": ["node_modules/@ng-doc/app/styles/global.css", "projects/pihub/documentation/src/styles.scss"],
+						"styles": [
+							"node_modules/@ng-doc/app/styles/global.css",
+							"projects/pihub/documentation/src/styles.scss",
+							"projects/pihub/documentation/src/ng-doc.scss"
+						],
 						"scripts": [],
 						"allowedCommonJsDependencies": ["@ng-doc/core"]
 					},

@@ -4,7 +4,7 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { Component, input, model } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { ColumnDirective, DataGridComponent, EmptyStateDirective } from '@pihub/components/data-grid';
 
 interface User {
@@ -22,9 +22,25 @@ interface User {
 	imports: [DataGridComponent, ColumnDirective, EmptyStateDirective],
 })
 export class DataGridDemoComponent {
-	public readonly columns = input<Array<string>>([]);
+	public readonly maxSelection = input<number>(1);
 
-	public readonly rows = input<Array<User>>([]);
+	public readonly showHeader = input<boolean>(false);
 
-	public readonly selectedIds = model<Array<string>>([]);
+	public readonly endlessScrolling = input<boolean>(true);
+
+	public readonly rowsPerPage = input<number>(10);
+
+	public readonly page = input<number>(1);
+
+	protected readonly columns = signal<Array<string>>(['Name', 'Id', 'Age', 'Status']);
+
+	protected readonly rows = signal<Array<User>>([
+		{ name: 'testname', age: 'testage', id: '0' },
+		{ name: 'testname', age: 'testage', id: '1' },
+		{ name: 'testname', age: 'testage', id: '2' },
+		{ name: 'testname', age: 'testage', id: '3' },
+		{ name: 'testname', age: 'testage', id: '4' },
+	]);
+
+	protected readonly selectedIds = signal<Array<string>>([]);
 }

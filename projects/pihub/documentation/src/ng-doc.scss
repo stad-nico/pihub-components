@@ -1,0 +1,23 @@
+:root {
+	--ng-doc-app-max-width: 1600px;
+}
+
+ng-doc-demo-displayer,
+ng-doc-demo {
+	line-height: initial;
+}
+
+ng-doc-demo.center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.color-table {
+	tbody,
+	tr,
+	td,
+	td:nth-child(2) > p {
+		font-family: inherit;
+	}
+}

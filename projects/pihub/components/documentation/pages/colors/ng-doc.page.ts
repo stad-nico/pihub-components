@@ -4,12 +4,12 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { Directive, inject, TemplateRef } from '@angular/core';
+import { NgDocPage } from '@ng-doc/core';
 
-@Directive({ selector: '[emptyState]' })
-export class EmptyStateDirective {
-	/**
-	 * The templtate that will be displayed when the data grid is empty.
-	 */
-	public readonly template = inject<TemplateRef<unknown>>(TemplateRef);
-}
+const ColorsPage: NgDocPage = {
+	title: 'Colors',
+	mdFile: './index.md',
+	order: 0,
+};
+
+export default ColorsPage;

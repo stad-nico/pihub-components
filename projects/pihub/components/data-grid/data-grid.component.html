@@ -1,6 +1,6 @@
 @if (showHeader()) {
 	<header>
-		@if (selectEnabled()) {
+		@if (maxSelection()! > 0) {
 			<p></p>
 		}
 
@@ -13,16 +13,13 @@
 <main>
 	@for (row of getRows(); track row.id) {
 		<section class="row" [class.isSelected]="isRowSelected(row.id)">
-			<div class="checkbox-wrapper">
-				<pihub-checkbox
-					[@checkboxFade]="getCheckboxAnimationState(row)"
-					[checked]="isRowSelected(row.id)"
-					(onClick)="onCheckboxClick(row.id)"
-				/>
+			<div class="checkbox-wrapper" [@checkboxFade]="getCheckboxAnimationState(row)">
+				<pihub-checkbox [checked]="isRowSelected(row.id)" (onClick)="onCheckboxClick(row.id)" />
 			</div>
 
 			<section
 				class="columns"
+				[style.grid-template-columns]="gridTemplateColumns()"
 				(click)="onCheckboxClick(row.id)"
 				(mouseenter)="onRowMouseEnter(row.id)"
 				(mouseleave)="onRowMouseLeave()"

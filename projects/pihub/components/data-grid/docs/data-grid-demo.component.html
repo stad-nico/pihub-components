@@ -2,11 +2,14 @@
 	[rows]="rows()"
 	[columnTitles]="columns()"
 	[(selectedIds)]="selectedIds"
-	[selectEnabled]="true"
-	[multiselectEnabled]="true"
+	[maxSelection]="maxSelection()"
+	[showHeader]="showHeader()"
+	[endlessScrolling]="endlessScrolling()"
+	[rowsPerPage]="rowsPerPage()"
+	[page]="page()"
 >
 	<ng-template column="Name" let-user>
-		<div class="column-name">
+		<section class="column-name">
 			<div class="icon">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
 					<path fill="#ffa000" d="M2 0 10 0 14 3 14 5 0 5 0 2C0 1 1 0 2 0" />
@@ -14,15 +17,17 @@
 				</svg>
 			</div>
 			{{ user.name }}
-		</div>
+		</section>
 	</ng-template>
 
-	<ng-template column="Id" let-user> Id: {{ user.id }} </ng-template>
+	<ng-template column="Id" width="50px" let-user> Id: {{ user.id }} </ng-template>
 
 	<ng-template column="Age" let-user> Age: {{ user.age }} </ng-template>
 
 	<ng-template column="Status" let-selected="selected" let-hovered="hovered">
-		Selected: {{ selected }} Hovered: {{ hovered }}
+		<section class="column-status">
+				<p [class.visible]="hovered">Hovered</p>
+		</section>
 	</ng-template>
 
 	<ng-template emptyState>This will be displayed if there are no items</ng-template>
