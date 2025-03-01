@@ -6,17 +6,6 @@
 	font-family: 'Satoshi-Medium';
 }
 
-ng-doc-demo-displayer,
-ng-doc-demo {
-	line-height: initial;
-}
-
-ng-doc-demo.center {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
 @font-face {
 	font-family: 'Satoshi-Light';
 	src: url('./assets/fonts/satoshi/Satoshi-Light.ttf') format('truetype');
@@ -152,6 +141,16 @@ ng-doc-demo.center {
 	--color-text-secondary: var(--color-neutral-300);
 	--color-text-tertiary: var(--color-neutral-600);
 	--color-text-highlight: var(--color-primary-400);
+
+	--size-text-12: 12px;
+    --size-text-14: 14px;
+    --size-text-16: 16px;
+    --size-text-20: 20px;
+    --size-text-24: 24px;
+    --size-text-28: 28px;
+    --size-text-32: 32px;
+    --size-text-40: 40px;
+    --size-text-48: 48px;
 
 	--color-background-primary: var(--color-neutral-1000);
 	--color-background-secondary: var(--color-neutral-900);

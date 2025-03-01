@@ -17,4 +17,16 @@
 			}
 		}
 	}
+
+	.column-status {
+		p {
+			opacity: 0;
+
+			transition: opacity 0.2s ease;
+
+			&.visible {
+				opacity: 1;
+			}
+		}
+	}
 }

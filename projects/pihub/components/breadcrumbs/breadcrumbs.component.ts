@@ -15,8 +15,7 @@ import { Breadcrumb, HomeBreadcrumbId } from './models/breadcrumb';
 })
 export class BreadcrumbsComponent {
 	/**
-	 * The crumbs to display. Note that the `home` crumb does not need to be included
-	 * because it will be displayed by default.
+	 * The crumbs to display. Note that the `home` crumb will be displayed by default.
 	 */
 	public readonly crumbs = input<Array<Breadcrumb>>([]);
 
@@ -28,6 +27,7 @@ export class BreadcrumbsComponent {
 
 	/**
 	 * The id of the `home` crumb.
+	 * @internal
 	 */
 	protected readonly HomeId = HomeBreadcrumbId;
 }

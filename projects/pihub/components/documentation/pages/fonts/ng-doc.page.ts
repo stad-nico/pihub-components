@@ -4,12 +4,12 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { Directive, inject, TemplateRef } from '@angular/core';
+import { NgDocPage } from '@ng-doc/core';
 
-@Directive({ selector: '[emptyState]' })
-export class EmptyStateDirective {
-	/**
-	 * The templtate that will be displayed when the data grid is empty.
-	 */
-	public readonly template = inject<TemplateRef<unknown>>(TemplateRef);
-}
+const FontsPage: NgDocPage = {
+	title: 'Fonts',
+	mdFile: './index.md',
+	order: 1,
+};
+
+export default FontsPage;

@@ -6,7 +6,7 @@
  *-------------------------------------------------------------------------*/
 import { NgDocPage } from '@ng-doc/core';
 import { CheckboxComponent } from '@pihub/components/checkbox/checkbox.component';
-import ComponentsCategory from '@pihub/components/ng-doc.category';
+import ComponentsCategory from '../../documentation/categories/ng-doc.category';
 
 const CheckboxPage: NgDocPage = {
 	title: 'Checkbox',
@@ -16,7 +16,7 @@ const CheckboxPage: NgDocPage = {
 	playgrounds: {
 		CheckboxPlayground: {
 			target: CheckboxComponent,
-			template: `<ng-doc-selector/></ng-doc-selector>`,
+			template: `<ng-doc-selector></ng-doc-selector>`,
 			defaults: {
 				checked: false,
 			},

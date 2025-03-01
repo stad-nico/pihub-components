@@ -5,27 +5,22 @@
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { NgDocPage } from '@ng-doc/core';
-import { BreadcrumbsComponent } from '@pihub/components/breadcrumbs/breadcrumbs.component';
+import { DataGridDemoComponent } from '@pihub/components/data-grid/docs/data-grid-demo.component';
 import ComponentsCategory from '../../documentation/categories/ng-doc.category';
 
-const BreadcrumbsPage: NgDocPage = {
-	title: 'Breadcrumbs',
+const DataGridPage: NgDocPage = {
+	title: 'Data Grid',
 	mdFile: './index.md',
 	category: ComponentsCategory,
+	demos: { DataGridDemoComponent },
 	playgrounds: {
-		BreadcrumbsPlayground: {
-			target: BreadcrumbsComponent,
+		DataGridDemoPlayground: {
+			target: DataGridDemoComponent,
 			template: `<ng-doc-selector></ng-doc-selector>`,
-			defaults: {
-				crumbs: [
-					{ id: '0', name: 'Holiday' },
-					{ id: '1', name: 'Photos' },
-					{ id: '2', name: 'Greek' },
-				],
-			},
+			defaults: {},
 		},
 	},
-	route: 'breadcrumbs',
+	route: 'data-grid',
 };
 
-export default BreadcrumbsPage;
+export default DataGridPage;

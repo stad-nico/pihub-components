@@ -6,7 +6,7 @@
  *-------------------------------------------------------------------------*/
 import { animate, group, state, style, transition, trigger } from '@angular/animations';
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, contentChild, contentChildren, input, model, signal } from '@angular/core';
+import { Component, computed, contentChild, contentChildren, input, model, signal } from '@angular/core';
 import { CheckboxComponent } from '@pihub/components/checkbox';
 import { ColumnDirective } from './directives/column.directive';
 import { EmptyStateDirective } from './directives/empty-state.directive';
@@ -28,13 +28,16 @@ enum CheckboxAnimationState {
 	imports: [NgTemplateOutlet, CheckboxComponent],
 	animations: [
 		trigger('checkboxFade', [
-			state(CheckboxAnimationState.Hidden, style({ opacity: 0, marginLeft: '-2rem' })),
-			state(CheckboxAnimationState.Visible, style({ opacity: 1, marginLeft: 0 })),
+			state(CheckboxAnimationState.Hidden, style({ display: 'none', opacity: 0, marginLeft: '-2rem' })),
+			state(CheckboxAnimationState.Visible, style({ display: 'flex', opacity: 1, marginLeft: 0 })),
 			transition(`${CheckboxAnimationState.Hidden} => ${CheckboxAnimationState.Visible}`, [
-				group([animate('0.25s ease-out', style({ opacity: 1 })), animate('0.3s ease', style({ marginLeft: 0 }))]),
+				group([animate('0.25s ease-out', style({ display: 'flex', opacity: 1 })), animate('0.3s ease', style({ marginLeft: 0 }))]),
 			]),
 			transition(`${CheckboxAnimationState.Visible} => ${CheckboxAnimationState.Hidden}`, [
-				group([animate('0.25s 0.05s ease', style({ opacity: 0 })), animate('0.3s ease', style({ marginLeft: '-2rem' }))]),
+				group([
+					animate('0.25s 0.05s ease', style({ display: 'none', opacity: 0 })),
+					animate('0.3s ease', style({ marginLeft: '-2rem' })),
+				]),
 			]),
 		]),
 	],
@@ -56,19 +59,10 @@ export class DataGridComponent<Row extends DataGridItem> {
 	public readonly selectedIds = model<Array<string>>([]);
 
 	/**
-	 * Whether rows can be selected.
+	 * The amount of rows to be selected simultaneously.
+	 * Set to `0` to disable selection or set it to `-1` to allow selecting all rows.
 	 */
-	public readonly selectEnabled = input<boolean>(false);
-
-	/**
-	 * Whether more than one row can be selected. Only takes effect if `selectEnabled` is set to `true`.
-	 */
-	public readonly multiselectEnabled = input<boolean>(false);
-
-	/**
-	 * The maximum of rows to be selected simultaneously.
-	 */
-	public readonly maxMultiselect = input<number | undefined>(undefined);
+	public readonly maxSelection = input<number | undefined>(-1);
 
 	/**
 	 * Whether to show the column header.
@@ -81,24 +75,36 @@ export class DataGridComponent<Row extends DataGridItem> {
 	public readonly endlessScrolling = input<boolean>(true);
 
 	/**
-	 * How many rows should be shown per page. Only takes effect if `endlessScrolling` is set to `true`.
+	 * How many rows should be shown per page. Only takes effect if `endlessScrolling` is set to `false`.
 	 */
 	public readonly rowsPerPage = input<number>(10);
 
 	/**
-	 * Current page. Only takes effect if `endlessScrolling` is set to `true`.
+	 * Current page. Only takes effect if `endlessScrolling` is set to `false`.
 	 */
 	public readonly page = model<number>(1);
 
 	/**
 	 * The id of the current hovered row. Needed for passing it to the templates so they can react to this.
+	 * @internal
 	 */
 	protected readonly hoveredId = signal<string | undefined>(undefined);
 
 	/**
 	 * The template that should be displayed if no rows are being displayed.
+	 * @internal
 	 */
 	protected readonly emptyTemplate = contentChild(EmptyStateDirective);
+
+	/**
+	 * The grid template columns.
+	 * @internal
+	 */
+	protected readonly gridTemplateColumns = computed(() =>
+		this.getColumnsToDisplay()
+			.map((column) => column.width())
+			.join(' ')
+	);
 
 	/**
 	 * Array of all columns. Note that not each one of those columns will be displayed.
@@ -108,6 +114,7 @@ export class DataGridComponent<Row extends DataGridItem> {
 
 	/**
 	 * Get the columns to display in the table. This depends on the titles set in `columnTitles` and their order.
+	 * @internal
 	 *
 	 * @returns the columns to display
 	 */
@@ -120,6 +127,7 @@ export class DataGridComponent<Row extends DataGridItem> {
 	/**
 	 * Get the rows to display in the table. If paging is enabled this will
 	 * return only `itemsPerPage` many items. Otherwise it will return all items.
+	 * @internal
 	 *
 	 * @returns the rows to display
 	 */
@@ -135,6 +143,7 @@ export class DataGridComponent<Row extends DataGridItem> {
 
 	/**
 	 * Whether the row with `id` is currently selected.
+	 * @internal
 	 *
 	 * @param id the id of the row
 	 * @returns whether the row is currently selected
@@ -145,11 +154,12 @@ export class DataGridComponent<Row extends DataGridItem> {
 
 	/**
 	 * Handle checkbox click event.
+	 * @internal
 	 *
 	 * @param id the id of the clicked checkbox
 	 */
 	protected onCheckboxClick(id: string): void {
-		if (!this.selectEnabled) {
+		if (this.maxSelection() === 0) {
 			return;
 		}
 
@@ -157,12 +167,12 @@ export class DataGridComponent<Row extends DataGridItem> {
 
 		let newSelectedIds: Array<string> = this.selectedIds();
 
-		if (!this.multiselectEnabled()) {
+		if (this.maxSelection() === 1) {
 			newSelectedIds = isAlreadySelected ? [] : [id];
 		} else {
 			if (isAlreadySelected) {
 				newSelectedIds = this.selectedIds().filter((selectedId) => selectedId !== id);
-			} else if (this.maxMultiselect() === undefined || this.selectedIds().length < this.maxMultiselect()!) {
+			} else if (this.maxSelection() === -1 || this.selectedIds().length < this.maxSelection()!) {
 				newSelectedIds = [...this.selectedIds(), id];
 			}
 		}
@@ -172,12 +182,13 @@ export class DataGridComponent<Row extends DataGridItem> {
 
 	/**
 	 * Get the animation state of the checkbox.
+	 * @internal
 	 *
 	 * @param row the row
 	 * @returns the animation state
 	 */
 	protected getCheckboxAnimationState(row: Row): string {
-		if (!this.selectEnabled()) {
+		if (this.maxSelection() === 0) {
 			return CheckboxAnimationState.Hidden;
 		}
 
@@ -190,6 +201,7 @@ export class DataGridComponent<Row extends DataGridItem> {
 
 	/**
 	 * Handle mouseenter event on row to set `hoveredId`.
+	 * @internal
 	 *
 	 * @param id the id of the row
 	 */
@@ -199,6 +211,7 @@ export class DataGridComponent<Row extends DataGridItem> {
 
 	/**
 	 * Handle mouseenter event on row to reset `hoveredId`.
+	 * @internal
 	 */
 	protected onRowMouseLeave(): void {
 		this.hoveredId.update(() => undefined);

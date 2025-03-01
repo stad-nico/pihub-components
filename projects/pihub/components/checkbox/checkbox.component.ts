@@ -21,7 +21,7 @@ export class CheckboxComponent {
 	/**
 	 * The output that will fire if this checkbox is clicked.
 	 */
-	public readonly click = output<void>();
+	public readonly onClick = output<void>();
 
 	/**
 	 * Set the class name depending on `checked`.
@@ -36,6 +36,6 @@ export class CheckboxComponent {
 	 */
 	@HostListener('click')
 	private onClickHandler(): void {
-		this.click.emit();
+		this.onClick.emit();
 	}
 }

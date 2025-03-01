@@ -6,7 +6,7 @@
  *-------------------------------------------------------------------------*/
 import { NgDocPage } from '@ng-doc/core';
 import { ButtonComponent } from '@pihub/components/button/button.component';
-import ComponentsCategory from '../../ng-doc.category';
+import ComponentsCategory from '../../documentation/categories/ng-doc.category';
 
 const ButtonPage: NgDocPage = {
 	title: 'Button',
@@ -16,7 +16,7 @@ const ButtonPage: NgDocPage = {
 	playgrounds: {
 		ButtonPlayground: {
 			target: ButtonComponent,
-			template: `<ng-doc-selector/></ng-doc-selector>`,
+			template: `<ng-doc-selector></ng-doc-selector>`,
 			defaults: {
 				title: 'Example',
 				style: 'primary',
