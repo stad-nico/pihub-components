@@ -11,7 +11,7 @@ import { CheckboxComponent } from '@pihub/components/checkbox';
 import { ColumnDirective } from './directives/column.directive';
 import { EmptyStateDirective } from './directives/empty-state.directive';
 
-interface DataGridItem {
+export interface DataGridItem {
 	readonly id: string;
 }
 

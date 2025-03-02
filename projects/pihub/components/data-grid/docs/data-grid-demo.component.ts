@@ -5,14 +5,12 @@
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { Component, input, signal } from '@angular/core';
-import { ColumnDirective, DataGridComponent, EmptyStateDirective } from '@pihub/components/data-grid';
+import { ColumnDirective, DataGridComponent, DataGridItem, EmptyStateDirective } from '@pihub/components/data-grid';
 
-interface User {
+interface User extends DataGridItem {
 	readonly name: string;
 
 	readonly age: string;
-
-	readonly id: string;
 }
 
 @Component({
