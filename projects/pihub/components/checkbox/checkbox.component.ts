@@ -1,3 +1,9 @@
+/**-------------------------------------------------------------------------
+ * Copyright (c) 2025 - Nicolas Stadler. All rights reserved.
+ * Licensed under the MIT License. See the project root for more information.
+ *
+ * @author Nicolas Stadler
+ *-------------------------------------------------------------------------*/
 import { Component, HostBinding, HostListener, input, output } from '@angular/core';
 
 @Component({
@@ -7,17 +13,29 @@ import { Component, HostBinding, HostListener, input, output } from '@angular/co
 	styleUrl: './checkbox.component.scss',
 })
 export class CheckboxComponent {
-	public readonly checked = input.required<boolean>();
+	/**
+	 * Whether the checkbox is currently checked.
+	 */
+	public readonly checked = input<boolean>(false);
 
-	public readonly onClick = output();
+	/**
+	 * The output that will fire if this checkbox is clicked.
+	 */
+	public readonly onClick = output<void>();
 
+	/**
+	 * Set the class name depending on `checked`.
+	 */
 	@HostBinding('class')
-	public get className() {
+	private get className(): string {
 		return this.checked() ? 'checked' : 'unchecked';
 	}
 
+	/**
+	 * Listener that executes when this component is clicked.
+	 */
 	@HostListener('click')
-	private onClickHandler() {
+	private onClickHandler(): void {
 		this.onClick.emit();
 	}
 }

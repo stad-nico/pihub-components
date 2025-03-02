@@ -1,12 +1,14 @@
-name: Build and deploy package
+name: Build and publish package
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - '**'
 
 jobs:
-  build-and-publish:
+  publish:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,10 +21,13 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build library
-        run: npm run build
+      - name: Build components
+        run: npm run build:components
+
+      - name: Build documentation
+        run: npm run build:documentation
 
       - name: Prepare image tag
         run: |
