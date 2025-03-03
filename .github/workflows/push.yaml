@@ -29,6 +29,9 @@ jobs:
             - name: Build documentation
               run: npm run build:documentation
 
+            - name: Check formatting
+              run: npm run prettier:check
+
             - name: Prepare image tag
               run: |
                   IMAGE_NAME=$(echo "${{ github.event.head_commit.message }}" | grep -oP '(?<=deploy \[img:)[^\]]+' || true)
