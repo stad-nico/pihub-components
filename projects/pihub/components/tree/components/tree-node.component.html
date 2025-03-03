@@ -2,6 +2,13 @@
 
 <ng-template #childrenTemplate>
 	@for (child of children(); track child.id) {
-		<pihub-tree-node [node]="child" [nodes]="nodes()" [template]="template()" [selectedId]="selectedId()" />
+		<pihub-tree-node
+			[node]="child"
+			[(expandedIds)]="expandedIds"
+			[nodes]="nodes()"
+			[template]="template()"
+			[selectedId]="selectedId()"
+			(onClick)="expand(child.id)"
+		/>
 	}
 </ng-template>

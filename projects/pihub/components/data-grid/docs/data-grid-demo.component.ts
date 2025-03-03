@@ -20,7 +20,7 @@ interface User extends DataGridItem {
 	imports: [DataGridComponent, ColumnDirective, EmptyStateDirective],
 })
 export class DataGridDemoComponent {
-	public readonly maxSelection = input<number>(1);
+	public readonly maxSelection = input<number>(-1);
 
 	public readonly showHeader = input<boolean>(false);
 

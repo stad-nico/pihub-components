@@ -17,11 +17,15 @@
 
 			&:hover {
 				cursor: pointer;
-				background-color: var(--color-container-selected);
+				background-color: var(--color-container-hover);
 
 				+ main {
-					background-color: var(--color-container-hover);
+					background-color: var(--color-container-active);
 				}
+			}
+
+			> .title {
+				color: var(--color-text-primary);
 			}
 
 			> .icon {
@@ -48,7 +52,7 @@
 					> svg {
 						&:hover {
 							fill: var(--color-text-highlight);
-							background-color: var(--color-container-selected-hover);
+							background-color: var(--color-container-selected);
 						}
 
 						width: 24px;

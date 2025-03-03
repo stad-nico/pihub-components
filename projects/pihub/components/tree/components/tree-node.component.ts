@@ -5,7 +5,7 @@
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, computed, HostListener, input, output, signal, TemplateRef, viewChild } from '@angular/core';
+import { Component, computed, HostListener, input, model, output, TemplateRef, viewChild } from '@angular/core';
 import { TreeNode } from '../models/tree-node';
 
 @Component({
@@ -19,12 +19,17 @@ export class TreeNodeComponent<Node extends TreeNode> {
 	/**
 	 * The node to display.
 	 */
-	public readonly node = input.required<Node>();
+	public readonly node = model.required<Node>();
 
 	/**
 	 * The list of all the nodes.
 	 */
 	public readonly nodes = input.required<Array<Node>>();
+
+	/**
+	 * The list of the expanded node ids.
+	 */
+	public readonly expandedIds = model<Array<string>>([]);
 
 	/**
 	 * The template of the node.
@@ -43,18 +48,20 @@ export class TreeNodeComponent<Node extends TreeNode> {
 
 	/**
 	 * The signal to get the child nodes.
+	 * @internal
 	 */
 	protected readonly children = computed(() => this.nodes().filter((node) => this.node().childrenIds?.includes(node.id)));
 
 	/**
 	 * The signal to get the context that will be passed to the node template.
+	 * @internal
 	 */
 	protected readonly templateContext = computed(() => ({
 		$implicit: {
 			...this.node(),
 			hasChildren: this.children().length > 0,
-			isCollapsed: this.isCollapsed(),
 			isSelected: this.selectedId() === this.node().id,
+			isExpanded: this.expandedIds().includes(this.node().id),
 			children: this.childrenTemplate(),
 		},
 	}));
@@ -64,11 +71,18 @@ export class TreeNodeComponent<Node extends TreeNode> {
 	 */
 	private readonly childrenTemplate = viewChild.required<TemplateRef<unknown>>('childrenTemplate');
 
-	private readonly isCollapsed = signal(true);
+	/**
+	 * Expand a child node.
+	 *
+	 * @param id the id of the node to expand
+	 */
+	protected expand(id: string): void {
+		this.expandedIds.update((expandedIds) => [...expandedIds, id]);
+	}
 
 	@HostListener('click', ['$event'])
 	private onClickHandler(e: Event): void {
 		e.stopPropagation();
-		this.isCollapsed.update(() => false);
+		this.onClick.emit();
 	}
 }

@@ -1,52 +1,52 @@
 name: Build and publish package
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - '**'
+    workflow_dispatch:
+    push:
+        branches:
+            - '**'
 
 jobs:
-  publish:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    publish:
+        name: Build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
 
-      - name: Setup NodeJS
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: 'package.json'
-          registry-url: 'https://registry.npmjs.org'
+            - name: Setup NodeJS
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: 'package.json'
+                  registry-url: 'https://registry.npmjs.org'
 
-      - name: Install dependencies
-        run: npm ci
+            - name: Install dependencies
+              run: npm ci
 
-      - name: Build components
-        run: npm run build:components
+            - name: Build components
+              run: npm run build:components
 
-      - name: Build documentation
-        run: npm run build:documentation
+            - name: Build documentation
+              run: npm run build:documentation
 
-      - name: Prepare image tag
-        run: |
-          IMAGE_NAME=$(echo "${{ github.event.head_commit.message }}" | grep -oP '(?<=deploy \[img:)[^\]]+' || true)
+            - name: Prepare image tag
+              run: |
+                  IMAGE_NAME=$(echo "${{ github.event.head_commit.message }}" | grep -oP '(?<=deploy \[img:)[^\]]+' || true)
 
-          if [ -z "$IMAGE_NAME" ]; then
-            echo "No image name found"
-            echo "SKIP=true" >> $GITHUB_ENV
-          else
-            echo "Image name: $IMAGE_NAME"
-          fi
+                  if [ -z "$IMAGE_NAME" ]; then
+                    echo "No image name found"
+                    echo "SKIP=true" >> $GITHUB_ENV
+                  else
+                    echo "Image name: $IMAGE_NAME"
+                  fi
 
-          echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
+                  echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
 
-      - name: Publish to npm
-        if: ${{ !env.SKIP }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          cd projects/pihub/components
-          npm version prerelease --preid="${{ env.IMAGE_NAME }}-rc" --no-git-tag-version
-          npm publish
+            - name: Publish to npm
+              if: ${{ !env.SKIP }}
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+              run: |
+                  cd projects/pihub/components
+                  npm version prerelease --preid="${{ env.IMAGE_NAME }}-rc" --no-git-tag-version
+                  npm publish

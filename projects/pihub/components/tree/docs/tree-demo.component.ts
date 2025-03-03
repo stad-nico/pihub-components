@@ -5,7 +5,7 @@
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, model, signal } from '@angular/core';
 import { TreeComponent, TreeNode, TreeNodeDirective, TreeRoot } from '@pihub/components/tree';
 
 interface Fruit extends TreeNode {
@@ -20,7 +20,7 @@ interface Fruit extends TreeNode {
 	imports: [TreeComponent, TreeNodeDirective, NgTemplateOutlet],
 })
 export class TreeDemoComponent {
-	public readonly nodes = input<Array<Fruit>>([
+	public readonly nodes = signal<Array<Fruit>>([
 		{ id: '0', name: 'Banana', childrenIds: ['1', '2'] },
 		{ id: '1', name: 'Orange', parentId: '0' },
 		{ id: '2', name: 'Strawberry', parentId: '0', childrenIds: ['6'] },
@@ -29,4 +29,16 @@ export class TreeDemoComponent {
 		{ id: '5', name: 'Blueberry', parentId: '3' },
 		{ id: '6', name: 'Grape', parentId: '2' },
 	]);
+
+	public readonly expandedIds = model<Array<string>>([]);
+
+	protected toggleExpanded(event: MouseEvent, id: string): void {
+		event.stopPropagation();
+
+		if (this.expandedIds().includes(id)) {
+			this.expandedIds.update((expandedIds) => expandedIds.filter((expandedId) => expandedId !== id));
+		} else {
+			this.expandedIds.update((expandedIds) => [...expandedIds, id]);
+		}
+	}
 }

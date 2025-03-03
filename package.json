@@ -6,6 +6,8 @@
 		"start": "ng serve --watch",
 		"build:components": "ng build @pihub/components",
 		"build:documentation": "ng build @pihub/documentation",
+		"prettier:check": "prettier . --check --cache",
+		"prettier:write": "prettier . --write --cache",
 		"prepare": "husky"
 	},
 	"private": true,
