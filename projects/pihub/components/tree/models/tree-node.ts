@@ -15,7 +15,7 @@ export interface TreeNode {
 	/**
 	 * The list of child ids.
 	 */
-	readonly childrenIds?: string[];
+	readonly childrenIds?: Array<string>;
 
 	/**
 	 * The id of the parent node. Set to `TreeRoot` or leave undefined for the node to be a root node.

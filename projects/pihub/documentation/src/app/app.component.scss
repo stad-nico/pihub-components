@@ -1,0 +1,13 @@
+:host {
+	::ng-deep div.ng-doc-navbar-left > div.icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		height: 60%;
+
+		margin-right: 10px;
+
+		aspect-ratio: 200 / 150.33;
+	}
+}

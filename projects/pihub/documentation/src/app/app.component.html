@@ -1,6 +1,9 @@
 <ng-doc-root>
-	<ng-doc-navbar>
-		<h3 style="margin: 0" ngDocNavbarLeft>PiHub</h3>
+	<ng-doc-navbar [glassEffect]="false" [hamburger]="true">
+		<div class="icon" ngDocNavbarLeft>
+			<img src="assets/icons/pihub.svg" />
+		</div>
+		<h3 style="margin: 0" ngDocNavbarLeft>PiHub Components</h3>
 	</ng-doc-navbar>
 	<ng-doc-sidebar></ng-doc-sidebar>
 	<router-outlet></router-outlet>
