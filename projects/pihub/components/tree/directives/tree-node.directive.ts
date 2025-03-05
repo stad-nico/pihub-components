@@ -4,17 +4,14 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { NgDocApi } from '@ng-doc/core';
+import { Directive, inject, TemplateRef } from '@angular/core';
 
-const Api: NgDocApi = {
-	title: 'API Reference',
-	scopes: [
-		{
-			name: 'Components',
-			route: 'test',
-			include: './**/*.component.ts',
-		},
-	],
-};
-
-export default Api;
+@Directive({
+	selector: '[treeNode]',
+})
+export class TreeNodeDirective {
+	/**
+	 * The template of the node.
+	 */
+	public readonly template = inject<TemplateRef<unknown>>(TemplateRef);
+}

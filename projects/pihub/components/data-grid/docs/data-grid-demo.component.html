@@ -16,17 +16,23 @@
 					<path fill="#ffca28" d="M2 3 22 3C24 3 25 4 25 6L25 16C25 18 24 19 22 19L3 19C1 19 0 18 0 16L0 6C0 4 1 3 3 3" />
 				</svg>
 			</div>
-			{{ user.name }}
+			<p class="title">
+				{{ user.name }}
+			</p>
 		</section>
 	</ng-template>
 
-	<ng-template column="Id" width="50px" let-user> Id: {{ user.id }} </ng-template>
+	<ng-template column="Id" width="50px" let-user>
+		<p class="title">Id: {{ user.id }}</p>
+	</ng-template>
 
-	<ng-template column="Age" let-user> Age: {{ user.age }} </ng-template>
+	<ng-template column="Age" let-user>
+		<p class="title">Age: {{ user.age }}</p>
+	</ng-template>
 
 	<ng-template column="Status" let-selected="selected" let-hovered="hovered">
 		<section class="column-status">
-				<p [class.visible]="hovered">Hovered</p>
+			<p [class.visible]="hovered">Hovered</p>
 		</section>
 	</ng-template>
 

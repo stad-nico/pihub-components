@@ -6,7 +6,10 @@
 		"start": "ng serve --watch",
 		"build:components": "ng build @pihub/components",
 		"build:documentation": "ng build @pihub/documentation",
-		"prepare": "husky"
+		"prettier:check": "prettier . --check --cache",
+		"prettier:write": "prettier . --write --cache",
+		"prepare": "husky",
+		"lint": "eslint"
 	},
 	"private": true,
 	"dependencies": {
@@ -34,8 +37,11 @@
 		"@chromatic-com/storybook": "^3.2.4",
 		"@commitlint/cli": "^19.7.1",
 		"@commitlint/config-conventional": "^19.7.1",
+		"@eslint/compat": "^1.2.7",
+		"@eslint/js": "^9.21.0",
 		"@types/jasmine": "~5.1.0",
-		"eslint": "^9.19.0",
+		"angular-eslint": "^19.2.0",
+		"eslint": "^9.21.0",
 		"husky": "^9.1.7",
 		"jasmine-core": "~5.5.0",
 		"karma": "~6.4.0",
@@ -47,6 +53,8 @@
 		"ng-packagr": "^19.1.0",
 		"prettier": "^3.4.2",
 		"semantic-release": "^24.2.1",
-		"typescript": "~5.7.2"
-	}
+		"typescript": "~5.7.2",
+		"typescript-eslint": "^8.25.0"
+	},
+	"type": "commonjs"
 }

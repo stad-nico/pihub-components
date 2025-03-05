@@ -12,10 +12,9 @@
 
 	padding: 8px 22px;
 	border-radius: 999px;
-	
-	
+
 	transition: background-color 0.2s ease;
-	
+
 	&:not(.disabled) {
 		cursor: pointer;
 	}

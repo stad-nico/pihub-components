@@ -1,10 +1,15 @@
 :root {
-	--ng-doc-app-max-width: 1600px;
+	--ng-doc-app-max-width: 20000px;
+	--ng-doc-navbar-background: var(--color-neutral-600);
 }
 
 ng-doc-demo-displayer,
 ng-doc-demo {
 	line-height: initial;
+}
+
+::-webkit-scrollbar {
+	display: none;
 }
 
 ng-doc-demo.center {

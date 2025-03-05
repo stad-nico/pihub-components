@@ -4,17 +4,8 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { NgDocApi } from '@ng-doc/core';
+import { TreeNodeDirective } from './directives/tree-node.directive';
+import { type TreeNode, TreeRoot } from './models/tree-node';
+import { TreeComponent } from './tree.component';
 
-const Api: NgDocApi = {
-	title: 'API Reference',
-	scopes: [
-		{
-			name: 'Components',
-			route: 'test',
-			include: './**/*.component.ts',
-		},
-	],
-};
-
-export default Api;
+export { TreeComponent, TreeNode, TreeNodeDirective, TreeRoot };

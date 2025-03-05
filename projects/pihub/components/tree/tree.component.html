@@ -1,0 +1,3 @@
+@for (node of rootNodes(); track node.id) {
+	<pihub-tree-node [node]="node" [(expandedIds)]="expandedIds" [nodes]="nodes()" [template]="template()" (onClick)="expand(node.id)" />
+}

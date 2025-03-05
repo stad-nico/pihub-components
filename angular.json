@@ -92,7 +92,8 @@
 							},
 							{
 								"glob": "**/*",
-								"input": "projects/pihub/documentation/assets"
+								"input": "projects/pihub/documentation/assets",
+								"output": "assets"
 							}
 						],
 						"styles": [
@@ -152,7 +153,8 @@
 						"assets": [
 							{
 								"glob": "**/*",
-								"input": "projects/pihub/documentation/assets"
+								"input": "projects/pihub/documentation/assets",
+								"output": "assets"
 							}
 						],
 						"styles": ["projects/pihub/documentation/src/styles.scss"],

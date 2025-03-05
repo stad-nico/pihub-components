@@ -4,9 +4,7 @@
 *storybook.log
 .angular
 
-
 # NgDoc files
 /ng-doc
 
-# NgDoc files
-/ng-doc
+.eslintcache
