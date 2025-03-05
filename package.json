@@ -56,5 +56,8 @@
 		"typescript": "~5.7.2",
 		"typescript-eslint": "^8.25.0"
 	},
+	"optionalDependencies": {
+		"@parcel/watcher-linux-x64-glibc": "^2.5.1"
+	},
 	"type": "commonjs"
 }
