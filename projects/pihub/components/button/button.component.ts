@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------
  * Copyright (c) 2025 - Nicolas Stadler. All rights reserved.
- * Licensed under the MIT License. See the project root for more information.
+ * Licensed under the CC BY-NC-SA 4.0 License. See the project root for more information.
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { Component, HostBinding, input, output } from '@angular/core';
+import { Component, HostBinding, HostListener, input, output } from '@angular/core';
 
 @Component({
 	selector: 'pihub-button',
@@ -31,10 +31,17 @@ export class ButtonComponent {
 	/**
 	 * Output that emits when the button is clicked.
 	 */
-	public readonly click = output<void>();
+	public readonly buttonClick = output();
 
 	@HostBinding('class')
 	private get className() {
 		return [this.style(), this.disabled() ? 'disabled' : null].join(' ');
+	}
+
+	@HostListener('click')
+	private onClick() {
+		if (!this.disabled()) {
+			this.buttonClick.emit();
+		}
 	}
 }

@@ -1,6 +1,6 @@
 /**-------------------------------------------------------------------------
  * Copyright (c) 2025 - Nicolas Stadler. All rights reserved.
- * Licensed under the MIT License. See the project root for more information.
+ * Licensed under the CC BY-NC-SA 4.0 License. See the project root for more information.
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
@@ -62,7 +62,7 @@ export class DataGridComponent<Row extends DataGridItem> {
 	 * The amount of rows to be selected simultaneously.
 	 * Set to `0` to disable selection or set it to `-1` to allow selecting all rows.
 	 */
-	public readonly maxSelection = input<number | undefined>(-1);
+	public readonly maxSelection = input<number>(-1);
 
 	/**
 	 * Whether to show the column header.
@@ -172,7 +172,7 @@ export class DataGridComponent<Row extends DataGridItem> {
 		} else {
 			if (isAlreadySelected) {
 				newSelectedIds = this.selectedIds().filter((selectedId) => selectedId !== id);
-			} else if (this.maxSelection() === -1 || this.selectedIds().length < this.maxSelection()!) {
+			} else if (this.maxSelection() === -1 || this.selectedIds().length < this.maxSelection()) {
 				newSelectedIds = [...this.selectedIds(), id];
 			}
 		}

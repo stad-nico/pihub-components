@@ -10,7 +10,7 @@ for (const file of filesToProcess) {
 		continue;
 	}
 
-	insertDisclaimer(file);
+	void insertDisclaimer(file);
 }
 
 function getGitAuthor(): string {
@@ -27,7 +27,7 @@ function getDisclaimer(year: number, author: string): string {
 	return [
 		`/**-------------------------------------------------------------------------`,
 		` * Copyright (c) ${year} - ${author}. All rights reserved.`,
-		` * Licensed under the MIT License. See the project root for more information.`,
+		` * Licensed under the CC BY-NC-SA 4.0 License. See the project root for more information.`,
 		` *`,
 		` * @author ${author}`,
 		` *-------------------------------------------------------------------------*/\n`,
@@ -42,7 +42,7 @@ async function insertDisclaimer(filePath: string) {
 		return await writeFile(filePath, getDisclaimer(currentYear, author) + content);
 	}
 
-	const matches = content.match(/Copyright \(c\) (\d{4}) - (.*). All rights reserved./);
+	const matches = /Copyright \(c\) (\d{4}) - (.*). All rights reserved./.exec(content);
 
 	if (!matches) {
 		throw new Error(`Disclaimer already exists but no author or year could be matched in file ${filePath}`);
