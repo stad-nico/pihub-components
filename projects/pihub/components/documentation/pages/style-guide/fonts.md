@@ -1,4 +1,6 @@
 ---
+title: Fonts
+route: fonts
 keyword: Fonts
 ---
 

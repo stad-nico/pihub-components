@@ -1,8 +1,35 @@
 ---
+title: Colors
+route: colors
 keyword: Colors
 ---
 
+> **Alert**
+> **Do not** use these colors in your design directly. 
+> Always prefer the design tokens specified in `*Tokens`
+
 ## Palette
+
+<table style="table-layout: fixed">
+	<tr style="height: 100px">
+		<td style="background-color: var(--color-primary); border-radius: 10px 0 0 10px"></td>
+		<td style="background-color: var(--color-secondary)"></td>
+		<td style="background-color: var(--color-neutral)"></td>
+		<td style="background-color: var(--color-success)"></td>
+		<td style="background-color: var(--color-warning)"></td>
+		<td style="background-color: var(--color-error); border-radius: 0 10px 10px 0"></td>
+	</tr>
+	<tr style="height: 50px">
+		<th>primary<br>#3b62ed</th>
+		<th>secondary<br>#edf0fd</th>
+		<th>neutral<br>#a6b5e3</th>
+		<th>success<br>#29a847</th>
+		<th>warning<br>#ffc105</th>
+		<th>error<br>#dc3848</th>
+	</tr>
+</table>
+
+## Shades
 
 ### Primary
 
@@ -189,5 +216,3 @@ keyword: Colors
 		<td style="background-color: var(--color-error-1000); border-radius: 0px 10px 10px 0px"></td>
 	</tr>
 </table>
-
-## Tokens
