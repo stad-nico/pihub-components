@@ -143,6 +143,15 @@
 	--color-text-tertiary: var(--color-neutral-600);
 	--color-text-highlight: var(--color-primary-400);
 
+	--color-background-primary: var(--color-neutral-1000);
+	--color-background-secondary: var(--color-neutral-900);
+	--color-background-tertiary: var(--color-neutral-800);
+
+	--color-container-active: var(--color-secondary-900);
+	--color-container-hover: var(--color-secondary-600);
+	--color-container-selected: var(--color-secondary-200);
+	--color-container-selected-hover: var(--color-primary-900);
+
 	--size-text-12: 12px;
 	--size-text-14: 14px;
 	--size-text-16: 16px;
@@ -153,12 +162,16 @@
 	--size-text-40: 40px;
 	--size-text-48: 48px;
 
-	--color-background-primary: var(--color-neutral-1000);
-	--color-background-secondary: var(--color-neutral-900);
-	--color-background-tertiary: var(--color-neutral-800);
-
-	--color-container-active: var(--color-secondary-900);
-	--color-container-hover: var(--color-secondary-600);
-	--color-container-selected: var(--color-secondary-200);
-	--color-container-selected-hover: var(--color-primary-900);
+	--size-spacing-2: 2px;
+	--size-spacing-4: 4px;
+	--size-spacing-8: 8px;
+	--size-spacing-12: 12px;
+	--size-spacing-16: 16px;
+	--size-spacing-24: 24px;
+	--size-spacing-32: 32px;
+	--size-spacing-40: 40px;
+	--size-spacing-48: 48px;
+	--size-spacing-56: 56px;
+	--size-spacing-64: 64px;
+	--size-spacing-72: 72px;
 }

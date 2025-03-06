@@ -54,6 +54,23 @@ If you need component specific tokens please add these under `*Tokens#Components
 | `--color-text-tertiary`  | <div class="color-token" style="background-color: var(--color-text-tertiary)"></div>  |
 | `--color-text-highlight` | <div class="color-token" style="background-color: var(--color-text-highlight)"></div> |
 
+## Spacing
+
+| Token               | Preview                                                                                  |
+| ------------------- | ---------------------------------------------------------------------------------------- |
+| `--size-spacing-2`  | <div class="spacing-preview" style="width: var(--size-spacing-2); aspect-ratio: 1 / 1">  |
+| `--size-spacing-4`  | <div class="spacing-preview" style="width: var(--size-spacing-4); aspect-ratio: 1 / 1">  |
+| `--size-spacing-8`  | <div class="spacing-preview" style="width: var(--size-spacing-8); aspect-ratio: 1 / 1">  |
+| `--size-spacing-12` | <div class="spacing-preview" style="width: var(--size-spacing-12); aspect-ratio: 1 / 1"> |
+| `--size-spacing-16` | <div class="spacing-preview" style="width: var(--size-spacing-16); aspect-ratio: 1 / 1"> |
+| `--size-spacing-24` | <div class="spacing-preview" style="width: var(--size-spacing-24); aspect-ratio: 1 / 1"> |
+| `--size-spacing-32` | <div class="spacing-preview" style="width: var(--size-spacing-32); aspect-ratio: 1 / 1"> |
+| `--size-spacing-40` | <div class="spacing-preview" style="width: var(--size-spacing-40); aspect-ratio: 1 / 1"> |
+| `--size-spacing-48` | <div class="spacing-preview" style="width: var(--size-spacing-48); aspect-ratio: 1 / 1"> |
+| `--size-spacing-56` | <div class="spacing-preview" style="width: var(--size-spacing-56); aspect-ratio: 1 / 1"> |
+| `--size-spacing-64` | <div class="spacing-preview" style="width: var(--size-spacing-64); aspect-ratio: 1 / 1"> |
+| `--size-spacing-72` | <div class="spacing-preview" style="width: var(--size-spacing-72); aspect-ratio: 1 / 1"> |
+
 ## Components
 
 ### Button
