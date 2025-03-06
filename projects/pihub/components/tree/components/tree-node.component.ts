@@ -19,7 +19,7 @@ export class TreeNodeComponent<Node extends TreeNode> {
 	/**
 	 * The node to display.
 	 */
-	public readonly node = model.required<Node>();
+	public readonly node = input.required<Node>();
 
 	/**
 	 * The list of all the nodes.
@@ -32,19 +32,19 @@ export class TreeNodeComponent<Node extends TreeNode> {
 	public readonly expandedIds = model<Array<string>>([]);
 
 	/**
+	 * The id of the selected node.
+	 */
+	public readonly selectedId = model<string | null>(null);
+
+	/**
 	 * The template of the node.
 	 */
 	public readonly template = input.required<TemplateRef<unknown>>();
 
 	/**
-	 * The id of the selected node.
-	 */
-	public readonly selectedId = input<string | undefined>();
-
-	/**
 	 * The event emitter triggered when this node was clicked.
 	 */
-	public readonly onClick = output();
+	public readonly nodeSelected = output();
 
 	/**
 	 * The signal to get the child nodes.
@@ -72,17 +72,19 @@ export class TreeNodeComponent<Node extends TreeNode> {
 	private readonly childrenTemplate = viewChild.required<TemplateRef<unknown>>('childrenTemplate');
 
 	/**
-	 * Expand a child node.
+	 * Select and expand a child node.
 	 *
-	 * @param id the id of the node to expand
+	 * @param id the id of the node
 	 */
-	protected expand(id: string): void {
+	protected select(id: string): void {
 		this.expandedIds.update((expandedIds) => [...expandedIds, id]);
+		this.selectedId.set(id);
 	}
 
 	@HostListener('click', ['$event'])
-	private onClickHandler(e: Event): void {
-		e.stopPropagation();
-		this.onClick.emit();
+	private onClickHandler(event: Event): void {
+		event.stopPropagation();
+
+		this.nodeSelected.emit();
 	}
 }

@@ -5,10 +5,10 @@
 		<pihub-tree-node
 			[node]="child"
 			[(expandedIds)]="expandedIds"
+			[(selectedId)]="selectedId"
 			[nodes]="nodes()"
 			[template]="template()"
-			[selectedId]="selectedId()"
-			(onClick)="expand(child.id)"
+			(nodeSelected)="select(child.id)"
 		/>
 	}
 </ng-template>

@@ -28,6 +28,11 @@ export class TreeComponent<Node extends TreeNode> {
 	public readonly expandedIds = model<Array<string>>([]);
 
 	/**
+	 * The id of the selected node.
+	 */
+	public readonly selectedId = model<string | null>(null);
+
+	/**
 	 * The directive of the template.
 	 */
 	private readonly treeNodeDirective = contentChild.required(TreeNodeDirective);
@@ -45,11 +50,12 @@ export class TreeComponent<Node extends TreeNode> {
 	protected readonly rootNodes = computed(() => this.nodes().filter((node) => !node.parentId || node.parentId === TreeRoot));
 
 	/**
-	 * Expand a child node.
+	 * Select and expand a child node.
 	 *
-	 * @param id the id of the node to expand
+	 * @param id the id of the node
 	 */
-	protected expand(id: string): void {
+	protected select(id: string): void {
 		this.expandedIds.update((expandedIds) => [...expandedIds, id]);
+		this.selectedId.set(id);
 	}
 }

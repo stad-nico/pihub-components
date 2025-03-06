@@ -32,7 +32,9 @@ export class TreeDemoComponent {
 
 	public readonly expandedIds = model<Array<string>>([]);
 
-	protected toggleExpanded(event: MouseEvent, id: string): void {
+	public readonly selectedId = model<string | null>(null);
+
+	protected toggleExpanded(event: MouseEvent | KeyboardEvent, id: string): void {
 		event.stopPropagation();
 
 		if (this.expandedIds().includes(id)) {

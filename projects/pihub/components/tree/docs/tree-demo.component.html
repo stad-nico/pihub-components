@@ -1,10 +1,12 @@
-<pihub-tree [nodes]="nodes()" [(expandedIds)]="expandedIds">
+<pihub-tree [nodes]="nodes()" [(expandedIds)]="expandedIds" [(selectedId)]="selectedId">
 	<ng-template treeNode let-node>
-		<section>
+		<section [class.selected]="node.isSelected">
 			<header>
 				<div
 					class="icon arrow"
 					(click)="toggleExpanded($event, node.id)"
+					(keydown)="toggleExpanded($event, node.id)"
+					tabindex="0"
 					[class.hidden]="!node.hasChildren"
 					[class.rotated]="!node.isExpanded"
 				>
