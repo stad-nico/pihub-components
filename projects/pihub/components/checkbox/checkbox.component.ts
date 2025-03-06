@@ -1,6 +1,6 @@
 /**-------------------------------------------------------------------------
  * Copyright (c) 2025 - Nicolas Stadler. All rights reserved.
- * Licensed under the MIT License. See the project root for more information.
+ * Licensed under the CC BY-NC-SA 4.0 License. See the project root for more information.
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
@@ -21,7 +21,7 @@ export class CheckboxComponent {
 	/**
 	 * The output that will fire if this checkbox is clicked.
 	 */
-	public readonly onClick = output<void>();
+	public readonly checkboxClicked = output();
 
 	/**
 	 * Set the class name depending on `checked`.
@@ -36,6 +36,6 @@ export class CheckboxComponent {
 	 */
 	@HostListener('click')
 	private onClickHandler(): void {
-		this.onClick.emit();
+		this.checkboxClicked.emit();
 	}
 }

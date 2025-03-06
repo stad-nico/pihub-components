@@ -1,6 +1,6 @@
 /**-------------------------------------------------------------------------
  * Copyright (c) 2025 - Nicolas Stadler. All rights reserved.
- * Licensed under the MIT License. See the project root for more information.
+ * Licensed under the CC BY-NC-SA 4.0 License. See the project root for more information.
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
@@ -23,7 +23,7 @@ export class BreadcrumbsComponent {
 	 * The event emitter that fires if the user clicks on a crumb.
 	 * It emits the id of the clicked crumb.
 	 */
-	public readonly onClick = output<string>();
+	public readonly crumbClick = output<string>();
 
 	/**
 	 * The id of the `home` crumb.
