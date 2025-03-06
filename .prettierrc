@@ -3,13 +3,19 @@
 	"trailingComma": "es5",
 	"useTabs": true,
 	"tabWidth": 4,
-	"printWidth": 140,
+	"printWidth": 14000,
 	"singleAttributePerLine": false,
 	"overrides": [
 		{
 			"files": ["*.html"],
 			"options": {
 				"parser": "angular"
+			}
+		},
+		{
+			"files": ["*.md"],
+			"options": {
+				"printWidth": 1800
 			}
 		}
 	]

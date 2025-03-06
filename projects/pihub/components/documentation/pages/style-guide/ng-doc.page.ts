@@ -6,10 +6,10 @@
  *-------------------------------------------------------------------------*/
 import { NgDocPage } from '@ng-doc/core';
 
-const ColorsPage: NgDocPage = {
-	title: 'Colors',
-	mdFile: './index.md',
+const StyleGuidePage: NgDocPage = {
+	title: 'Style Guide',
+	mdFile: ['./index.md', './colors.md', './tokens.md', './fonts.md'],
 	order: 0,
 };
 
-export default ColorsPage;
+export default StyleGuidePage;
