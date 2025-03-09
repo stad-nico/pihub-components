@@ -14,7 +14,7 @@
 	@for (row of getRows(); track row.id) {
 		<section class="row" [class.isSelected]="isRowSelected(row.id)">
 			<div class="checkbox-wrapper" [@checkboxFade]="getCheckboxAnimationState(row)">
-				<pihub-checkbox [checked]="isRowSelected(row.id)" (onClick)="onCheckboxClick(row.id)" />
+				<pihub-checkbox [checked]="isRowSelected(row.id)" (checkboxClicked)="onCheckboxClick(row.id)" />
 			</div>
 
 			<section
