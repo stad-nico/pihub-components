@@ -4,7 +4,7 @@ keyword: Data Grid
 
 This component displays data as rows in a grid.
 
-## Usage
+## Preview
 
 {{ NgDocActions.demo("DataGridDemoComponent", {expanded: true, defaultTab: "HTML"}) }}
 

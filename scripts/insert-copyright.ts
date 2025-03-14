@@ -34,7 +34,7 @@ function getDisclaimer(year: number, author: string): string {
 	].join('\n');
 }
 
-async function insertDisclaimer(filePath: string) {
+async function insertDisclaimer(filePath: string): Promise<void> {
 	const content = (await readFile(filePath)).toString().replace(/\r\n/g, '\n');
 
 	if (!content.includes('Copyright (c)')) {
@@ -44,7 +44,7 @@ async function insertDisclaimer(filePath: string) {
 
 	const matches = /Copyright \(c\) (\d{4}) - (.*). All rights reserved./.exec(content);
 
-	if (!matches) {
+	if (!matches?.[1] || !matches[2]) {
 		throw new Error(`Disclaimer already exists but no author or year could be matched in file ${filePath}`);
 	}
 

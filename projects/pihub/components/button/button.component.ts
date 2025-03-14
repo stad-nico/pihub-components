@@ -4,13 +4,19 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { Component, HostBinding, HostListener, input, output } from '@angular/core';
+import { booleanAttribute, Component, computed, input, output } from '@angular/core';
+import { IconComponent } from '@pihub/components/icon';
+import { Icon } from '../icon/library';
 
 @Component({
 	selector: 'pihub-button',
 	templateUrl: './button.component.html',
 	styleUrl: './button.component.scss',
-	imports: [],
+	imports: [IconComponent],
+	host: {
+		'(click)': 'onClick()',
+		'[class]': 'class()',
+	},
 })
 export class ButtonComponent {
 	/**
@@ -19,27 +25,71 @@ export class ButtonComponent {
 	public readonly title = input.required<string>();
 
 	/**
-	 * Whether the button is currently disabled.
+	 * The optional icon of the button.
 	 */
-	public readonly disabled = input<boolean>(false);
+	public readonly icon = input<Icon | null>(null);
 
 	/**
-	 * The style of the button.
+	 * Whether the button is currently disabled.
 	 */
-	public readonly style = input<'primary' | 'secondary' | 'tertiary'>('primary');
+	public readonly disabled = input(false, { transform: booleanAttribute });
+
+	/**
+	 * The variant of the button.
+	 */
+	public readonly variant = input<'primary' | 'secondary' | 'tertiary'>('primary');
+
+	/**
+	 * The size of the button.
+	 */
+	public readonly size = input<'small' | 'medium' | 'large'>('medium');
 
 	/**
 	 * Output that emits when the button is clicked.
 	 */
 	public readonly buttonClick = output();
 
-	@HostBinding('class')
-	private get className() {
-		return [this.style(), this.disabled() ? 'disabled' : null].join(' ');
-	}
+	/**
+	 * The size of the icon.
+	 * @internal
+	 */
+	protected readonly iconSize = computed(() => {
+		switch (this.size()) {
+			case 'small':
+				return '16';
+			case 'medium':
+				return '20';
+			case 'large':
+				return '24';
+		}
+	});
 
-	@HostListener('click')
-	private onClick() {
+	/**
+	 * The color of the icon.
+	 * @internal
+	 */
+	protected readonly iconColor = computed(() => {
+		switch (this.variant()) {
+			case 'primary':
+				return '--color-button-primary-text';
+			case 'secondary':
+				return this.disabled() ? '--color-button-secondary-disabled-text' : '--color-button-secondary-text';
+			case 'tertiary':
+				return this.disabled() ? '--color-button-tertiary-disabled-text' : '--color-button-tertiary-text';
+		}
+	});
+
+	/**
+	 * The class of the button.
+	 */
+	private readonly class = computed(() =>
+		[this.variant(), this.size(), this.disabled() ? 'disabled' : null, this.icon() ? 'has-icon' : null].join(' ')
+	);
+
+	/**
+	 * Handler that will be executed when this component is clicked.
+	 */
+	private onClick(): void {
 		if (!this.disabled()) {
 			this.buttonClick.emit();
 		}

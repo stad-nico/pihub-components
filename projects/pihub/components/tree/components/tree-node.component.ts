@@ -5,7 +5,7 @@
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, computed, HostListener, input, model, output, TemplateRef, viewChild } from '@angular/core';
+import { Component, computed, input, model, output, TemplateRef, viewChild } from '@angular/core';
 import { TreeNode } from '../models/tree-node';
 
 @Component({
@@ -14,6 +14,9 @@ import { TreeNode } from '../models/tree-node';
 	templateUrl: './tree-node.component.html',
 	styleUrl: './tree-node.component.scss',
 	imports: [NgTemplateOutlet],
+	host: {
+		'(click)': 'onClick($event)',
+	},
 })
 export class TreeNodeComponent<Node extends TreeNode> {
 	/**
@@ -81,8 +84,10 @@ export class TreeNodeComponent<Node extends TreeNode> {
 		this.selectedId.set(id);
 	}
 
-	@HostListener('click', ['$event'])
-	private onClickHandler(event: Event): void {
+	/**
+	 * Handler that will be executed when this component is clicked.
+	 */
+	private onClick(event: Event): void {
 		event.stopPropagation();
 
 		this.nodeSelected.emit();

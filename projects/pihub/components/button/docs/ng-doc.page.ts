@@ -5,20 +5,20 @@
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { NgDocPage } from '@ng-doc/core';
-import { ButtonComponent } from '@pihub/components/button/button.component';
 import ComponentsCategory from '../../documentation/categories/ng-doc.category';
+import { ButtonDemoComponent } from './button-demo.component';
 
 const ButtonPage: NgDocPage = {
 	title: 'Button',
 	mdFile: './index.md',
 	category: ComponentsCategory,
-	demos: { ButtonComponent },
+	demos: { ButtonDemoComponent },
 	playgrounds: {
-		ButtonPlayground: {
-			target: ButtonComponent,
+		ButtonDemoPlayground: {
+			target: ButtonDemoComponent,
 			template: `<ng-doc-selector></ng-doc-selector>`,
 			defaults: {
-				title: 'Example',
+				title: 'Button',
 				style: 'primary',
 				disabled: false,
 			},

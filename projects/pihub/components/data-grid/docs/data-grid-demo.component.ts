@@ -4,7 +4,7 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { Component, input, signal } from '@angular/core';
+import { booleanAttribute, Component, input, numberAttribute, signal } from '@angular/core';
 import { ColumnDirective, DataGridComponent, DataGridItem, EmptyStateDirective } from '@pihub/components/data-grid';
 
 interface User extends DataGridItem {
@@ -20,15 +20,15 @@ interface User extends DataGridItem {
 	imports: [DataGridComponent, ColumnDirective, EmptyStateDirective],
 })
 export class DataGridDemoComponent {
-	public readonly maxSelection = input<number>(-1);
+	public readonly maxSelection = input(-1, { transform: numberAttribute });
 
-	public readonly showHeader = input<boolean>(false);
+	public readonly showHeader = input(false, { transform: booleanAttribute });
 
-	public readonly endlessScrolling = input<boolean>(true);
+	public readonly endlessScrolling = input(true, { transform: booleanAttribute });
 
-	public readonly rowsPerPage = input<number>(10);
+	public readonly rowsPerPage = input(10, { transform: numberAttribute });
 
-	public readonly page = input<number>(1);
+	public readonly page = input(1, { transform: numberAttribute });
 
 	protected readonly columns = signal<Array<string>>(['Name', 'Id', 'Age', 'Status']);
 

@@ -4,19 +4,23 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { Component, HostBinding, HostListener, input, output } from '@angular/core';
+import { booleanAttribute, Component, computed, input, output } from '@angular/core';
 
 @Component({
 	standalone: true,
 	selector: 'pihub-checkbox',
 	templateUrl: './checkbox.component.html',
 	styleUrl: './checkbox.component.scss',
+	host: {
+		'(click)': 'onClick()',
+		'[class]': 'class()',
+	},
 })
 export class CheckboxComponent {
 	/**
 	 * Whether the checkbox is currently checked.
 	 */
-	public readonly checked = input<boolean>(false);
+	public readonly checked = input(false, { transform: booleanAttribute });
 
 	/**
 	 * The output that will fire if this checkbox is clicked.
@@ -24,18 +28,14 @@ export class CheckboxComponent {
 	public readonly checkboxClicked = output();
 
 	/**
-	 * Set the class name depending on `checked`.
+	 * The class of the checkbox.
 	 */
-	@HostBinding('class')
-	private get className(): string {
-		return this.checked() ? 'checked' : 'unchecked';
-	}
+	private readonly class = computed(() => (this.checked() ? 'checked' : 'unchecked'));
 
 	/**
-	 * Listener that executes when this component is clicked.
+	 * Handler that will be executed when this component is clicked.
 	 */
-	@HostListener('click')
-	private onClickHandler(): void {
+	private onClick(): void {
 		this.checkboxClicked.emit();
 	}
 }

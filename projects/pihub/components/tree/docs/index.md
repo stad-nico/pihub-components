@@ -4,7 +4,7 @@ keyword: Tree
 
 This component displays a tree with nested items.
 
-## Usage
+## Preview
 
 {{ NgDocActions.demo("TreeDemoComponent", {expanded: true, defaultTab: "HTML"}) }}
 

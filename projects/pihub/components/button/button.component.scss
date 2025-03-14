@@ -1,16 +1,13 @@
 :host {
 	display: flex;
 	flex-direction: row;
-	align-items: flex-start;
+	align-items: center;
 	justify-content: center;
 
 	position: relative;
 
-	gap: 4px;
-
 	width: min-content;
 
-	padding: 8px 22px;
 	border-radius: 999px;
 
 	transition: background-color 0.2s ease;
@@ -81,14 +78,57 @@
 		}
 	}
 
+	&.small {
+		padding: 6px 16.5px;
+
+		&.has-icon {
+			gap: 4px;
+			padding: 6px 12px;
+		}
+
+		> .title {
+			font-size: var(--size-text-12);
+		}
+	}
+
+	&.medium {
+		padding: 7px 19.25px;
+
+		&.has-icon {
+			gap: 5px;
+			padding: 7px 14px;
+		}
+
+		> .title {
+			font-size: var(--size-text-14);
+		}
+	}
+
+	&.large {
+		padding: 8px 22px;
+
+		&.has-icon {
+			gap: 6px;
+			padding: 8px 16px;
+		}
+
+		> .title {
+			font-size: var(--size-text-16);
+		}
+	}
+
 	> .title {
 		font-family: 'Satoshi-Medium';
-		font-size: 14px;
+		font-size: var(--size-text-14);
 
 		transition: color 0.2s ease;
 
 		user-select: none;
 
 		white-space: nowrap;
+	}
+
+	> .icon {
+		margin-top: -1px;
 	}
 }
