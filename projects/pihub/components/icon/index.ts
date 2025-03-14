@@ -4,18 +4,6 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { NgDocApi } from '@ng-doc/core';
+import { IconComponent } from './icon.component';
 
-const Api: NgDocApi = {
-	title: 'API Reference',
-	scopes: [
-		{
-			name: 'Components',
-			route: 'test',
-			include: './**/*.component.ts',
-		},
-	],
-	order: 2,
-};
-
-export default Api;
+export { IconComponent };

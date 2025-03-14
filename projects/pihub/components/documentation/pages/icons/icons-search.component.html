@@ -1,0 +1,62 @@
+<form [formGroup]="formGroup">
+	<ng-doc-input-wrapper class="ng-doc-api-list-filter-input">
+		<ng-doc-icon icon="search" ngDocInputWrapperLeft></ng-doc-icon>
+		<input ngDocInputString formControlName="filter" placeholder="Icon" ngDocAutofocus />
+	</ng-doc-input-wrapper>
+</form>
+
+<section class="solid">
+	@if (solidIcons().length > 0) {
+		<h3>Solid</h3>
+		<div>
+			@for (icon of solidIcons(); track icon.name) {
+				<div>
+					<pihub-icon size="40" [icon]="icon" color="black" />
+					<p>{{ icon.name }}</p>
+				</div>
+			}
+		</div>
+	}
+</section>
+
+<section class="regular">
+	@if (regularIcons().length > 0) {
+		<h3>Regular</h3>
+		<div>
+			@for (icon of regularIcons(); track icon.name) {
+				<div>
+					<pihub-icon size="40" [icon]="icon" color="black" />
+					<p>{{ icon.name }}</p>
+				</div>
+			}
+		</div>
+	}
+</section>
+
+<section class="thin">
+	@if (thinIcons().length > 0) {
+		<h3>Thin</h3>
+		<div>
+			@for (icon of thinIcons(); track icon.name) {
+				<div>
+					<pihub-icon size="40" [icon]="icon" color="black" />
+					<p>{{ icon.name }}</p>
+				</div>
+			}
+		</div>
+	}
+</section>
+
+<section class="light">
+	@if (lightIcons().length > 0) {
+		<h3>Light</h3>
+		<div>
+			@for (icon of lightIcons(); track icon.name) {
+				<div>
+					<pihub-icon size="40" [icon]="icon" color="black" />
+					<p>{{ icon.name }}</p>
+				</div>
+			}
+		</div>
+	}
+</section>

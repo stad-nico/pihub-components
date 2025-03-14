@@ -1,0 +1,55 @@
+:host {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+
+	gap: 10px;
+
+	width: 100%;
+
+	ng-doc-input-wrapper {
+		margin-bottom: 10px;
+	}
+
+	> form {
+		width: 100%;
+
+		input {
+			border: none;
+			outline: none;
+		}
+	}
+
+	> section {
+		> h3 {
+			margin-bottom: 10px;
+		}
+
+		> div {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+
+			gap: 10px;
+
+			> div {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+
+				cursor: pointer;
+
+				aspect-ratio: 1 / 1;
+				height: 78px;
+
+				padding: 8px 10px;
+				border-radius: 10px;
+
+				&:hover {
+					background-color: rgba(216, 216, 216, 0.3);
+				}
+			}
+		}
+	}
+}

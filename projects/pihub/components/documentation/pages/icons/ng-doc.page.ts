@@ -4,18 +4,15 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { NgDocApi } from '@ng-doc/core';
+import { NgDocPage } from '@ng-doc/core';
+import { IconsSearchComponent } from './icons-search.component';
 
-const Api: NgDocApi = {
-	title: 'API Reference',
-	scopes: [
-		{
-			name: 'Components',
-			route: 'test',
-			include: './**/*.component.ts',
-		},
-	],
-	order: 2,
+const IconsPage: NgDocPage = {
+	title: 'Icons',
+	mdFile: './index.md',
+	route: 'icons',
+	demos: { IconsSearchComponent },
+	order: 1,
 };
 
-export default Api;
+export default IconsPage;
