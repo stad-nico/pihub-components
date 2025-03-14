@@ -22,8 +22,8 @@ module.exports = tseslint.config(
 		},
 		extends: [
 			eslint.configs.recommended,
-			...tseslint.configs.strictTypeChecked,
-			...tseslint.configs.stylisticTypeChecked,
+			tseslint.configs.strictTypeChecked,
+			tseslint.configs.stylisticTypeChecked,
 			...angular.configs.tsRecommended,
 		],
 		processor: angular.processInlineTemplates,
@@ -32,6 +32,8 @@ module.exports = tseslint.config(
 			'@angular-eslint/component-selector': ['error', { type: ['element', 'attribute'], prefix: 'pihub', style: 'kebab-case' }],
 			'@typescript-eslint/no-confusing-void-expression': 'off',
 			'@typescript-eslint/restrict-template-expressions': 'off',
+			'@typescript-eslint/no-misused-spread': 'warn',
+			'@typescript-eslint/explicit-function-return-type': ['error', { allowIIFEs: true }],
 		},
 	},
 	{

@@ -1,0 +1,1 @@
+{{ NgDocActions.demo("IconsSearchComponent", {class: "center", container: false}) }}
