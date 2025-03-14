@@ -4,7 +4,7 @@ keyword: Breadcrumbs
 
 This component displays breadcrumbs.
 
-## Usage
+## Preview
 
 {{ NgDocActions.playground("BreadcrumbsPlayground", {hideSidePanel: true, expanded: true }) }}
 

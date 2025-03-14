@@ -4,7 +4,7 @@ keyword: Checkbox
 
 This component displays a simple checkbox.
 
-## Usage
+## Preview
 
 {{ NgDocActions.playground("CheckboxPlayground", {hideSidePanel: true, expanded: true }) }}
 

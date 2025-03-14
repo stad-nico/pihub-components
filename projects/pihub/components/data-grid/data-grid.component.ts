@@ -6,7 +6,7 @@
  *-------------------------------------------------------------------------*/
 import { animate, group, state, style, transition, trigger } from '@angular/animations';
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, computed, contentChild, contentChildren, input, model, signal } from '@angular/core';
+import { booleanAttribute, Component, computed, contentChild, contentChildren, input, model, numberAttribute, signal } from '@angular/core';
 import { CheckboxComponent } from '@pihub/components/checkbox';
 import { ColumnDirective } from './directives/column.directive';
 import { EmptyStateDirective } from './directives/empty-state.directive';
@@ -62,22 +62,22 @@ export class DataGridComponent<Row extends DataGridItem> {
 	 * The amount of rows to be selected simultaneously.
 	 * Set to `0` to disable selection or set it to `-1` to allow selecting all rows.
 	 */
-	public readonly maxSelection = input<number>(-1);
+	public readonly maxSelection = input(-1, { transform: numberAttribute });
 
 	/**
 	 * Whether to show the column header.
 	 */
-	public readonly showHeader = input<boolean>(false);
+	public readonly showHeader = input(false, { transform: booleanAttribute });
 
 	/**
 	 * Whether all rows should be displayed on one page with endless scrolling.
 	 */
-	public readonly endlessScrolling = input<boolean>(true);
+	public readonly endlessScrolling = input(true, { transform: booleanAttribute });
 
 	/**
 	 * How many rows should be shown per page. Only takes effect if `endlessScrolling` is set to `false`.
 	 */
-	public readonly rowsPerPage = input<number>(10);
+	public readonly rowsPerPage = input(10, { transform: numberAttribute });
 
 	/**
 	 * Current page. Only takes effect if `endlessScrolling` is set to `false`.

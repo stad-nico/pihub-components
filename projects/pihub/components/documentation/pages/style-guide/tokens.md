@@ -61,6 +61,7 @@ If you need component specific tokens please add these under `*Tokens#Components
 | `--size-spacing-2`  | <div class="spacing-preview" style="width: var(--size-spacing-2); aspect-ratio: 1 / 1">  |
 | `--size-spacing-4`  | <div class="spacing-preview" style="width: var(--size-spacing-4); aspect-ratio: 1 / 1">  |
 | `--size-spacing-8`  | <div class="spacing-preview" style="width: var(--size-spacing-8); aspect-ratio: 1 / 1">  |
+| `--size-spacing-10` | <div class="spacing-preview" style="width: var(--size-spacing-10); aspect-ratio: 1 / 1"> |
 | `--size-spacing-12` | <div class="spacing-preview" style="width: var(--size-spacing-12); aspect-ratio: 1 / 1"> |
 | `--size-spacing-16` | <div class="spacing-preview" style="width: var(--size-spacing-16); aspect-ratio: 1 / 1"> |
 | `--size-spacing-24` | <div class="spacing-preview" style="width: var(--size-spacing-24); aspect-ratio: 1 / 1"> |
