@@ -1,8 +1,6 @@
 {
 	"singleQuote": true,
 	"trailingComma": "es5",
-	"useTabs": true,
-	"tabWidth": 4,
 	"printWidth": 140,
 	"singleAttributePerLine": false,
 	"endOfLine": "lf",
@@ -11,12 +9,6 @@
 			"files": ["*.html"],
 			"options": {
 				"parser": "angular"
-			}
-		},
-		{
-			"files": ["*.md"],
-			"options": {
-				"printWidth": 180
 			}
 		}
 	]
