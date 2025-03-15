@@ -1,3 +1,8 @@
+ng-doc-api-list * {
+	margin: revert;
+	padding: revert;
+}
+
 :root {
 	--ng-doc-app-max-width: 20000px;
 	--ng-doc-navbar-background: var(--color-neutral-600);
