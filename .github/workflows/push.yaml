@@ -53,6 +53,6 @@ jobs:
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
               run: |
-                  cd projects/pihub/components
+                  cd dist/pihub/components
                   npm version prerelease --preid="${{ env.IMAGE_NAME }}-rc" --no-git-tag-version
                   npm publish
