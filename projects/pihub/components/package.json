@@ -1,6 +1,6 @@
 {
 	"name": "@pihub/components",
-	"version": "0.0.1",
+	"version": "3.0.0",
 	"peerDependencies": {
 		"@angular/common": "^19.1.0",
 		"@angular/core": "^19.1.0"
@@ -12,5 +12,8 @@
 	"publishConfig": {
 		"access": "public",
 		"registry": "https://registry.npmjs.org"
-	}
+	},
+	"files": [
+		"dist"
+	]
 }

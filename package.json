@@ -62,8 +62,5 @@
 	"optionalDependencies": {
 		"@parcel/watcher-linux-x64-glibc": "^2.5.1"
 	},
-	"type": "commonjs",
-	"files": [
-		"dist"
-	]
+	"type": "commonjs"
 }
