@@ -13,7 +13,7 @@ if (!DEFAULT_BRANCH) {
 /**
  * @type {Array<import('semantic-release').BranchSpec>}
  */
-const branches = BRANCH_NAME === DEFAULT_BRANCH ? [DEFAULT_BRANCH] : [{ name: BRANCH_NAME, prerelease: true }];
+const branches = BRANCH_NAME === DEFAULT_BRANCH ? [DEFAULT_BRANCH] : [DEFAULT_BRANCH, { name: BRANCH_NAME, prerelease: true }];
 
 /**
  * @type {Array<import('semantic-release').PluginSpec>}
