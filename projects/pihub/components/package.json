@@ -9,6 +9,10 @@
 		"tslib": "^2.3.0"
 	},
 	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/stad-nico/pihub-components.git"
+	},
 	"publishConfig": {
 		"access": "public",
 		"registry": "https://registry.npmjs.org"
