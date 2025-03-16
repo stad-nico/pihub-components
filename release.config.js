@@ -11,9 +11,14 @@ if (!DEFAULT_BRANCH) {
 }
 
 /**
+ * @type {import('semantic-release').BranchSpec}
+ */
+const prereleaseBranch = { name: BRANCH_NAME, prerelease: BRANCH_NAME.split('/').pop() };
+
+/**
  * @type {Array<import('semantic-release').BranchSpec>}
  */
-const branches = BRANCH_NAME === DEFAULT_BRANCH ? [DEFAULT_BRANCH] : [DEFAULT_BRANCH, { name: BRANCH_NAME, prerelease: true }];
+const branches = BRANCH_NAME === DEFAULT_BRANCH ? [DEFAULT_BRANCH] : [DEFAULT_BRANCH, prereleaseBranch];
 
 /**
  * @type {Array<import('semantic-release').PluginSpec>}
