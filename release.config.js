@@ -13,7 +13,7 @@ if (!DEFAULT_BRANCH) {
 /**
  * @type {import('semantic-release').BranchSpec}
  */
-const prereleaseBranch = { name: BRANCH_NAME, prerelease: BRANCH_NAME.split('/').pop() };
+const prereleaseBranch = { name: BRANCH_NAME, prerelease: `${BRANCH_NAME.split('/').pop()}-rc` };
 
 /**
  * @type {Array<import('semantic-release').BranchSpec>}
