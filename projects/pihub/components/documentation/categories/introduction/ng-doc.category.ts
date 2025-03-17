@@ -6,10 +6,10 @@
  *-------------------------------------------------------------------------*/
 import { NgDocCategory } from '@ng-doc/core';
 
-const ComponentsCategory: NgDocCategory = {
-	title: 'Components',
+const IntroductionCategory: NgDocCategory = {
+	title: 'Introduction',
 	expanded: true,
-	order: 3,
+	order: 0,
 };
 
-export default ComponentsCategory;
+export default IntroductionCategory;

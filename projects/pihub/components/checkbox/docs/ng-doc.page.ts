@@ -6,7 +6,7 @@
  *-------------------------------------------------------------------------*/
 import { NgDocPage } from '@ng-doc/core';
 import { CheckboxComponent } from '@pihub/components/checkbox/checkbox.component';
-import ComponentsCategory from '../../documentation/categories/ng-doc.category';
+import ComponentsCategory from '../../documentation/categories/components/ng-doc.category';
 
 const CheckboxPage: NgDocPage = {
 	title: 'Checkbox',

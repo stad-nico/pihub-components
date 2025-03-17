@@ -6,13 +6,12 @@
  *-------------------------------------------------------------------------*/
 import { NgDocPage } from '@ng-doc/core';
 import IntroductionCategory from '@pihub/components/documentation/categories/introduction/ng-doc.category';
-import { IconsSearchComponent } from './icons-search.component';
 
-const IconsPage: NgDocPage = {
-	title: 'Icons',
-	mdFile: './index.md',
+const WelcomePage: NgDocPage = {
+	title: 'Welcome',
 	category: IntroductionCategory,
-	demos: { IconsSearchComponent },
+	mdFile: './index.md',
+	order: 0,
 };
 
-export default IconsPage;
+export default WelcomePage;
