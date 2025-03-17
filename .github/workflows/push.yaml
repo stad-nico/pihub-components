@@ -41,7 +41,6 @@ jobs:
           echo "RC_NAME_OVERRIDE=$TAG" >> $GITHUB_ENV
 
       - name: Publish rc
-        if: "github.event.head_commit.message == 'build(*): [rc]'"
         uses: cycjimmy/semantic-release-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
