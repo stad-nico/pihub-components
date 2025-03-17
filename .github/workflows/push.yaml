@@ -34,10 +34,16 @@ jobs:
       - name: Build documentation
         run: npm run build:documentation
 
+      - name: Prepare rc name
+        run: |
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          TAG=$(echo "$COMMIT_MSG" | grep -oP 'build\(\*\):\s*\[rc:\K[^\]\[]*' || true)
+          echo "RC_NAME_OVERRIDE=$TAG" >> $GITHUB_ENV
+
       - name: Publish rc
-        if: "github.event.head_commit.message == 'build(*): [rc]'"
         uses: cycjimmy/semantic-release-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          RC_NAME_OVERRIDE: ${{ env.RC_NAME_OVERRIDE }}

@@ -6,7 +6,7 @@
  *-------------------------------------------------------------------------*/
 import { NgDocPage } from '@ng-doc/core';
 import { BreadcrumbsComponent } from '@pihub/components/breadcrumbs/breadcrumbs.component';
-import ComponentsCategory from '../../documentation/categories/ng-doc.category';
+import ComponentsCategory from '../../documentation/categories/components/ng-doc.category';
 
 const BreadcrumbsPage: NgDocPage = {
 	title: 'Breadcrumbs',

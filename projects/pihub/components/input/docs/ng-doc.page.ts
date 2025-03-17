@@ -5,7 +5,7 @@
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { NgDocPage } from '@ng-doc/core';
-import ComponentsCategory from '../../documentation/categories/ng-doc.category';
+import ComponentsCategory from '../../documentation/categories/components/ng-doc.category';
 import { InputDemoComponent } from './input-demo.component';
 
 const InputPage: NgDocPage = {

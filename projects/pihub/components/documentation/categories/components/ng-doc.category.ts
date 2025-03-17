@@ -4,14 +4,12 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { NgDocPage } from '@ng-doc/core';
-import IntroductionCategory from '@pihub/components/documentation/categories/introduction/ng-doc.category';
+import { NgDocCategory } from '@ng-doc/core';
 
-const StyleGuidePage: NgDocPage = {
-	title: 'Style Guide',
-	mdFile: ['./index.md', './tokens.md', './fonts.md'],
-	category: IntroductionCategory,
+const ComponentsCategory: NgDocCategory = {
+	title: 'Components',
+	expanded: true,
 	order: 1,
 };
 
-export default StyleGuidePage;
+export default ComponentsCategory;

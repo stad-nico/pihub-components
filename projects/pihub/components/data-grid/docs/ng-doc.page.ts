@@ -6,7 +6,7 @@
  *-------------------------------------------------------------------------*/
 import { NgDocPage } from '@ng-doc/core';
 import { DataGridDemoComponent } from '@pihub/components/data-grid/docs/data-grid-demo.component';
-import ComponentsCategory from '../../documentation/categories/ng-doc.category';
+import ComponentsCategory from '../../documentation/categories/components/ng-doc.category';
 
 const DataGridPage: NgDocPage = {
 	title: 'Data Grid',
