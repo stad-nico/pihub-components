@@ -3,5 +3,12 @@
 	"dest": "../../../dist/pihub/components",
 	"lib": {
 		"entryFile": "src/index.ts"
-	}
+	},
+	"assets": [
+		{
+			"input": "assets",
+			"glob": "**/*",
+			"output": "assets"
+		}
+	]
 }

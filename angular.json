@@ -41,27 +41,6 @@
 						"tsConfig": "projects/pihub/components/tsconfig.spec.json",
 						"polyfills": ["zone.js", "zone.js/testing"]
 					}
-				},
-				"storybook": {
-					"builder": "@storybook/angular:start-storybook",
-					"options": {
-						"configDir": "projects/pihub/components/.storybook",
-						"browserTarget": "@pihub/components:build",
-						"compodoc": true,
-						"styles": ["projects/pihub/components/styles.css"],
-						"compodocArgs": ["-e", "json", "-d", "projects/pihub/components"],
-						"port": 6006
-					}
-				},
-				"build-storybook": {
-					"builder": "@storybook/angular:build-storybook",
-					"options": {
-						"configDir": "projects/pihub/components/.storybook",
-						"browserTarget": "@pihub/components:build",
-						"compodoc": true,
-						"compodocArgs": ["-e", "json", "-d", "projects/pihub/components"],
-						"outputDir": "storybook-static"
-					}
 				}
 			}
 		},
@@ -100,11 +79,16 @@
 								"glob": "**/*",
 								"input": "projects/pihub/documentation/assets",
 								"output": "assets"
+							},
+							{
+								"glob": "**/*",
+								"input": "projects/pihub/components/assets",
+								"output": "assets"
 							}
 						],
 						"styles": [
 							"node_modules/@ng-doc/app/styles/global.css",
-							"projects/pihub/documentation/src/styles.scss",
+							"projects/pihub/components/assets/styles/styles.scss",
 							"projects/pihub/documentation/src/ng-doc.scss"
 						],
 						"scripts": [],
