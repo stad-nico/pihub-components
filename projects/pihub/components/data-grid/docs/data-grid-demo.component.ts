@@ -20,8 +20,6 @@ interface User extends DataGridItem {
 	imports: [DataGridComponent, ColumnDirective, EmptyStateDirective],
 })
 export class DataGridDemoComponent {
-	public readonly maxSelection = input(-1, { transform: numberAttribute });
-
 	public readonly showHeader = input(false, { transform: booleanAttribute });
 
 	public readonly endlessScrolling = input(true, { transform: booleanAttribute });
@@ -41,4 +39,10 @@ export class DataGridDemoComponent {
 	]);
 
 	protected readonly selectedIds = signal<Array<string>>([]);
+
+	protected rowClick(id: string): void {
+		this.selectedIds.update((selectedIds) =>
+			selectedIds.includes(id) ? selectedIds.filter((selectedId) => selectedId !== id) : [...selectedIds, id]
+		);
+	}
 }
