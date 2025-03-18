@@ -179,7 +179,11 @@ export class DataGridComponent<Row extends DataGridItem> {
 	 * @returns the animation state
 	 */
 	protected getCheckboxAnimationState(): string {
-		return this.selectedIds().length > 0 ? CheckboxAnimationState.Visible : CheckboxAnimationState.Hidden;
+		return this.isAnyRowSelected() ? CheckboxAnimationState.Visible : CheckboxAnimationState.Hidden;
+	}
+
+	protected isAnyRowSelected(): boolean {
+		return this.selectedIds().filter((id) => this.rows().some((row) => row.id === id)).length > 0;
 	}
 
 	/**
