@@ -13,7 +13,7 @@
 <main>
 	@for (row of getRows(); track row.id) {
 		<section class="row" [class.isSelected]="isRowSelected(row.id)">
-			<div class="checkbox-wrapper" [@checkboxFade]="getCheckboxAnimationState(row)">
+			<div class="checkbox-wrapper" [@checkboxFade]="getCheckboxAnimationState()">
 				<pihub-checkbox [checked]="isRowSelected(row.id)" (checkboxClicked)="onRowClick(row.id)" />
 			</div>
 

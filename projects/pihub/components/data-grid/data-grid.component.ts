@@ -173,14 +173,13 @@ export class DataGridComponent<Row extends DataGridItem> {
 	}
 
 	/**
-	 * Get the animation state of the checkbox.
+	 * Get the animation state of the checkboxes.
 	 * @internal
 	 *
-	 * @param row the row
 	 * @returns the animation state
 	 */
-	protected getCheckboxAnimationState(row: Row): string {
-		return this.isRowSelected(row.id) ? CheckboxAnimationState.Visible : CheckboxAnimationState.Hidden;
+	protected getCheckboxAnimationState(): string {
+		return this.selectedIds().length > 0 ? CheckboxAnimationState.Visible : CheckboxAnimationState.Hidden;
 	}
 
 	/**
