@@ -4,7 +4,7 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Icon } from './library';
 
@@ -15,6 +15,8 @@ import { Icon } from './library';
 	host: {
 		'[style.width.px]': 'width()',
 		'[style.height.px]': 'height()',
+		'(mouseenter)': 'onMouseEnter()',
+		'(mouseleave)': 'onMouseLeave()',
 	},
 })
 export class IconComponent {
@@ -28,6 +30,11 @@ export class IconComponent {
 	 * This can be any valid css color or variable.
 	 */
 	public readonly color = input.required<string>();
+
+	/**
+	 * The color of the icon when hovered.
+	 */
+	public readonly hoverColor = input<string>();
 
 	/**
 	 * The size of the icon.
@@ -61,5 +68,22 @@ export class IconComponent {
 	 * The fill of the icon.
 	 * @internal
 	 */
-	protected readonly fill = computed(() => (this.color().startsWith('--') ? `var(${this.color()})` : this.color()));
+	protected readonly fill = computed(() => {
+		const color = this.hovering() ? (this.hoverColor() ?? this.color()) : this.color();
+
+		return color.startsWith('--') ? `var(${color})` : color;
+	});
+
+	/**
+	 * Whether the icon is currently hovered.
+	 */
+	private readonly hovering = signal<boolean>(false);
+
+	private onMouseEnter(): void {
+		this.hovering.set(true);
+	}
+
+	private onMouseLeave(): void {
+		this.hovering.set(false);
+	}
 }

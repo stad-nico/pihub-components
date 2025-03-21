@@ -22,6 +22,8 @@ export class IconDemoComponent {
 
 	public readonly color = input<'black' | '--color-primary-500'>('black');
 
+	public readonly hoverColor = input<'grey' | '--color-primary-400'>('grey');
+
 	public readonly icon = computed(() => {
 		switch (this.variant()) {
 			case 'solid':

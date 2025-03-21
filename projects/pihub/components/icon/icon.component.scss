@@ -3,5 +3,12 @@
 
 	> svg {
 		display: block;
+		transition: fill 0.2s ease;
+
+		&.hoverable {
+			&:hover {
+				cursor: pointer;
+			}
+		}
 	}
 }
