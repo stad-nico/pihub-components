@@ -1,1 +1,8 @@
-<svg [style.fill]="fill()" [attr.width]="width()" [attr.height]="height()" [attr.viewBox]="icon().viewBox" [innerHTML]="svg()"></svg>
+<svg
+	[class.hoverable]="!!hoverColor()"
+	[style.fill]="fill()"
+	[attr.width]="width()"
+	[attr.height]="height()"
+	[attr.viewBox]="icon().viewBox"
+	[innerHTML]="svg()"
+></svg>
