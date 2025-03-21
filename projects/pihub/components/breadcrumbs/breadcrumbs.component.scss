@@ -3,56 +3,11 @@
 	justify-content: flex-start;
 	align-items: center;
 
-	> p {
-		padding: 0.125rem 0.5rem;
+	> svg.arrow {
+		width: 1.25rem;
 
-		color: var(--color-text-secondary);
+		rotate: -90deg;
 
-		user-select: none;
-
-		transition: all 0.2s ease;
-
-		border-radius: 1.25rem;
-
-		margin-left: -1px;
-
-		&:hover {
-			background-color: var(--color-container-hover);
-			color: var(--color-text-highlight);
-
-			cursor: pointer;
-		}
-	}
-
-	svg {
-		border-radius: 1.25rem;
-
-		&:is(.home, .arrow) {
-			fill: var(--color-text-secondary);
-			transition: all 0.2s ease;
-		}
-
-		&:nth-of-type(2).arrow {
-			margin-left: 0;
-		}
-
-		&.home {
-			width: 1.4rem;
-			margin-bottom: 2px;
-
-			&:hover {
-				fill: var(--color-text-highlight);
-
-				cursor: pointer;
-			}
-		}
-
-		&.arrow {
-			width: 1.25rem;
-
-			margin: 0 -1px;
-
-			rotate: -90deg;
-		}
+		fill: var(--color-text-secondary);
 	}
 }

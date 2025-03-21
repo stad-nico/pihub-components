@@ -6,7 +6,7 @@ This component displays an icon.
 
 ## Preview
 
-{{ NgDocActions.playground("IconPlayground", {hideSidePanel: true, expanded: true, inputs: {name: "house"} }) }}
+{{ NgDocActions.playground("IconPlayground", {hideSidePanel: true, inputs: {name: "house"} }) }}
 
 {{ NgDocApi.api("projects/pihub/components/icon/icon.component.ts#IconComponent") }}
 

@@ -4,30 +4,26 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { Component, input, output } from '@angular/core';
-import { Breadcrumb, HomeBreadcrumbId } from './models/breadcrumb';
+import { NgTemplateOutlet } from '@angular/common';
+import { Component, contentChild, input, TemplateRef } from '@angular/core';
+import { Breadcrumb } from './models/breadcrumb';
 
 @Component({
 	standalone: true,
 	selector: 'pihub-breadcrumbs',
 	templateUrl: './breadcrumbs.component.html',
 	styleUrl: './breadcrumbs.component.scss',
+	imports: [NgTemplateOutlet],
 })
-export class BreadcrumbsComponent {
+export class BreadcrumbsComponent<T extends Breadcrumb> {
 	/**
-	 * The crumbs to display. Note that the `home` crumb will be displayed by default.
+	 * The array of breadcrumbs.
 	 */
-	public readonly crumbs = input<Array<Breadcrumb>>([]);
+	public readonly crumbs = input<Array<T>>([]);
 
 	/**
-	 * The event emitter that fires if the user clicks on a crumb.
-	 * It emits the id of the clicked crumb.
-	 */
-	public readonly crumbClick = output<string>();
-
-	/**
-	 * The id of the `home` crumb.
+	 * The template used for rendering each breadcrumb.
 	 * @internal
 	 */
-	protected readonly HomeId = HomeBreadcrumbId;
+	protected readonly template = contentChild.required<TemplateRef<unknown>>('template');
 }

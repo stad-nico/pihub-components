@@ -6,7 +6,7 @@ This component displays a simple checkbox.
 
 ## Preview
 
-{{ NgDocActions.playground("CheckboxPlayground", {hideSidePanel: true, expanded: true }) }}
+{{ NgDocActions.playground("CheckboxPlayground", {hideSidePanel: true }) }}
 
 {{ NgDocApi.api("projects/pihub/components/checkbox/checkbox.component.ts#CheckboxComponent") }}
 

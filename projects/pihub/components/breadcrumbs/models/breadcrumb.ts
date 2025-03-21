@@ -9,11 +9,4 @@ export interface Breadcrumb {
 	 * The id that uniquely identifies this breadcrumb.
 	 */
 	readonly id: string;
-
-	/**
-	 * The name of the breadcrumb.
-	 */
-	readonly name: string;
 }
-
-export const HomeBreadcrumbId = 'HOME';
