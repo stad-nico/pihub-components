@@ -15,7 +15,12 @@ const BreadcrumbsPage: NgDocPage = {
 	playgrounds: {
 		BreadcrumbsPlayground: {
 			target: BreadcrumbsComponent,
-			template: `<ng-doc-selector></ng-doc-selector>`,
+			template: `
+			<ng-doc-selector>
+				<ng-template #template let-crumb="breadcrumb">
+					<p>{{crumb.name}}</p>
+				</ng-template>
+			</ng-doc-selector>`,
 			defaults: {
 				crumbs: [
 					{ id: '0', name: 'Holiday' },

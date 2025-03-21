@@ -6,7 +6,7 @@ This component displays a tree with nested items.
 
 ## Preview
 
-{{ NgDocActions.demo("TreeDemoComponent", {expanded: true, defaultTab: "HTML"}) }}
+{{ NgDocActions.demo("TreeDemoComponent", {defaultTab: "HTML"}) }}
 
 {{ NgDocApi.api("projects/pihub/components/tree/tree.component.ts#TreeComponent") }}
 

@@ -6,7 +6,7 @@ This component displays a simple button.
 
 ## Preview
 
-{{ NgDocActions.playground("ButtonDemoPlayground", {hideSidePanel: true, expanded: true, inputs: {title: "Button"} }) }}
+{{ NgDocActions.playground("ButtonDemoPlayground", {hideSidePanel: true, inputs: {title: "Button"} }) }}
 
 {{ NgDocApi.api("projects/pihub/components/button/button.component.ts#ButtonComponent") }}
 

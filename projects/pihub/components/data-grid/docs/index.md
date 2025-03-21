@@ -6,7 +6,7 @@ This component displays data as rows in a grid.
 
 ## Preview
 
-{{ NgDocActions.demo("DataGridDemoComponent", {expanded: true, defaultTab: "HTML"}) }}
+{{ NgDocActions.demo("DataGridDemoComponent", {defaultTab: "HTML"}) }}
 
 {{ NgDocApi.api("projects/pihub/components/data-grid/data-grid.component.ts#DataGridComponent") }}
 
