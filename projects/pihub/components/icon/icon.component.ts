@@ -56,13 +56,13 @@ export class IconComponent {
 	 * The width of the icon.
 	 * @internal
 	 */
-	protected readonly width = computed(() => (this.icon().aspectRatio < 1 ? +this.size() * this.icon().aspectRatio : this.size()));
+	protected readonly width = computed(() => (this.icon().aspectRatio < 1 ? +this.size() * this.icon().aspectRatio : +this.size()));
 
 	/**
 	 * The height of the icon.
 	 * @internal
 	 */
-	protected readonly height = computed(() => (this.icon().aspectRatio > 1 ? this.size() : +this.size() / this.icon().aspectRatio));
+	protected readonly height = computed(() => (this.icon().aspectRatio < 1 ? +this.size() : +this.size() / this.icon().aspectRatio));
 
 	/**
 	 * The fill of the icon.
