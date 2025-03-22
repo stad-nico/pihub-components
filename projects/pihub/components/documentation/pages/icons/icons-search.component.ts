@@ -4,6 +4,7 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
+import { NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, effect, inject, Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
@@ -21,7 +22,7 @@ import { map } from 'rxjs';
 	templateUrl: './icons-search.component.html',
 	styleUrl: './icons-search.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
-	imports: [NgDocInputWrapperComponent, NgDocIconComponent, IconComponent, ReactiveFormsModule],
+	imports: [NgDocInputWrapperComponent, NgDocIconComponent, IconComponent, ReactiveFormsModule, NgTemplateOutlet],
 })
 export class IconsSearchComponent {
 	private readonly formBuilder = inject(FormBuilder);
