@@ -13,8 +13,6 @@ import { Icon } from './library';
 	templateUrl: './icon.component.html',
 	styleUrl: './icon.component.scss',
 	host: {
-		'[style.width.px]': 'width()',
-		'[style.height.px]': 'height()',
 		'(mouseenter)': 'onMouseEnter()',
 		'(mouseleave)': 'onMouseLeave()',
 	},
