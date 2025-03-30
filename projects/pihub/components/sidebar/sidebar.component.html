@@ -1,0 +1,22 @@
+@if (headerTemplate()) {
+	<header>
+		<ng-container [ngTemplateOutlet]="headerTemplate()!" />
+	</header>
+}
+<main>
+	@for (entry of entries(); track entry) {
+		@if (entry === divider) {
+			<section class="divider"></section>
+		} @else {
+			<section class="entry" (click)="onEntryClick(entry)">
+				<pihub-icon size="28" [icon]="entry.icon" color="--color-text-primary" />
+				<p class="title">{{ entry.title }}</p>
+			</section>
+		}
+	}
+</main>
+@if (footerTemplate()) {
+	<footer>
+		<ng-container [ngTemplateOutlet]="footerTemplate()!" />
+	</footer>
+}
