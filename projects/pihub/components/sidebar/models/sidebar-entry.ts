@@ -4,7 +4,7 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { Icon } from '@pihub/components/icon/library';
+import { Icon } from '@pihub/components/icon';
 
 export interface SidebarEntry {
 	/**

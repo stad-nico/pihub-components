@@ -5,5 +5,6 @@
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { IconComponent } from './icon.component';
+import { Icon, IconLibrary, IconPack } from './library';
 
-export { IconComponent };
+export { IconComponent, type Icon, type IconLibrary, type IconPack };

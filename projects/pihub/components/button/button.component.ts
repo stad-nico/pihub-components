@@ -5,8 +5,7 @@
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { booleanAttribute, Component, computed, input, output } from '@angular/core';
-import { IconComponent } from '@pihub/components/icon';
-import { Icon } from '../icon/library';
+import { Icon, IconComponent } from '@pihub/components/icon';
 
 @Component({
 	selector: 'pihub-button',

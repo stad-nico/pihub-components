@@ -7,7 +7,7 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, contentChild, inject, input, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { IconComponent } from '../icon/icon.component';
+import { IconComponent } from '@pihub/components/icon';
 import { Divider, SidebarEntry } from './models/sidebar-entry';
 
 @Component({
