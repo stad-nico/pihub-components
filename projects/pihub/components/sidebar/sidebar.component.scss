@@ -23,17 +23,23 @@
 			gap: 8px;
 
 			height: 40px;
+			width: 200px;
 
 			padding: 0 15px;
 
 			border-radius: 15px;
 
 			&:hover {
+				cursor: pointer;
 				background-color: var(--color-container-hover);
 			}
 
 			> .title {
 				color: var(--color-text-primary);
+
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
 			}
 		}
 	}
