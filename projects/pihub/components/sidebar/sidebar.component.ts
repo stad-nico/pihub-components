@@ -58,7 +58,7 @@ export class SidebarComponent implements OnInit {
 		this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((event) => {
 			const entry = this.entries()
 				.filter((entry) => entry !== Divider)
-				.find((entry) => entry.route === event.urlAfterRedirects);
+				.find((entry) => event.urlAfterRedirects.startsWith(entry.route));
 
 			if (entry) {
 				this.selectedEntry.set(entry);
