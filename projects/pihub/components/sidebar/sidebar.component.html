@@ -8,7 +8,7 @@
 		@if (entry === divider) {
 			<section class="divider"></section>
 		} @else {
-			<section class="entry" (click)="onEntryClick(entry)">
+			<section class="entry" [class.selected]="entry === selectedEntry()" (click)="onEntryClick(entry)">
 				<pihub-icon size="28" [icon]="entry.icon" color="--color-text-primary" />
 				<p class="title">{{ entry.title }}</p>
 			</section>

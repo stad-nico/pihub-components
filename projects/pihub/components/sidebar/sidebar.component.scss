@@ -29,13 +29,24 @@
 
 			border-radius: 15px;
 
+			transition: background-color 0.2s ease;
+
 			&:hover {
 				cursor: pointer;
+			}
+
+			&.selected {
+				background-color: var(--color-container-selected);
+			}
+
+			&:not(.selected):hover {
 				background-color: var(--color-container-hover);
 			}
 
 			> .title {
 				color: var(--color-text-primary);
+
+				user-select: none;
 
 				overflow: hidden;
 				white-space: nowrap;
