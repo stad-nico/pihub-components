@@ -43,6 +43,10 @@
 				background-color: var(--color-container-hover);
 			}
 
+			&:not(:last-of-type) {
+				margin-bottom: 2px;
+			}
+
 			> .title {
 				color: var(--color-text-primary);
 

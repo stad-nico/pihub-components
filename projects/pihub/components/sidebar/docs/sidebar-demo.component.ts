@@ -19,7 +19,6 @@ import { SidebarComponent } from '@pihub/components/sidebar/sidebar.component';
 export class SidebarDemoComponent {
 	public readonly entries = signal<Array<SidebarEntry | Divider>>([
 		{ icon: house, title: 'Home', route: '/home' },
-		Divider,
 		{ icon: house, title: 'Home', route: '/home' },
 	]);
 }

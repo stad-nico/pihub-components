@@ -60,9 +60,7 @@ export class SidebarComponent implements OnInit {
 				.filter((entry) => entry !== Divider)
 				.find((entry) => event.urlAfterRedirects.startsWith(entry.route));
 
-			if (entry) {
-				this.selectedEntry.set(entry);
-			}
+			this.selectedEntry.set(entry ?? null);
 		});
 	}
 
