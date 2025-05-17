@@ -4,13 +4,13 @@
 			<p></p>
 		}
 
-		@for (column of getColumnsToDisplay(); track column.title) {
+		@for (column of getColumnsToDisplay(); track column.title()) {
 			<p>{{ column.title() }}</p>
 		}
 	</header>
 }
 
-<main>
+<main [class.extra-padding]="isAnyRowSelected()">
 	@for (row of getRows(); track row.id) {
 		<section class="row" [class.isSelected]="isRowSelected(row.id)">
 			<div class="checkbox-wrapper" [@checkboxFade]="getCheckboxAnimationState()">
@@ -24,7 +24,7 @@
 				(mouseenter)="onRowMouseEnter(row.id)"
 				(mouseleave)="onRowMouseLeave()"
 			>
-				@for (column of getColumnsToDisplay(); track column.title) {
+				@for (column of getColumnsToDisplay(); track column.title()) {
 					<section>
 						<ng-container
 							*ngTemplateOutlet="
@@ -44,3 +44,21 @@
 		<ng-container *ngTemplateOutlet="emptyTemplate()?.template ?? null"></ng-container>
 	}
 </main>
+
+<footer [class.hidden]="!isAnyRowSelected()">
+	<p>
+		<span>{{ selectedIds().length }}</span> von {{ rows().length }} ausgewählt
+	</p>
+	<div class="actions">
+		@for (action of bulkActions(); track action) {
+			<pihub-icon
+				[class.danger]="action.type === 'danger'"
+				[icon]="action.icon"
+				[color]="getActionIconColor(action.type)"
+				[hoverColor]="getActionIconHoverColor(action.type)"
+				size="22"
+				(click)="action.callback()"
+			/>
+		}
+	</div>
+</footer>
