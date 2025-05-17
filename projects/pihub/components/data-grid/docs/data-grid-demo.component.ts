@@ -5,8 +5,7 @@
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { booleanAttribute, Component, input, numberAttribute, signal } from '@angular/core';
-import { ColumnDirective, DataGridComponent, DataGridItem, EmptyStateDirective } from '@pihub/components/data-grid';
-import { BulkAction } from '@pihub/components/data-grid/data-grid.component';
+import { BulkAction, ColumnDirective, DataGridComponent, DataGridItem, EmptyStateDirective } from '@pihub/components/data-grid';
 import { pen, trashcan } from '@pihub/components/icons/regular';
 
 interface User extends DataGridItem {

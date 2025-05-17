@@ -4,8 +4,7 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { BulkAction } from '@pihub/components/data-grid/data-grid.component';
-import { DataGridComponent, DataGridItem } from './data-grid.component';
+import { BulkAction, DataGridComponent, DataGridItem } from './data-grid.component';
 import { ColumnDirective } from './directives/column.directive';
 import { EmptyStateDirective } from './directives/empty-state.directive';
 
