@@ -19,11 +19,20 @@ import {
 	signal,
 } from '@angular/core';
 import { CheckboxComponent } from '@pihub/components/checkbox';
+import { Icon, IconComponent } from '@pihub/components/icon';
 import { ColumnDirective } from './directives/column.directive';
 import { EmptyStateDirective } from './directives/empty-state.directive';
 
 export interface DataGridItem {
 	readonly id: string;
+}
+
+export interface BulkAction {
+	readonly icon: Icon;
+
+	readonly type?: 'default' | 'danger';
+
+	readonly callback: () => Promise<void> | void;
 }
 
 enum CheckboxAnimationState {
@@ -36,7 +45,7 @@ enum CheckboxAnimationState {
 	selector: 'pihub-data-grid',
 	templateUrl: './data-grid.component.html',
 	styleUrl: './data-grid.component.scss',
-	imports: [NgTemplateOutlet, CheckboxComponent],
+	imports: [NgTemplateOutlet, CheckboxComponent, IconComponent],
 	animations: [
 		trigger('checkboxFade', [
 			state(CheckboxAnimationState.Hidden, style({ display: 'none', opacity: 0, marginLeft: '-2rem' })),
@@ -83,6 +92,17 @@ export class DataGridComponent<Row extends DataGridItem> {
 	 * How many rows should be shown per page. Only takes effect if `endlessScrolling` is set to `false`.
 	 */
 	public readonly rowsPerPage = input(10, { transform: numberAttribute });
+
+	/**
+	 * How many items this list displays in total.
+	 * This is needed for endless scrolling to correctly display the total items.s
+	 */
+	public readonly totalCount = input<number | null>(null);
+
+	/**
+	 * Actions that can be performed on multiple rows at once.
+	 */
+	public readonly bulkActions = input<Array<BulkAction>>([]);
 
 	/**
 	 * Current page. Only takes effect if `endlessScrolling` is set to `false`.
@@ -202,5 +222,13 @@ export class DataGridComponent<Row extends DataGridItem> {
 	 */
 	protected onRowMouseLeave(): void {
 		this.hoveredId.set(null);
+	}
+
+	protected getActionIconColor(actionType: BulkAction['type']): string {
+		return actionType === 'danger' ? '--color-error-600' : '--color-text-secondary';
+	}
+
+	protected getActionIconHoverColor(actionType: BulkAction['type']): string {
+		return actionType === 'danger' ? '--color-error-500' : '--color-text-highlight';
 	}
 }

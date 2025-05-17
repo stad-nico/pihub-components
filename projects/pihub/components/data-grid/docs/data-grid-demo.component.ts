@@ -5,7 +5,8 @@
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { booleanAttribute, Component, input, numberAttribute, signal } from '@angular/core';
-import { ColumnDirective, DataGridComponent, DataGridItem, EmptyStateDirective } from '@pihub/components/data-grid';
+import { BulkAction, ColumnDirective, DataGridComponent, DataGridItem, EmptyStateDirective } from '@pihub/components/data-grid';
+import { pen, trashcan } from '@pihub/components/icons/regular';
 
 interface User extends DataGridItem {
 	readonly name: string;
@@ -39,6 +40,22 @@ export class DataGridDemoComponent {
 	]);
 
 	protected readonly selectedIds = signal<Array<string>>([]);
+
+	protected readonly bulkActions = signal<Array<BulkAction>>([
+		{
+			icon: pen,
+			callback: (): void => {
+				/* */
+			},
+		},
+		{
+			icon: trashcan,
+			type: 'danger',
+			callback: (): void => {
+				/* */
+			},
+		},
+	]);
 
 	protected rowClick(id: string): void {
 		this.selectedIds.update((selectedIds) =>

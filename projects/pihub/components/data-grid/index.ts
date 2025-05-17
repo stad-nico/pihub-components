@@ -4,8 +4,8 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { DataGridComponent, DataGridItem } from './data-grid.component';
+import { BulkAction, DataGridComponent, DataGridItem } from './data-grid.component';
 import { ColumnDirective } from './directives/column.directive';
 import { EmptyStateDirective } from './directives/empty-state.directive';
 
-export { ColumnDirective, DataGridComponent, EmptyStateDirective, type DataGridItem };
+export { ColumnDirective, DataGridComponent, EmptyStateDirective, type BulkAction, type DataGridItem };

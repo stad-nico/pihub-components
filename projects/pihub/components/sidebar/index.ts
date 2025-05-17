@@ -4,7 +4,7 @@
  *
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
-import { IconComponent } from './icon.component';
-import { Icon, IconLibrary, IconPack } from './library';
+import { Divider, SidebarEntry } from './models/sidebar-entry';
+import { SidebarComponent } from './sidebar.component';
 
-export { IconComponent, type Icon, type IconLibrary, type IconPack };
+export { Divider, SidebarComponent, type SidebarEntry };

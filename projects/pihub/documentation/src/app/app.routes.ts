@@ -6,4 +6,4 @@
  *-------------------------------------------------------------------------*/
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [{ path: '', redirectTo: 'colors', pathMatch: 'full' }];
+export const routes: Routes = [{ path: '', redirectTo: 'style-guide', pathMatch: 'full' }];

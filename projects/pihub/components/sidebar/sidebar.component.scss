@@ -1,0 +1,61 @@
+:host {
+	display: block;
+
+	background-color: var(--color-background-primary);
+
+	padding: 20px;
+
+	border-radius: 0 35px 35px 0;
+
+	> main {
+		> section.divider {
+			height: 1px;
+
+			background-color: var(--color-text-tertiary);
+
+			margin: 10px 10px;
+		}
+
+		> section.entry {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 8px;
+
+			height: 40px;
+			width: 200px;
+
+			padding: 0 15px;
+
+			border-radius: 15px;
+
+			transition: background-color 0.2s ease;
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			&.selected {
+				background-color: var(--color-container-selected);
+			}
+
+			&:not(.selected):hover {
+				background-color: var(--color-container-hover);
+			}
+
+			&:not(:last-of-type) {
+				margin-bottom: 2px;
+			}
+
+			> .title {
+				color: var(--color-text-primary);
+
+				user-select: none;
+
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+}

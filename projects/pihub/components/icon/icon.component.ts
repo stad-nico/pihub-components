@@ -37,7 +37,7 @@ export class IconComponent {
 	/**
 	 * The size of the icon.
 	 */
-	public readonly size = input<'16' | '20' | '24' | '28' | '32' | '40' | '48'>('24');
+	public readonly size = input<'16' | '20' | '22' | '24' | '28' | '32' | '40' | '48'>('24');
 
 	/**
 	 * The sanitizer to sanitize the svg content.
