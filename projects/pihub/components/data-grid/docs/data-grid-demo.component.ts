@@ -6,7 +6,8 @@
  *-------------------------------------------------------------------------*/
 import { booleanAttribute, Component, input, numberAttribute, signal } from '@angular/core';
 import { BulkAction, ColumnDirective, DataGridComponent, DataGridItem, EmptyStateDirective } from '@pihub/components/data-grid';
-import { pen, trashcan } from '@pihub/components/icons/regular';
+import { CtaAction } from '@pihub/components/data-grid/data-grid.component';
+import { pen, plus, trashcan, upload } from '@pihub/components/icons/regular';
 
 interface User extends DataGridItem {
 	readonly name: string;
@@ -44,17 +45,18 @@ export class DataGridDemoComponent {
 	protected readonly bulkActions = signal<Array<BulkAction>>([
 		{
 			icon: pen,
-			callback: (): void => {
-				/* */
-			},
+			callback: (): void => alert('Click'),
 		},
 		{
 			icon: trashcan,
 			type: 'danger',
-			callback: (): void => {
-				/* */
-			},
+			callback: (): void => alert('Click'),
 		},
+	]);
+
+	protected readonly ctaActions = signal<Array<CtaAction>>([
+		{ icon: upload, callback: (): void => alert('Click') },
+		{ icon: plus, callback: (): void => alert('Click') },
 	]);
 
 	protected rowClick(id: string): void {

@@ -1,4 +1,6 @@
 :host {
+	display: block;
+
 	position: relative;
 
 	> header {
@@ -125,7 +127,7 @@
 
 		background-color: var(--color-background-primary);
 
-		transition: 0.3s height ease;
+		transition: 0.2s height ease;
 
 		&:not(.visible)::before {
 			content: '';
@@ -164,6 +166,80 @@
 
 					background-color: var(--color-container-selected);
 				}
+			}
+		}
+	}
+
+	> .cta {
+		position: absolute;
+
+		bottom: 20px;
+		right: 20px;
+
+		transition: 0.2s bottom ease;
+
+		&:hover {
+			> pihub-icon {
+				rotate: 45deg;
+			}
+
+			> .actions {
+				opacity: 1;
+				max-height: 200px;
+			}
+		}
+
+		&.extra-padding {
+			bottom: 50px;
+		}
+
+		> pihub-icon {
+			padding: 9px;
+			border-radius: 50%;
+
+			background-color: var(--color-text-highlight);
+
+			cursor: pointer;
+
+			box-shadow:
+				0px 0px 2px rgba(from var(--color-background-tertiary) r g b),
+				0px 0px 6px rgba(from var(--color-background-tertiary) r g b),
+				0px 0px 10px rgba(from var(--color-background-tertiary) r g b),
+				0px 0px 14px rgba(from var(--color-background-tertiary) r g b);
+
+			transition: 0.2s rotate ease;
+		}
+
+		> .actions {
+			display: flex;
+			flex-direction: column-reverse;
+			align-items: center;
+			gap: 8px;
+
+			max-height: 0;
+
+			overflow: hidden;
+			opacity: 0;
+
+			padding: 8px 0;
+
+			transition:
+				0.2s max-height ease,
+				0.2s opacity ease;
+
+			> pihub-icon {
+				background-color: white;
+
+				border-radius: 50%;
+
+				padding: 8px;
+
+				cursor: pointer;
+
+				box-shadow:
+					0px 0px 2px rgba(from var(--color-background-tertiary) r g b),
+					0px 0px 6px rgba(from var(--color-background-tertiary) r g b),
+					0px 0px 10px rgba(from var(--color-background-tertiary) r g b);
 			}
 		}
 	}

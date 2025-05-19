@@ -54,11 +54,22 @@
 			<pihub-icon
 				[class.danger]="action.type === 'danger'"
 				[icon]="action.icon"
-				[color]="getActionIconColor(action.type)"
-				[hoverColor]="getActionIconHoverColor(action.type)"
+				[color]="getBulkActionIconColor(action.type)"
+				[hoverColor]="getBulkActionIconHoverColor(action.type)"
 				size="22"
 				(click)="action.callback()"
 			/>
 		}
 	</div>
 </footer>
+
+@if (ctaActions().length > 0) {
+	<div class="cta" [class.extra-padding]="isAnyRowSelected()">
+		<div class="actions">
+			@for (action of ctaActions(); track action) {
+				<pihub-icon [icon]="action.icon" color="--color-text-secondary" size="20" (click)="action.callback()" />
+			}
+		</div>
+		<pihub-icon [icon]="ICONS.plus" size="28" color="white" />
+	</div>
+}

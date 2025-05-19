@@ -20,6 +20,7 @@ import {
 } from '@angular/core';
 import { CheckboxComponent } from '@pihub/components/checkbox';
 import { Icon, IconComponent } from '@pihub/components/icon';
+import { plus } from '@pihub/components/icons/regular';
 import { ColumnDirective } from './directives/column.directive';
 import { EmptyStateDirective } from './directives/empty-state.directive';
 
@@ -31,6 +32,12 @@ export interface BulkAction {
 	readonly icon: Icon;
 
 	readonly type?: 'default' | 'danger';
+
+	readonly callback: () => Promise<void> | void;
+}
+
+export interface CtaAction {
+	readonly icon: Icon;
 
 	readonly callback: () => Promise<void> | void;
 }
@@ -100,6 +107,11 @@ export class DataGridComponent<Row extends DataGridItem> {
 	public readonly totalCount = input<number | null>(null);
 
 	/**
+	 * Actions that can be executed by clicking on the cta button.
+	 */
+	public readonly ctaActions = input<Array<CtaAction>>([]);
+
+	/**
 	 * Actions that can be performed on multiple rows at once.
 	 */
 	public readonly bulkActions = input<Array<BulkAction>>([]);
@@ -125,6 +137,12 @@ export class DataGridComponent<Row extends DataGridItem> {
 	 * @internal
 	 */
 	protected readonly emptyTemplate = contentChild(EmptyStateDirective);
+
+	/**
+	 * Icons used in the component.
+	 * @internal
+	 */
+	protected readonly ICONS = { plus };
 
 	/**
 	 * The grid template columns.
@@ -224,11 +242,11 @@ export class DataGridComponent<Row extends DataGridItem> {
 		this.hoveredId.set(null);
 	}
 
-	protected getActionIconColor(actionType: BulkAction['type']): string {
+	protected getBulkActionIconColor(actionType: BulkAction['type']): string {
 		return actionType === 'danger' ? '--color-error-600' : '--color-text-secondary';
 	}
 
-	protected getActionIconHoverColor(actionType: BulkAction['type']): string {
+	protected getBulkActionIconHoverColor(actionType: BulkAction['type']): string {
 		return actionType === 'danger' ? '--color-error-500' : '--color-text-highlight';
 	}
 }
