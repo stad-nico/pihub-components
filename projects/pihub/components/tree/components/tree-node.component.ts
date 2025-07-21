@@ -62,7 +62,6 @@ export class TreeNodeComponent<Node extends TreeNode> {
 	protected readonly templateContext = computed(() => ({
 		$implicit: {
 			...this.node(),
-			hasChildren: this.children().length > 0,
 			isSelected: this.selectedId() === this.node().id,
 			isExpanded: this.expandedIds().includes(this.node().id),
 			children: this.childrenTemplate(),

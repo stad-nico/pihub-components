@@ -18,6 +18,12 @@ export interface TreeNode {
 	readonly childrenIds?: Array<string>;
 
 	/**
+	 * Whether the node has children. This can be used instead
+	 * of the `childrenIds` when the children are not known.
+	 */
+	readonly hasChildren?: boolean;
+
+	/**
 	 * The id of the parent node. Set to `TreeRoot` or leave undefined for the node to be a root node.
 	 */
 	readonly parentId?: string;
