@@ -25,18 +25,16 @@
 				(mouseleave)="onRowMouseLeave()"
 			>
 				@for (column of getColumnsToDisplay(); track column.title()) {
-					<section>
-						<ng-container
-							*ngTemplateOutlet="
-								column.template;
-								context: {
-									$implicit: row,
-									selected: isRowSelected(row.id),
-									hovered: row.id === hoveredId(),
-								}
-							"
-						/>
-					</section>
+					<ng-container
+						*ngTemplateOutlet="
+							column.template;
+							context: {
+								$implicit: row,
+								selected: isRowSelected(row.id),
+								hovered: row.id === hoveredId(),
+							}
+						"
+					/>
 				}
 			</section>
 		</section>
