@@ -52,7 +52,7 @@ interface IconPack {
 }
 
 async function build(): Promise<void> {
-	const iconsDirectory = path.resolve(__dirname, '../projects/pihub/components/icons');
+	const iconsDirectory = path.resolve(process.cwd(), './projects/pihub/components/icons');
 
 	const library = await buildLibrary(iconsDirectory);
 
@@ -60,7 +60,7 @@ async function build(): Promise<void> {
 		await writePack(pack, path.resolve(iconsDirectory, pack.name, 'index.ts'));
 	}
 
-	const iconComponentDirectory = path.resolve(__dirname, '../projects/pihub/components/icon');
+	const iconComponentDirectory = path.resolve(process.cwd(), './projects/pihub/components/icon');
 
 	await writeLibrary(library, path.resolve(iconComponentDirectory, 'library.ts'));
 }
