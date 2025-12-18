@@ -53,7 +53,7 @@ export class TreeNodeComponent<Node extends TreeNode> {
 	 * The signal to get the child nodes.
 	 * @internal
 	 */
-	protected readonly children = computed(() => this.nodes().filter((node) => this.node().childrenIds?.includes(node.id)));
+	protected readonly children = computed(() => this.nodes().filter((node) => node.parentId === this.node().id));
 
 	/**
 	 * The signal to get the context that will be passed to the node template.
