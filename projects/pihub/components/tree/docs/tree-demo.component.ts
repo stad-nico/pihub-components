@@ -21,10 +21,10 @@ interface Fruit extends TreeNode {
 })
 export class TreeDemoComponent {
 	public readonly nodes = signal<Array<Fruit>>([
-		{ id: '0', name: 'Banana', childrenIds: ['1', '2'] },
+		{ id: '0', name: 'Banana' },
 		{ id: '1', name: 'Orange', parentId: '0' },
-		{ id: '2', name: 'Strawberry', parentId: '0', childrenIds: ['6'] },
-		{ id: '3', name: 'Kiwi', childrenIds: ['4', '5'], parentId: TreeRoot },
+		{ id: '2', name: 'Strawberry', parentId: '0' },
+		{ id: '3', name: 'Kiwi', parentId: TreeRoot },
 		{ id: '4', name: 'Raspberry', parentId: '3' },
 		{ id: '5', name: 'Blueberry', parentId: '3' },
 		{ id: '6', name: 'Grape', parentId: '2' },
