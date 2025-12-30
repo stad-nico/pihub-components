@@ -12,7 +12,6 @@ import { TreeNode } from '../models/tree-node';
 	standalone: true,
 	selector: 'pihub-tree-node',
 	templateUrl: './tree-node.component.html',
-	styleUrl: './tree-node.component.scss',
 	imports: [NgTemplateOutlet],
 	host: {
 		'(click)': 'onClick($event)',
@@ -86,7 +85,7 @@ export class TreeNodeComponent<Node extends TreeNode> {
 	/**
 	 * Handler that will be executed when this component is clicked.
 	 */
-	private onClick(event: Event): void {
+	protected onClick(event: Event): void {
 		event.stopPropagation();
 
 		this.nodeSelected.emit();

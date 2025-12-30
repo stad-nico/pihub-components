@@ -51,18 +51,27 @@ enum CheckboxAnimationState {
 	standalone: true,
 	selector: 'pihub-data-grid',
 	templateUrl: './data-grid.component.html',
-	styleUrl: './data-grid.component.scss',
+	styleUrl: './data-grid.component.css',
 	imports: [NgTemplateOutlet, CheckboxComponent, IconComponent],
 	animations: [
+		// eslint-disable-next-line @typescript-eslint/no-deprecated
 		trigger('checkboxFade', [
+			// eslint-disable-next-line @typescript-eslint/no-deprecated
 			state(CheckboxAnimationState.Hidden, style({ display: 'none', opacity: 0, marginLeft: '-2rem' })),
+			// eslint-disable-next-line @typescript-eslint/no-deprecated
 			state(CheckboxAnimationState.Visible, style({ display: 'flex', opacity: 1, marginLeft: 0 })),
+			// eslint-disable-next-line @typescript-eslint/no-deprecated
 			transition(`${CheckboxAnimationState.Hidden} => ${CheckboxAnimationState.Visible}`, [
+				// eslint-disable-next-line @typescript-eslint/no-deprecated
 				group([animate('0.25s ease-out', style({ display: 'flex', opacity: 1 })), animate('0.3s ease', style({ marginLeft: 0 }))]),
 			]),
+			// eslint-disable-next-line @typescript-eslint/no-deprecated
 			transition(`${CheckboxAnimationState.Visible} => ${CheckboxAnimationState.Hidden}`, [
+				// eslint-disable-next-line @typescript-eslint/no-deprecated
 				group([
+					// eslint-disable-next-line @typescript-eslint/no-deprecated
 					animate('0.25s 0.05s ease', style({ display: 'none', opacity: 0 })),
+					// eslint-disable-next-line @typescript-eslint/no-deprecated
 					animate('0.3s ease', style({ marginLeft: '-2rem' })),
 				]),
 			]),
@@ -206,7 +215,9 @@ export class DataGridComponent<Row extends DataGridItem> {
 	 *
 	 * @param id the id of the clicked row
 	 */
-	protected onRowClick(id: string): void {
+	protected onRowClick(event: PointerEvent, id: string): void {
+		event.stopPropagation();
+
 		this.rowClick.emit(id);
 	}
 

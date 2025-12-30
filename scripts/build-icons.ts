@@ -8,7 +8,7 @@ import * as fs from 'fs/promises';
 import * as path from 'path';
 import * as prettier from 'prettier';
 
-void (async () => await build())();
+void build();
 
 interface Icon {
 	/**
@@ -215,14 +215,16 @@ async function buildIconFromFile(filePath: string): Promise<Icon> {
 
 	const viewBox = /viewBox="([^"]+)"/.exec(svg)?.[1];
 
-	if (!viewBox) {
+	const viewBoxParts = viewBox?.split(' ');
+
+	if (!viewBox || !viewBoxParts) {
 		throw new Error(`No viewBox found on svg in ${filePath}. Please add one.`);
 	}
 
-	const width = +viewBox.split(' ')[2];
-	const height = +viewBox.split(' ')[3];
+	const width = viewBoxParts[2];
+	const height = viewBoxParts[3];
 
-	if (isNaN(width) || isNaN(height)) {
+	if (!width || !height) {
 		throw new Error(`Invalid viewBox found on svg in ${filePath}.`);
 	}
 
@@ -234,7 +236,7 @@ async function buildIconFromFile(filePath: string): Promise<Icon> {
 
 	return {
 		viewBox: viewBox,
-		aspectRatio: width / height,
+		aspectRatio: +width / +height,
 		iconPack: path.basename(path.dirname(filePath)),
 		name: toKebabCase(path.basename(filePath, '.svg')),
 		svg: svgContents,

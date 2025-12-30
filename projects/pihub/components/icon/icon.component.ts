@@ -11,13 +11,19 @@ import { Icon } from './library';
 @Component({
 	selector: 'pihub-icon',
 	templateUrl: './icon.component.html',
-	styleUrl: './icon.component.scss',
+	styleUrl: './icon.component.css',
 	host: {
-		'(mouseenter)': 'onMouseEnter()',
-		'(mouseleave)': 'onMouseLeave()',
+		'(mouseenter)': 'hovering.set(true)',
+		'(mouseleave)': 'hovering.set(false)',
+		'[class.full]': "size() === 'full'",
 	},
 })
 export class IconComponent {
+	/**
+	 * The sanitizer to sanitize the svg content.
+	 */
+	readonly #sanitizer = inject(DomSanitizer);
+
 	/**
 	 * The icon to display.
 	 */
@@ -37,30 +43,51 @@ export class IconComponent {
 	/**
 	 * The size of the icon.
 	 */
-	public readonly size = input<'16' | '20' | '22' | '24' | '28' | '32' | '40' | '48'>('24');
+	public readonly size = input<'16' | '20' | '22' | '24' | '28' | '32' | '40' | '48' | 'full'>('24');
 
 	/**
-	 * The sanitizer to sanitize the svg content.
+	 * Whether the icon is currently hovered.
+	 * @internal
 	 */
-	private readonly sanitizer = inject(DomSanitizer);
+	protected readonly hovering = signal<boolean>(false);
 
 	/**
 	 * The svg content of the icon.
 	 * @internal
 	 */
-	protected readonly svg = computed(() => this.sanitizer.bypassSecurityTrustHtml(this.icon().svg));
+	protected readonly svg = computed(() => this.#sanitizer.bypassSecurityTrustHtml(this.icon().svg));
 
 	/**
 	 * The width of the icon.
 	 * @internal
 	 */
-	protected readonly width = computed(() => (this.icon().aspectRatio < 1 ? +this.size() * this.icon().aspectRatio : +this.size()));
+	protected readonly width = computed(() => {
+		const size = this.size();
+
+		if (size === 'full') {
+			return undefined;
+		}
+
+		const { aspectRatio } = this.icon();
+
+		return aspectRatio < 1 ? +size * aspectRatio : +size;
+	});
 
 	/**
 	 * The height of the icon.
 	 * @internal
 	 */
-	protected readonly height = computed(() => (this.icon().aspectRatio < 1 ? +this.size() : +this.size() / this.icon().aspectRatio));
+	protected readonly height = computed(() => {
+		const size = this.size();
+
+		if (size === 'full') {
+			return undefined;
+		}
+
+		const { aspectRatio } = this.icon();
+
+		return aspectRatio < 1 ? +size : +size / aspectRatio;
+	});
 
 	/**
 	 * The fill of the icon.
@@ -71,17 +98,4 @@ export class IconComponent {
 
 		return color.startsWith('--') ? `var(${color})` : color;
 	});
-
-	/**
-	 * Whether the icon is currently hovered.
-	 */
-	private readonly hovering = signal<boolean>(false);
-
-	private onMouseEnter(): void {
-		this.hovering.set(true);
-	}
-
-	private onMouseLeave(): void {
-		this.hovering.set(false);
-	}
 }

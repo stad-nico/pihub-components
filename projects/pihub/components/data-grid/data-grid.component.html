@@ -14,13 +14,13 @@
 	@for (row of getRows(); track row.id) {
 		<section class="row" [class.isSelected]="isRowSelected(row.id)">
 			<div class="checkbox-wrapper" [@checkboxFade]="getCheckboxAnimationState()">
-				<pihub-checkbox [checked]="isRowSelected(row.id)" (checkboxClicked)="onRowClick(row.id)" />
+				<pihub-checkbox [checked]="isRowSelected(row.id)" (checkboxClicked)="onRowClick($event, row.id)" />
 			</div>
 
 			<section
 				class="columns"
 				[style.grid-template-columns]="gridTemplateColumns()"
-				(click)="onRowClick(row.id)"
+				(click)="onRowClick($event, row.id)"
 				(mouseenter)="onRowMouseEnter(row.id)"
 				(mouseleave)="onRowMouseLeave()"
 			>

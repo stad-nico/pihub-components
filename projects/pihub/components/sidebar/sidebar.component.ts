@@ -14,7 +14,7 @@ import { Divider, SidebarEntry } from './models/sidebar-entry';
 @Component({
 	selector: 'pihub-sidebar',
 	templateUrl: './sidebar.component.html',
-	styleUrl: './sidebar.component.scss',
+	styleUrl: './sidebar.component.css',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [IconComponent, NgTemplateOutlet],
 })

@@ -5,15 +5,13 @@
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { NgDocNavbarComponent, NgDocRootComponent, NgDocSidebarComponent } from '@ng-doc/app';
 
 @Component({
-	selector: 'pihub-doc-root',
-	templateUrl: './app.component.html',
-	styleUrl: './app.component.css',
-	imports: [RouterOutlet, NgDocRootComponent, NgDocNavbarComponent, NgDocSidebarComponent],
+	selector: 'pihub-modal-body',
+	templateUrl: './modal-body.component.html',
+	host: {
+		class: 'block m-4 flex-grow overflow-scroll',
+	},
 })
-export class AppComponent {
-	title = 'documentation';
-}
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
+export class ModalBodyComponent {}

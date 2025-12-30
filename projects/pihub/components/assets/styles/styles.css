@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 @font-face {
 	font-family: 'Satoshi-Light';
 	src: url('../fonts/satoshi/Satoshi-Light.ttf') format('truetype');
@@ -38,9 +40,10 @@
 	font-style: normal;
 }
 
-:root {
+@theme {
 	--color-primary: #3b62ed;
 	--color-secondary: #edf0fd;
+	--color-accent: #ffca28;
 	--color-neutral: #a6b5e3;
 
 	--color-success: #29a847;
@@ -68,6 +71,17 @@
 	--color-secondary-800: hsl(225, 66.7%, 97.6%);
 	--color-secondary-900: hsl(228, 55.6%, 98.2%);
 	--color-secondary-1000: hsl(220, 60%, 99%);
+
+	--color-accent-100: hsl(31, 100%, 10%);
+	--color-accent-200: hsl(30, 100%, 20%);
+	--color-accent-300: hsl(31, 100%, 35%);
+	--color-accent-400: hsl(38, 100%, 50%);
+	--color-accent-500: hsl(45, 100%, 58%);
+	--color-accent-600: hsl(46, 100%, 65%);
+	--color-accent-700: hsl(45, 100%, 75%);
+	--color-accent-800: hsl(45, 100%, 85%);
+	--color-accent-900: hsl(43, 100%, 93%);
+	--color-accent-1000: hsl(42, 100%, 98%);
 
 	--color-neutral-100: hsl(230, 26%, 23%);
 	--color-neutral-200: hsl(228, 20.6%, 38%);
@@ -116,55 +130,18 @@
 	/* ------------- */
 	/*     TOKENS    */
 	/* ------------- */
-	--color-button-primary: var(--color-primary-500);
-	--color-button-primary-hover: var(--color-primary-400);
-	--color-button-primary-disabled: var(--color-primary-900);
-	--color-button-primary-text: var(--color-secondary-1000);
-
-	--color-button-secondary: var(--color-secondary-600);
-	--color-button-secondary-hover: var(--color-primary-1000);
-	--color-button-secondary-disabled: var(--color-secondary-800);
-	--color-button-secondary-text: var(--color-text-secondary);
-	--color-button-secondary-disabled-text: var(--color-text-tertiary);
-
-	--color-button-tertiary-text: var(--color-text-highlight);
-	--color-button-tertiary-disabled-text: var(--color-text-tertiary);
-
-	--color-text-primary: var(--color-neutral-200);
-	--color-text-secondary: var(--color-neutral-300);
-	--color-text-tertiary: var(--color-neutral-600);
-	--color-text-highlight: var(--color-primary-400);
 
 	--color-background-primary: var(--color-neutral-1000);
 	--color-background-secondary: var(--color-neutral-900);
 	--color-background-tertiary: var(--color-neutral-800);
 
+	--color-text-primary: var(--color-neutral-200);
+	--color-text-secondary: var(--color-neutral-300);
+	--color-text-tertiary: var(--color-neutral-500);
+	--color-text-highlight: var(--color-primary-400);
+
 	--color-container-active: var(--color-secondary-900);
 	--color-container-hover: var(--color-secondary-600);
 	--color-container-selected: var(--color-secondary-200);
 	--color-container-selected-hover: var(--color-primary-900);
-
-	--size-text-12: 12px;
-	--size-text-14: 14px;
-	--size-text-16: 16px;
-	--size-text-20: 20px;
-	--size-text-24: 24px;
-	--size-text-28: 28px;
-	--size-text-32: 32px;
-	--size-text-40: 40px;
-	--size-text-48: 48px;
-
-	--size-spacing-2: 2px;
-	--size-spacing-4: 4px;
-	--size-spacing-8: 8px;
-	--size-spacing-10: 10px;
-	--size-spacing-12: 12px;
-	--size-spacing-16: 16px;
-	--size-spacing-24: 24px;
-	--size-spacing-32: 32px;
-	--size-spacing-40: 40px;
-	--size-spacing-48: 48px;
-	--size-spacing-56: 56px;
-	--size-spacing-64: 64px;
-	--size-spacing-72: 72px;
 }

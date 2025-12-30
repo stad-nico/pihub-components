@@ -16,7 +16,7 @@ interface Fruit extends TreeNode {
 	standalone: true,
 	selector: 'pihub-tree-demo',
 	templateUrl: './tree-demo.component.html',
-	styleUrl: './tree-demo.component.scss',
+	styleUrl: './tree-demo.component.css',
 	imports: [TreeComponent, TreeNodeDirective, NgTemplateOutlet],
 })
 export class TreeDemoComponent {

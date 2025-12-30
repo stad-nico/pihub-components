@@ -12,7 +12,7 @@ import { InputComponent } from '../input.component';
 	selector: 'pihub-input-demo',
 	imports: [InputComponent],
 	templateUrl: './input-demo.component.html',
-	styleUrl: './input-demo.component.scss',
+	styleUrl: './input-demo.component.css',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputDemoComponent {

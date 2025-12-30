@@ -12,7 +12,7 @@ import { SidebarComponent } from '@pihub/components/sidebar/sidebar.component';
 @Component({
 	selector: 'pihub-sidebar-demo',
 	templateUrl: './sidebar-demo.component.html',
-	styleUrl: './sidebar-demo.component.scss',
+	styleUrl: './sidebar-demo.component.css',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [SidebarComponent],
 })

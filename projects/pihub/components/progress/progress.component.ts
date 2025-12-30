@@ -10,7 +10,7 @@ import { ChangeDetectionStrategy, Component, computed, input, signal } from '@an
 	selector: 'pihub-progress',
 	imports: [],
 	templateUrl: './progress.component.html',
-	styleUrl: './progress.component.scss',
+	styleUrl: './progress.component.css',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProgressComponent {

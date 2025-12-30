@@ -5,15 +5,13 @@
  * @author Nicolas Stadler
  *-------------------------------------------------------------------------*/
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { NgDocNavbarComponent, NgDocRootComponent, NgDocSidebarComponent } from '@ng-doc/app';
 
 @Component({
-	selector: 'pihub-doc-root',
-	templateUrl: './app.component.html',
-	styleUrl: './app.component.css',
-	imports: [RouterOutlet, NgDocRootComponent, NgDocNavbarComponent, NgDocSidebarComponent],
+	selector: 'pihub-modal-footer',
+	templateUrl: './modal-footer.component.html',
+	host: {
+		class: 'flex justify-end gap-2 items-center p-4 bg-secondary overflow-hidden mt-auto shrink-0',
+	},
 })
-export class AppComponent {
-	title = 'documentation';
-}
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
+export class ModalFooterComponent {}

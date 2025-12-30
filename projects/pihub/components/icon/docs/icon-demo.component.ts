@@ -12,7 +12,7 @@ import { house as solidHouse } from '@pihub/components/icons/solid';
 @Component({
 	selector: 'pihub-icon-demo.component',
 	templateUrl: './icon-demo.component.html',
-	styleUrl: './icon-demo.component.scss',
+	styleUrl: './icon-demo.component.css',
 	imports: [IconComponent],
 })
 export class IconDemoComponent {

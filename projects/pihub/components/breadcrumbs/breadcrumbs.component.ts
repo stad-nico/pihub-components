@@ -12,7 +12,7 @@ import { Breadcrumb } from './models/breadcrumb';
 	standalone: true,
 	selector: 'pihub-breadcrumbs',
 	templateUrl: './breadcrumbs.component.html',
-	styleUrl: './breadcrumbs.component.scss',
+	styleUrl: './breadcrumbs.component.css',
 	imports: [NgTemplateOutlet],
 })
 export class BreadcrumbsComponent<T extends Breadcrumb> {

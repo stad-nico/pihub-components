@@ -14,6 +14,7 @@ keyword: Colors
 	<tr style="height: 100px">
 		<td style="background-color: var(--color-primary); border-radius: 10px 0 0 10px"></td>
 		<td style="background-color: var(--color-secondary)"></td>
+		<td style="background-color: var(--color-accent)"></td>
 		<td style="background-color: var(--color-neutral)"></td>
 		<td style="background-color: var(--color-success)"></td>
 		<td style="background-color: var(--color-warning)"></td>
@@ -22,6 +23,7 @@ keyword: Colors
 	<tr style="height: 50px">
 		<th>primary<br>#3b62ed</th>
 		<th>secondary<br>#edf0fd</th>
+		<th>accent<br>#ffca28</th>
 		<th>neutral<br>#a6b5e3</th>
 		<th>success<br>#29a847</th>
 		<th>warning<br>#ffc105</th>
@@ -90,6 +92,37 @@ keyword: Colors
 		<td style="background-color: var(--color-secondary-800)"></td>
 		<td style="background-color: var(--color-secondary-900)"></td>
 		<td style="background-color: var(--color-secondary-1000); border-radius: 0px 10px 10px 0px"></td>
+	</tr>
+</table>
+
+### Accent
+
+`--color-accent-xxx`
+
+<table>
+	<tr style="height: 50px">
+		<th>100</th>
+		<th>200</th>
+		<th>300</th>
+		<th>400</th>
+		<th>500</th>
+		<th>600</th>
+		<th>700</th>
+		<th>800</th>
+		<th>900</th>
+		<th>1000</th>
+	</tr>
+	<tr style="height: 50px">
+		<td style="background-color: var(--color-accent-100); border-radius: 10px 0 0 10px"></td>
+		<td style="background-color: var(--color-accent-200)"></td>
+		<td style="background-color: var(--color-accent-300)"></td>
+		<td style="background-color: var(--color-accent-400)"></td>
+		<td style="background-color: var(--color-accent-500)"></td>
+		<td style="background-color: var(--color-accent-600)"></td>
+		<td style="background-color: var(--color-accent-700)"></td>
+		<td style="background-color: var(--color-accent-800)"></td>
+		<td style="background-color: var(--color-accent-900)"></td>
+		<td style="background-color: var(--color-accent-1000); border-radius: 0px 10px 10px 0px"></td>
 	</tr>
 </table>
 

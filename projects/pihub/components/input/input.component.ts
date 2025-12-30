@@ -12,7 +12,7 @@ import { Icon } from '../icon/library';
 	selector: 'pihub-input',
 	imports: [IconComponent],
 	templateUrl: './input.component.html',
-	styleUrl: './input.component.scss',
+	styleUrl: './input.component.css',
 	host: {
 		'[class]': 'class()',
 	},
@@ -41,7 +41,7 @@ export class InputComponent {
 	/**
 	 * The class of the input.
 	 */
-	private readonly class = computed(() =>
+	protected readonly class = computed(() =>
 		[this.variant(), this.disabled() ? 'disabled' : null, this.icon() ? 'has-icon' : null].join(' ')
 	);
 }

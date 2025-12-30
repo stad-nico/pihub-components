@@ -12,7 +12,7 @@ indent_style = tab
 indent_size = 4
 quote_type = single
 
-[*.scss]
+[*.css]
 indent_style = tab
 indent_size = 4
 

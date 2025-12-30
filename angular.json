@@ -4,9 +4,8 @@
 	"newProjectRoot": "projects",
 	"schematics": {
 		"@schematics/angular:component": {
-			"style": "scss",
+			"style": "css",
 			"skipTests": true,
-			"displayBlock": true,
 			"changeDetection": "OnPush",
 			"type": "component"
 		},
@@ -78,7 +77,7 @@
 						"browser": "projects/pihub/documentation/src/main.ts",
 						"polyfills": ["zone.js"],
 						"tsConfig": "projects/pihub/documentation/tsconfig.app.json",
-						"inlineStyleLanguage": "scss",
+						"inlineStyleLanguage": "css",
 						"assets": [
 							{
 								"glob": "**/*",
@@ -108,8 +107,8 @@
 						],
 						"styles": [
 							"node_modules/@ng-doc/app/styles/global.css",
-							"projects/pihub/components/assets/styles/styles.scss",
-							"projects/pihub/documentation/src/ng-doc.scss"
+							"projects/pihub/components/assets/styles/styles.css",
+							"projects/pihub/documentation/src/ng-doc.css"
 						],
 						"scripts": [],
 						"allowedCommonJsDependencies": ["@ng-doc/core"]
@@ -159,7 +158,7 @@
 					"options": {
 						"polyfills": ["zone.js", "zone.js/testing"],
 						"tsConfig": "projects/pihub/documentation/tsconfig.spec.json",
-						"inlineStyleLanguage": "scss",
+						"inlineStyleLanguage": "css",
 						"assets": [
 							{
 								"glob": "**/*",
@@ -167,11 +166,14 @@
 								"output": "assets"
 							}
 						],
-						"styles": ["projects/pihub/documentation/src/styles.scss"],
+						"styles": ["projects/pihub/documentation/src/styles.css"],
 						"scripts": []
 					}
 				}
 			}
 		}
+	},
+	"cli": {
+		"analytics": "79a7ae2c-f5ba-4cad-b254-f566cd9a82c6"
 	}
 }

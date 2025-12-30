@@ -7,6 +7,7 @@
 	position: relative;
 
 	width: min-content;
+	height: min-content;
 
 	border-radius: 999px;
 
@@ -18,40 +19,40 @@
 
 	&.primary {
 		&:not(.disabled) {
-			background-color: var(--color-button-primary);
+			background-color: var(--color-primary-500);
 
 			&:hover {
-				background-color: var(--color-button-primary-hover);
+				background-color: var(--color-primary-400);
 			}
 		}
 
 		&.disabled {
-			background-color: var(--color-button-primary-disabled);
+			background-color: var(--color-primary-900);
 		}
 
 		> .title {
-			color: var(--color-button-primary-text);
+			color: var(--color-secondary-1000);
 		}
 	}
 
 	&.secondary {
 		&:not(.disabled) {
-			background-color: var(--color-button-secondary);
+			background-color: var(--color-secondary-600);
 
 			&:hover {
-				background-color: var(--color-button-secondary-hover);
+				background-color: var(--color-primary-1000);
 			}
 
 			> .title {
-				color: var(--color-button-secondary-text);
+				color: var(--color-text-secondary);
 			}
 		}
 
 		&.disabled {
-			background-color: var(--color-button-secondary-disabled);
+			background-color: var(--color-secondary-800);
 
 			> .title {
-				color: var(--color-button-secondary-disabled-text);
+				color: var(--color-text-tertiary);
 			}
 		}
 	}
@@ -61,33 +62,33 @@
 
 		&:not(.disabled) {
 			&:hover {
-				text-decoration: underline var(--color-button-tertiary-text);
+				text-decoration: underline var(--color-text-highlight);
 
 				transition: text-decoration 0.2s ease;
 			}
 
 			> .title {
-				color: var(--color-button-tertiary-text);
+				color: var(--color-text-highlight);
 			}
 		}
 
 		&.disabled {
 			> .title {
-				color: var(--color-button-tertiary-disabled-text);
+				color: var(--color-text-highlight);
 			}
 		}
 	}
 
 	&.small {
-		padding: 6px 16.5px;
+		padding: 5px 13.5px;
 
 		&.has-icon {
 			gap: 4px;
-			padding: 6px 12px;
+			padding: 5px 9px;
 		}
 
 		> .title {
-			font-size: var(--size-text-12);
+			font-size: 13px;
 		}
 	}
 
@@ -100,7 +101,7 @@
 		}
 
 		> .title {
-			font-size: var(--size-text-14);
+			font-size: 14px;
 		}
 	}
 
@@ -113,13 +114,13 @@
 		}
 
 		> .title {
-			font-size: var(--size-text-16);
+			font-size: 16px;
 		}
 	}
 
 	> .title {
 		font-family: 'Satoshi-Medium';
-		font-size: var(--size-text-14);
+		font-size: 14px;
 
 		transition: color 0.2s ease;
 

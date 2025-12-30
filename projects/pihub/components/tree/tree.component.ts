@@ -13,7 +13,6 @@ import { TreeNode, TreeRoot } from './models/tree-node';
 	standalone: true,
 	selector: 'pihub-tree',
 	templateUrl: './tree.component.html',
-	styleUrl: './tree.component.scss',
 	imports: [TreeNodeComponent],
 })
 export class TreeComponent<Node extends TreeNode> {

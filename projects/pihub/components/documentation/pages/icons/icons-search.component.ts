@@ -20,7 +20,7 @@ import { map } from 'rxjs';
 @Component({
 	selector: 'pihub-icons-search',
 	templateUrl: './icons-search.component.html',
-	styleUrl: './icons-search.component.scss',
+	styleUrl: './icons-search.component.css',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [NgDocInputWrapperComponent, NgDocIconComponent, IconComponent, ReactiveFormsModule, NgTemplateOutlet],
 })

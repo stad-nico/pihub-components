@@ -18,7 +18,7 @@ interface User extends DataGridItem {
 @Component({
 	selector: 'pihub-data-grid-demo',
 	templateUrl: './data-grid-demo.component.html',
-	styleUrl: './data-grid-demo.component.scss',
+	styleUrl: './data-grid-demo.component.css',
 	imports: [DataGridComponent, ColumnDirective, EmptyStateDirective],
 })
 export class DataGridDemoComponent {

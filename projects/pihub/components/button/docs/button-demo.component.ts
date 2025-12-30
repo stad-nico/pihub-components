@@ -12,7 +12,6 @@ import { ButtonComponent } from '../button.component';
 	selector: 'pihub-button-demo',
 	imports: [ButtonComponent],
 	templateUrl: './button-demo.component.html',
-	styleUrl: './button-demo.component.scss',
 })
 export class ButtonDemoComponent {
 	public readonly title = input<string>('Button');

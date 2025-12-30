@@ -10,7 +10,7 @@ import { Icon, IconComponent } from '@pihub/components/icon';
 @Component({
 	selector: 'pihub-button',
 	templateUrl: './button.component.html',
-	styleUrl: './button.component.scss',
+	styleUrl: './button.component.css',
 	imports: [IconComponent],
 	host: {
 		'(click)': 'onClick()',
@@ -70,25 +70,25 @@ export class ButtonComponent {
 	protected readonly iconColor = computed(() => {
 		switch (this.variant()) {
 			case 'primary':
-				return '--color-button-primary-text';
+				return '--color-secondary-1000';
 			case 'secondary':
-				return this.disabled() ? '--color-button-secondary-disabled-text' : '--color-button-secondary-text';
+				return this.disabled() ? '--color-text-tertiary' : '--color-text-secondary';
 			case 'tertiary':
-				return this.disabled() ? '--color-button-tertiary-disabled-text' : '--color-button-tertiary-text';
+				return this.disabled() ? '--color-text-highlight' : '--color-text-highlight';
 		}
 	});
 
 	/**
 	 * The class of the button.
 	 */
-	private readonly class = computed(() =>
+	protected readonly class = computed(() =>
 		[this.variant(), this.size(), this.disabled() ? 'disabled' : null, this.icon() ? 'has-icon' : null].join(' ')
 	);
 
 	/**
 	 * Handler that will be executed when this component is clicked.
 	 */
-	private onClick(): void {
+	protected onClick(): void {
 		if (!this.disabled()) {
 			this.buttonClick.emit();
 		}
